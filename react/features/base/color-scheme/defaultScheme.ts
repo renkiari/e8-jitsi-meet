@@ -10,7 +10,7 @@ export default {
         // All scheme definitions below inherit these values.
         background: 'rgb(255, 255, 255)',
         errorText: ColorPalette.red,
-        icon: 'rgb(28, 32, 37)',
+        icon: 'red',
         text: 'rgb(28, 32, 37)'
     },
     'Dialog': {},
@@ -23,7 +23,10 @@ export default {
     },
     'Toolbox': {
         button: 'rgb(255, 255, 255)',
-        buttonToggled: 'rgb(38, 58, 76)',
+
+        // buttonToggled: 'rgb(38, 58, 76)',
+        // jitsi meet remove toolbox toggled bg
+        buttonToggled: 'transparent',
         buttonToggledBorder: getRGBAFormat('#a4b8d1', 0.6),
         hangup: 'rgb(227,79,86)'
     }

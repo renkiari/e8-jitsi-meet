@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { WithTranslation } from 'react-i18next';
-import { Platform, View, ViewStyle } from 'react-native';
+import { Appearance, Platform, View, ViewStyle } from 'react-native';
 import { connect } from 'react-redux';
 
 import { IReduxState } from '../../../app/types';
@@ -82,6 +82,9 @@ class ChatInputBar extends Component<IProps, IState> {
             inputBarStyles = styles.inputBarNarrow;
         }
 
+        // jitsi edit add dark mode
+        const colorScheme = Appearance.getColorScheme();
+
         return (
             <View
                 style = { [
@@ -90,20 +93,25 @@ class ChatInputBar extends Component<IProps, IState> {
                 ] as ViewStyle[] }>
                 <Input
                     blurOnSubmit = { false }
-                    customStyles = {{ container: styles.customInputContainer }}
+                    customStyles = {{ container: styles.customInputContainer,
+                        input: colorScheme === 'dark' ? styles.customInputSyleDark : styles.customInputSyle }}
                     multiline = { false }
                     onBlur = { this._onFocused(false) }
                     onChange = { this._onChangeText }
                     onFocus = { this._onFocused(true) }
                     onSubmitEditing = { this._onSubmit }
-                    placeholder = { this.props.t('chat.fieldPlaceHolder') }
+
+                    // jitsi edit change text input placeholder
+                    // placeholder = { this.props.t('chat.fieldPlaceHolder') }
+                    placeholder = { 'Message...' }
                     returnKeyType = 'send'
                     value = { this.state.message } />
                 <IconButton
                     disabled = { !this.state.message }
                     onPress = { this._onSubmit }
+                    size = { 30 }
                     src = { IconSend }
-                    type = { BUTTON_TYPES.PRIMARY } />
+                    type = { BUTTON_TYPES.CHATCUSTOM } />
             </View>
         );
     }

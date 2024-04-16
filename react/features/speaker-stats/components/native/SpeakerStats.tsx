@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Appearance } from 'react-native';
 import { useDispatch } from 'react-redux';
 
 import JitsiScreen from '../../../base/modal/components/JitsiScreen';
@@ -20,9 +21,13 @@ const SpeakerStats = () => {
         dispatch(resetSearchCriteria());
     }, []);
 
+    const colorScheme = Appearance.getColorScheme();
+
     return (
         <JitsiScreen
-            style = { style.speakerStatsContainer }>
+
+            // jitsi edit add bg dark for participants pane
+            style = { colorScheme === 'dark' ? style.speakerStatsContainerDark : style.speakerStatsContainer }>
             <SpeakerStatsSearch />
             <SpeakerStatsList />
         </JitsiScreen>

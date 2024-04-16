@@ -33,6 +33,14 @@ const brandedDialogLabelStyle = {
     opacity: 0.90
 };
 
+// jitsi edit add dark mode for text label in overflow
+const brandedDialogLabelStyleDark = {
+    color: BaseTheme.palette.text012,
+    flexShrink: 1,
+    fontSize: MD_FONT_SIZE,
+    opacity: 0.90
+};
+
 const brandedDialogItemContainerStyle = {
     alignItems: 'center',
     flexDirection: 'row',
@@ -41,6 +49,12 @@ const brandedDialogItemContainerStyle = {
 
 const brandedDialogIconStyle = {
     color: BaseTheme.palette.icon01,
+    fontSize: 24
+};
+
+// jisti edit add dark mood icon color
+const brandedDialogIconStyleDark = {
+    color: BaseTheme.palette.icon012,
     fontSize: 24
 };
 
@@ -114,14 +128,55 @@ export const bottomSheetStyles = {
         /**
          * Additional style that is not directly used as a style object.
          */
-        underlayColor: BaseTheme.palette.ui04
+        // jitsi edit change bg when ooverflow button is clicked
+        // underlayColor: BaseTheme.palette.ui04
+        underlayColor: '#E2E8F0'
+    },
+
+    buttonsDark: {
+        /**
+         * Style for the {@code Icon} element in a generic item of the menu.
+         */
+        iconStyle: {
+            ...brandedDialogIconStyleDark
+        },
+
+        /**
+         * Style for the label in a generic item rendered in the menu.
+         */
+        labelStyle: {
+            ...brandedDialogLabelStyleDark,
+            marginLeft: 16
+        },
+
+        /**
+         * Container style for a generic item rendered in the menu.
+         */
+        style: {
+            ...brandedDialogItemContainerStyle,
+            paddingHorizontal: MD_ITEM_MARGIN_PADDING
+        },
+
+        /**
+         * Additional style that is not directly used as a style object.
+         */
+        // jitsi edit change bg when ooverflow button is clicked
+        // underlayColor: BaseTheme.palette.ui04
+        underlayColor: '#4d4b4f'
     },
 
     /**
      * Bottom sheet's base style.
      */
     sheet: {
-        backgroundColor: BaseTheme.palette.ui02,
+        backgroundColor: BaseTheme.palette.ui01,
+        borderTopLeftRadius: 16,
+        borderTopRightRadius: 16
+    },
+
+    // jitsi edit add dark mode for overflow bg
+    sheetDark: {
+        backgroundColor: BaseTheme.palette.ui01Dark,
         borderTopLeftRadius: 16,
         borderTopRightRadius: 16
     },
@@ -130,7 +185,13 @@ export const bottomSheetStyles = {
      * Bottom sheet's base style with header.
      */
     sheetHeader: {
+        // jitsi edit change bg of overflow menu
         backgroundColor: BaseTheme.palette.ui02
+    },
+
+    sheetHeaderDark: {
+        // jitsi edit change bg of overflow menu
+        backgroundColor: BaseTheme.palette.ui01Dark
     },
 
     /**
@@ -138,6 +199,11 @@ export const bottomSheetStyles = {
      */
     sheetFooter: {
         backgroundColor: BaseTheme.palette.ui01
+    },
+
+    // jitsi edit add dark mode for overflow bg
+    sheetFooterDark: {
+        backgroundColor: BaseTheme.palette.ui01Dark
     }
 };
 

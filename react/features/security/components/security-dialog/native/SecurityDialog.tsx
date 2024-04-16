@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import {
+    Appearance,
     Text,
     TextStyle,
     View,
@@ -164,8 +165,14 @@ class SecurityDialog extends PureComponent<IProps, IState> {
      * @inheritdoc
      */
     render() {
+        const colorScheme = Appearance.getColorScheme();
+        const dialogDarkStyle = styles.securityDialogContainerDark;
+        const dialogStyle = styles.securityDialogContainer;
+
         return (
-            <JitsiScreen style = { styles.securityDialogContainer }>
+
+            // jitsi edit add dark mode in security options
+            <JitsiScreen style = { colorScheme === 'dark' ? dialogDarkStyle : dialogStyle }>
                 { this._renderLobbyMode() }
                 { this._renderSetRoomPassword() }
             </JitsiScreen>
@@ -189,14 +196,19 @@ class SecurityDialog extends PureComponent<IProps, IState> {
             return null;
         }
 
+        const colorScheme = Appearance.getColorScheme();
+        const lobbyModeLabelStyle = colorScheme === 'dark' ? styles.lobbyModeLabelDark : styles.lobbyModeLabel;
+
         return (
             <View style = { styles.lobbyModeContainer }>
                 <View style = { styles.lobbyModeContent } >
-                    <Text style = { styles.lobbyModeText }>
+                    {/* jitsi edit add text dark mode in security options */}
+                    <Text style = { colorScheme === 'dark' ? styles.lobbyModeTextDark : styles.lobbyModeText }>
                         { t('lobby.enableDialogText') }
                     </Text>
                     <View style = { styles.lobbyModeSection as ViewStyle }>
-                        <Text style = { styles.lobbyModeLabel as TextStyle } >
+                        {/* jitsi edit add text dark mode in security options */}
+                        <Text style = { lobbyModeLabelStyle as TextStyle } >
                             { t('lobby.toggleLabel') }
                         </Text>
                         <Switch
@@ -225,6 +237,12 @@ class SecurityDialog extends PureComponent<IProps, IState> {
         } = this.props;
         const { showElement } = this.state;
         let setPasswordControls;
+
+        const colorScheme = Appearance.getColorScheme();
+        const passwordTextDarkStyle = styles.passwordSetRemotelyTextDark;
+        const passwordTextStyle = styles.passwordSetRemotelyText;
+        const textContainerStyle = styles.passwordContainerText;
+        const textContainerDarkStyle = styles.passwordContainerTextDark;
 
         if (!_roomPasswordControls) {
             return null;
@@ -283,7 +301,8 @@ class SecurityDialog extends PureComponent<IProps, IState> {
             if (_isModerator) {
                 setPasswordControls = (
                     <View style = { styles.passwordSetRemotelyContainer as ViewStyle }>
-                        <Text style = { styles.passwordSetRemotelyText }>
+                        {/* jitsi edit */}
+                        <Text style = { colorScheme === 'dark' ? passwordTextDarkStyle : passwordTextStyle }>
                             { t('passwordSetRemotely') }
                         </Text>
                         <Button
@@ -315,7 +334,9 @@ class SecurityDialog extends PureComponent<IProps, IState> {
         return (
             <View
                 style = { styles.passwordContainer } >
-                <Text style = { styles.passwordContainerText }>
+
+                {/* jitsi edit dark mode text password secutity options */}
+                <Text style = { colorScheme === 'dark' ? textContainerDarkStyle : textContainerStyle }>
                     { t(_isModerator ? 'security.about' : 'security.aboutReadOnly') }
                 </Text>
                 <View

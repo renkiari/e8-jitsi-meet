@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { Image, ImageStyle, View, ViewStyle } from 'react-native';
+import { Appearance, Image, ImageStyle, View, ViewStyle } from 'react-native';
 import { connect } from 'react-redux';
 
 import { IReduxState, IStore } from '../../../app/types';
@@ -220,17 +220,28 @@ class Thumbnail extends PureComponent<IProps> {
         const indicators = [];
 
         let bottomIndicatorsContainerStyle;
+        let bottomIndicatorsContainerDisplayNameStyle;
 
         if (_shouldDisplayTileView) {
+            bottomIndicatorsContainerDisplayNameStyle = styles.bottomIndicatorsContainerDisplayName;
+        } else if (audioMuted || renderModeratorIndicator) {
+            bottomIndicatorsContainerDisplayNameStyle = null;
+        } else {
+            bottomIndicatorsContainerDisplayNameStyle = null;
+        }
+
+        // jitsi edit remove style when not muted
+        if (_shouldDisplayTileView && audioMuted) {
             bottomIndicatorsContainerStyle = styles.bottomIndicatorsContainer;
         } else if (audioMuted || renderModeratorIndicator) {
-            bottomIndicatorsContainerStyle = styles.bottomIndicatorsContainer;
+            bottomIndicatorsContainerStyle = null;
         } else {
             bottomIndicatorsContainerStyle = null;
         }
 
         if (!_fakeParticipant || _isVirtualScreenshare) {
-            indicators.push(<View
+            indicators.push(
+            <View 
                 key = 'top-left-indicators'
                 style = { styles.thumbnailTopLeftIndicatorContainer as ViewStyle }>
                 { !_isVirtualScreenshare && <ConnectionIndicator participantId = { participantId } /> }
@@ -240,10 +251,20 @@ class Thumbnail extends PureComponent<IProps> {
                         <ScreenShareIndicator />
                     </View>
                 ) }
-            </View>);
+            </View> as never);
+
+            // jitsi edit find another way to display name and mute audio
             indicators.push(<Container
                 key = 'bottom-indicators'
                 style = { styles.thumbnailIndicatorContainer as StyleType }>
+                <Container
+                    style = { bottomIndicatorsContainerDisplayNameStyle as StyleType }>
+                    {
+                        renderDisplayName && <DisplayNameLabel
+                            contained = { true }
+                            participantId = { participantId } />
+                    }
+                </Container>
                 <Container
                     style = { bottomIndicatorsContainerStyle as StyleType }>
                     { audioMuted && !_isVirtualScreenshare && <AudioMutedIndicator /> }
@@ -251,12 +272,7 @@ class Thumbnail extends PureComponent<IProps> {
                     { renderModeratorIndicator && !_isVirtualScreenshare && <ModeratorIndicator />}
                     { !tileView && (isScreenShare || _isVirtualScreenshare) && <ScreenShareIndicator /> }
                 </Container>
-                {
-                    renderDisplayName && <DisplayNameLabel
-                        contained = { true }
-                        participantId = { participantId } />
-                }
-            </Container>);
+            </Container> as never);
         }
 
         return indicators;
@@ -368,12 +384,16 @@ class Thumbnail extends PureComponent<IProps> {
             width: null
         } : null;
 
+        const colorScheme = Appearance.getColorScheme();
+
         return (
             <Container
                 onClick = { this._onClick }
                 onLongPress = { this._onThumbnailLongPress }
                 style = { [
-                    styles.thumbnail,
+
+                    // jitsi edit add dark mode for thumbnail bg
+                    colorScheme === 'dark' ? styles.thumbnailDark : styles.thumbnail,
                     styleOverrides,
                     _raisedHand && !_isVirtualScreenshare ? styles.thumbnailRaisedHand : null,
                     _renderDominantSpeakerIndicator && !_isVirtualScreenshare ? styles.thumbnailDominantSpeaker : null

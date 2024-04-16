@@ -12,8 +12,9 @@ export default {
         margin: BaseTheme.spacing[4]
     },
 
+    // jisti edit update profile container
     profileContainer: {
-        backgroundColor: BaseTheme.palette.ui02,
+        backgroundColor: BaseTheme.palette.ui08,
         borderRadius: BaseTheme.shape.borderRadius,
         alignItems: 'center',
         flexDirection: 'row',
@@ -64,6 +65,12 @@ export default {
      */
     settingsViewContainer: {
         backgroundColor: BaseTheme.palette.ui01,
+        flex: 1
+    },
+
+    // jitsi edit add darkmode settings
+    settingsViewContainerDark: {
+        backgroundColor: BaseTheme.palette.ui02Dark,
         flex: 1
     },
 
@@ -149,6 +156,11 @@ export default {
         color: BaseTheme.palette.text01
     },
 
+    // jitsi edit add dark text
+    textDark: {
+        color: BaseTheme.palette.text012
+    },
+
     /**
      * Text input container style.
      */
@@ -188,6 +200,13 @@ export default {
     languageText: {
         ...BaseTheme.typography.bodyShortRegularLarge,
         color: BaseTheme.palette.text01,
+        marginHorizontal: BaseTheme.spacing[2]
+    },
+
+    // jitsi edit add dark text
+    languageTextDark: {
+        ...BaseTheme.typography.bodyShortRegularLarge,
+        color: BaseTheme.palette.text012,
         marginHorizontal: BaseTheme.spacing[2]
     },
 
@@ -240,5 +259,15 @@ export default {
 
     backBtn: {
         marginLeft: BaseTheme.spacing[3]
+    },
+
+    // jitsi edit add profile header style
+    profileHeader: {
+        backgroundColor: BaseTheme.palette.ui01
+    },
+
+    // jitsi edit add profile header dark style
+    profileHeaderDark: {
+        backgroundColor: BaseTheme.palette.ui0
     }
 };

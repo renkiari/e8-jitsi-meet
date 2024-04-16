@@ -43,6 +43,13 @@ export default {
         flex: 1
     },
 
+    // jitsi edit add dark style for conference bg
+    conferenceDark: {
+        alignSelf: 'stretch',
+        backgroundColor: BaseTheme.palette.uiBackgroundDark,
+        flex: 1
+    },
+
     displayNameContainer: {
         margin: 10
     },
@@ -58,15 +65,28 @@ export default {
     titleBarButtonContainer: {
         borderRadius: 3,
         height: BaseTheme.spacing[7],
-        marginTop: BaseTheme.spacing[1],
-        marginRight: BaseTheme.spacing[1],
+
+        // jitsi edit remove margintop and amrgin right
+        marginTop: BaseTheme.spacing[0],
+        marginRight: BaseTheme.spacing[0],
         zIndex: 1,
+
+        // jisti edit change spacing
         width: BaseTheme.spacing[7]
     },
 
     titleBarButton: {
         iconStyle: {
             color: BaseTheme.palette.icon01,
+            padding: 12,
+            fontSize: TITLE_BAR_BUTTON_SIZE
+        },
+        underlayColor: 'transparent'
+    },
+
+    titleBarButtonDark: {
+        iconStyle: {
+            color: BaseTheme.palette.icon012,
             padding: 12,
             fontSize: TITLE_BAR_BUTTON_SIZE
         },
@@ -109,6 +129,11 @@ export default {
         backgroundColor: BaseTheme.palette.uiBackground
     },
 
+    titleBarSafeViewColorDark: {
+        ...titleBarSafeView,
+        backgroundColor: BaseTheme.palette.uiBackgroundDark
+    },
+
     titleBarSafeViewTransparent: {
         ...titleBarSafeView
     },
@@ -136,16 +161,22 @@ export default {
     },
 
     roomTimer: {
-        ...BaseTheme.typography.bodyShortBold,
-        color: BaseTheme.palette.text01,
-        lineHeight: 14,
-        textAlign: 'center'
+        // ...BaseTheme.typography.bodyShortBold,
+        // jitsi edit change timer text color
+        color: BaseTheme.palette.text012,
+
+        // lineHeight: 10,
+        textAlign: 'center',
+        fontSize: 12,
+        fontWeight: '600',
+        letterSpacing: 0
     },
 
     roomTimerView: {
-        backgroundColor: BaseTheme.palette.ui03,
+        // jisti edit change bg of conference timer
+        backgroundColor: BaseTheme.palette.ui11,
         borderRadius: BaseTheme.shape.borderRadius,
-        height: 32,
+        height: 28,
         justifyContent: 'center',
         paddingHorizontal: BaseTheme.spacing[2],
         paddingVertical: BaseTheme.spacing[1],
@@ -158,8 +189,16 @@ export default {
         paddingVertical: 6
     },
 
+    // jisti edit view add room name text dark color
+    roomNameDark: {
+        color: BaseTheme.palette.text012,
+        ...BaseTheme.typography.bodyShortBold,
+        paddingVertical: 6
+    },
+
     roomNameView: {
-        backgroundColor: 'rgba(0,0,0,0.6)',
+        // jisti edit view conference room name remove bg
+        backgroundColor: 'transparent',
         borderBottomLeftRadius: 3,
         borderTopLeftRadius: 3,
         flexShrink: 1,
@@ -172,7 +211,10 @@ export default {
         marginRight: 10,
         marginLeft: 8,
         flexShrink: 1,
-        flexGrow: 1
+        flexGrow: 1,
+
+        // jitsi edit center conference name and timer
+        alignItems: 'center'
     },
 
     /**

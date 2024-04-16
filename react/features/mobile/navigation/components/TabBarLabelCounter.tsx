@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleProp, Text, TextStyle, View } from 'react-native';
+import { Appearance, StyleProp, Text, TextStyle, View } from 'react-native';
 
 import { navigationStyles } from './styles';
 
@@ -11,8 +11,15 @@ interface ITabBarLabelCounterProps {
 }
 
 export const TabBarLabelCounter = ({ activeUnreadNr, isFocused, label, nbUnread }: ITabBarLabelCounterProps) => {
+    // jitsi edit add bg mode
+    const colorScheme = Appearance.getColorScheme();
+    const descDark = navigationStyles.unreadCounterDescriptionFocusedDark;
+    const descFocused = navigationStyles.unreadCounterDescriptionFocused;
+
+    const descriptionFocusedStyle = colorScheme === 'dark' ? descDark : descFocused;
+
     const labelStyles = isFocused
-        ? navigationStyles.unreadCounterDescriptionFocused
+        ? descriptionFocusedStyle
         : navigationStyles.unreadCounterDescription;
 
     return (

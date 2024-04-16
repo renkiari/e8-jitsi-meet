@@ -1,5 +1,5 @@
 import React, { useCallback, useMemo } from 'react';
-import { Linking, View, ViewStyle } from 'react-native';
+import { Appearance, Linking, View, ViewStyle } from 'react-native';
 import { useSelector } from 'react-redux';
 
 import { IReduxState } from '../../../app/types';
@@ -35,6 +35,9 @@ const LinksSection = () => {
 
     const onLinkPress = useCallback(link => () => Linking.openURL(link), [ Linking ]);
 
+    // jitsi edit add darkmode
+    const colorScheme = Appearance.getColorScheme();
+
     return (
         <FormSection>
             <View style = { styles.linksSection as ViewStyle }>
@@ -44,6 +47,9 @@ const LinksSection = () => {
                             accessibilityLabel = { label }
                             key = { label }
                             labelKey = { label }
+
+                            // jitsi edit add dark mode
+                            labelStyle = { colorScheme === 'dark' ? styles.textDark : styles.text }
                             onClick = { onLinkPress(link) }
                             style = { styles.linksButton }
                             type = { BUTTON_TYPES.TERTIARY } />

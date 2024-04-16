@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
-import { FlatList, TextStyle, View, ViewStyle } from 'react-native';
+import { Appearance, FlatList, TextStyle, View, ViewStyle } from 'react-native';
 import { Text } from 'react-native-paper';
 import { useSelector } from 'react-redux';
 
@@ -33,16 +33,23 @@ const PollsList = () => {
         scrollToBottom();
     }, [ polls ]);
 
+    // jitsi edit add dark mode
+    const colorScheme = Appearance.getColorScheme();
+
+    const noPollTextStyle = colorScheme === 'dark' ? chatStyles.noPollTextDark : chatStyles.noPollText;
+
     return (
         <>
             {
                 listPolls.length === 0
                 && <View style = { chatStyles.noPollContent as ViewStyle }>
                     <Icon
-                        color = { BaseTheme.palette.icon03 }
+
+                        // jitsi edit add dark mode for chat icon in polls
+                        color = { colorScheme === 'dark' ? BaseTheme.palette.icon012 : BaseTheme.palette.icon03 }
                         size = { 160 }
                         src = { IconMessage } />
-                    <Text style = { chatStyles.noPollText as TextStyle } >
+                    <Text style = { noPollTextStyle as TextStyle } >
                         {
                             t('polls.results.empty')
                         }

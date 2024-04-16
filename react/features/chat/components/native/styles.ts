@@ -5,7 +5,24 @@ const BUBBLE_RADIUS = 8;
 
 const recipientContainer = {
     alignItems: 'center',
-    backgroundColor: BaseTheme.palette.support05,
+
+    // jisti edit change private mesasge notice in chat
+    // backgroundColor: BaseTheme.palette.support05,
+    backgroundColor: '#cbd5e1',
+    borderRadius: BaseTheme.shape.borderRadius,
+    flexDirection: 'row',
+    height: 48,
+    marginBottom: BaseTheme.spacing[3],
+    marginHorizontal: BaseTheme.spacing[3],
+    padding: BaseTheme.spacing[2]
+};
+
+const recipientContainerDark = {
+    alignItems: 'center',
+
+    // jisti edit change private mesasge notice in chat for dark mode
+    // backgroundColor: BaseTheme.palette.support05,
+    backgroundColor: '#475569',
     borderRadius: BaseTheme.shape.borderRadius,
     flexDirection: 'row',
     height: 48,
@@ -43,6 +60,12 @@ export default {
         textAlign: 'center'
     },
 
+    // jitsi edit add darkmode for no messages text
+    emptyComponentTextDark: {
+        color: BaseTheme.palette.text012,
+        textAlign: 'center'
+    },
+
     lobbyMessageBubble: {
         backgroundColor: BaseTheme.palette.support06
     },
@@ -54,16 +77,32 @@ export default {
     },
 
     privateNotice: {
+        // jitsi edit change text private notice for of message
         ...BaseTheme.palette.bodyShortRegular,
-        color: BaseTheme.palette.text02
+        color: BaseTheme.palette.text03
     },
 
+    // jitsi edit change private message bubble bg color
     privateMessageBubble: {
-        backgroundColor: BaseTheme.palette.support05
+        backgroundColor: '#cbd5e1'
+    },
+
+    // jitsi edit change private message bubble bg color
+    privateMessageBubbleDark: {
+        backgroundColor: '#475569'
     },
 
     remoteMessageBubble: {
-        backgroundColor: BaseTheme.palette.ui02,
+
+        // jitsi edit change remote message bubble
+        backgroundColor: '#e2e8f0',
+        borderTopLeftRadius: 0
+    },
+
+    remoteMessageBubbleDark: {
+
+        // jitsi edit add darkmode remote message bubble
+        backgroundColor: '#334155',
         borderTopLeftRadius: 0
     },
 
@@ -74,7 +113,8 @@ export default {
 
     replyStyles: {
         iconStyle: {
-            color: BaseTheme.palette.icon01,
+            // jitsi edit change color of reply icon chat
+            color: BaseTheme.palette.icon03,
             fontSize: 22,
             padding: BaseTheme.spacing[2]
         },
@@ -96,6 +136,11 @@ export default {
     chatMessage: {
         ...BaseTheme.typography.bodyShortRegular,
         color: BaseTheme.palette.text01
+    },
+
+    chatMessageDark: {
+        ...BaseTheme.typography.bodyShortRegular,
+        color: BaseTheme.palette.text012
     },
 
     /**
@@ -135,7 +180,22 @@ export default {
     },
 
     customInputContainer: {
-        width: '75%'
+        // jitsi edit adjust chat input bar width so it will grow
+        width: '100%',
+        flex: 1,
+        paddingRight: 10
+    },
+
+    // jitsi edit add style for chat input bg
+    customInputSyle: {
+        backgroundColor: 'white',
+        borderColor: '#cbd5e1'
+    },
+
+    // jitsi edit add style for chat input bg
+    customInputSyleDark: {
+        backgroundColor: '#475569',
+        borderColor: '#64748B'
     },
 
     messageBubble: {
@@ -191,8 +251,20 @@ export default {
         fontSize: 13
     },
 
+    // jitsi edit add timestamp bg text color
+    timeTextDark: {
+        color: BaseTheme.palette.text02,
+        fontSize: 13
+    },
+
     chatContainer: {
         backgroundColor: BaseTheme.palette.ui01,
+        flex: 1
+    },
+
+    chatContainerDark: {
+        // jitsi edit add darkmode for chat view bg
+        backgroundColor: BaseTheme.palette.ui02Dark,
         flex: 1
     },
 
@@ -228,11 +300,27 @@ export default {
 
     senderDisplayName: {
         ...BaseTheme.typography.bodyShortBold,
-        color: BaseTheme.palette.text02
+
+        // jisti edit chat make name bold
+        color: BaseTheme.palette.text03
+    },
+
+    senderDisplayNameDark: {
+        ...BaseTheme.typography.bodyShortBold,
+
+        // jisti edit chat add darkmode name chat
+        color: '#e2e8f0'
     },
 
     localMessageBubble: {
-        backgroundColor: BaseTheme.palette.ui04,
+        // jitsi edit change bg of local message bubbble
+        backgroundColor: '#a5f3fc',
+        borderTopRightRadius: 0
+    },
+
+    localMessageBubbleDark: {
+        // jitsi edit add dark mode bg of local message bubbble
+        backgroundColor: '#0891b2',
         borderTopRightRadius: 0
     },
 
@@ -242,7 +330,8 @@ export default {
     },
 
     messageRecipientCancelIcon: {
-        color: BaseTheme.palette.icon01,
+        // jitsi edit change cancel button color for private message notice
+        color: BaseTheme.palette.icon03,
         fontSize: 18
     },
 
@@ -250,9 +339,16 @@ export default {
         ...recipientContainer
     },
 
+    messageRecipientContainerDark: {
+        ...recipientContainerDark
+    },
+
     messageRecipientText: {
         ...BaseTheme.typography.bodyShortRegular,
-        color: BaseTheme.palette.text01,
+
+        // jitsi edit change private notice message text
+        // color: BaseTheme.palette.text01,
+        color: BaseTheme.palette.text03,
         flex: 1
     }
 };

@@ -20,7 +20,8 @@ const headerNavigationButtonLabel = {
 const headerNavigationButton = {
     borderRadius: BaseTheme.shape.borderRadius,
     height: BaseTheme.spacing[6],
-    marginLeft: BaseTheme.spacing[3]
+    marginLeft: BaseTheme.spacing[3],
+    background: 'red'
 };
 
 /**
@@ -29,7 +30,7 @@ const headerNavigationButton = {
 export const navigationStyles = {
 
     connectingScreenContainer: {
-        backgroundColor: BaseTheme.palette.uiBackground,
+        backgroundColor: '#F1F5F9',
         flex: 1
     },
 
@@ -37,7 +38,8 @@ export const navigationStyles = {
         alignItems: 'center',
         flex: 1,
         flexDirection: 'column',
-        justifyContent: 'center'
+        justifyContent: 'center',
+        backgroundColor: '#F1F5F9'
     },
 
     connectingScreenIndicator: {
@@ -85,7 +87,10 @@ export const navigationStyles = {
     unreadCounterContainer: {
         alignItems: 'center',
         display: 'flex',
-        flexDirection: 'row'
+        flexDirection: 'row',
+
+        // jitsi edit remove ng for chats and polls
+        backgroundColor: 'transparent'
     },
 
     unreadCounterDescription: {
@@ -95,6 +100,12 @@ export const navigationStyles = {
     unreadCounterDescriptionFocused: {
         ...unreadCounterDescription,
         color: BaseTheme.palette.text01
+    },
+
+    // jitsi edit add dark mode for tab chats
+    unreadCounterDescriptionFocusedDark: {
+        ...unreadCounterDescription,
+        color: BaseTheme.palette.text012
     },
 
     unreadCounterCircle: {

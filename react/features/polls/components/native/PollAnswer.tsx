@@ -57,6 +57,9 @@ const PollAnswer = (props: AbstractProps) => {
                     accessibilityLabel = 'polls.answer.submit'
                     disabled = { isSubmitAnswerDisabled(checkBoxStates) }
                     labelKey = 'polls.answer.submit'
+
+                    // jitsi edit change text color of send
+                    labelStyle = { chatStyles.pollCreateButtonTextLabelDark }
                     onClick = { submitAnswer }
                     style = { chatStyles.pollCreateButton }
                     type = { PRIMARY } />

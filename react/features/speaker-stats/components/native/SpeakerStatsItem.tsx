@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, ViewStyle } from 'react-native';
+import { Appearance, Text, View, ViewStyle } from 'react-native';
 
 import Avatar from '../../../base/avatar/components/Avatar';
 import StatelessAvatar from '../../../base/avatar/components/native/StatelessAvatar';
@@ -37,6 +37,9 @@ interface IProps {
     participantId: string;
 }
 
+const colorScheme = Appearance.getColorScheme();
+const speakerStatsStyle = colorScheme === 'dark' ? style.speakerStatsTextDark : style.speakerStatsText;
+
 const SpeakerStatsItem = (props: IProps) =>
     (
         <View
@@ -58,7 +61,8 @@ const SpeakerStatsItem = (props: IProps) =>
                 }
             </View>
             <View style = { style.speakerStatsNameTime as ViewStyle } >
-                <Text style = { [ style.speakerStatsText, props.hasLeft && style.speakerStatsLeft ] }>
+                {/* jitsi edit add bg for display name in participants pane */}
+                <Text style = { [ speakerStatsStyle, props.hasLeft && style.speakerStatsLeft ] }>
                     {props.displayName}
                 </Text>
                 <TimeElapsed

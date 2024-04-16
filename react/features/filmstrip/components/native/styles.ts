@@ -8,8 +8,10 @@ export const AVATAR_SIZE = 50;
 
 const indicatorContainer = {
     alignItems: 'center',
-    backgroundColor: 'rgba(0, 0, 0, 0.7)',
-    borderRadius: BaseTheme.shape.borderRadius,
+
+    // jitsi edit change bng of tile view name
+    // backgroundColor: '#33415599',
+    // borderRadius: BaseTheme.shape.borderRadius,
     height: 24,
     margin: 2,
     padding: 2
@@ -104,15 +106,46 @@ export default {
      */
     thumbnail: {
         alignItems: 'stretch',
-        backgroundColor: BaseTheme.palette.ui02,
+
+        // jitsi edit remove tileview bg and border
+        backgroundColor: BaseTheme.palette.ui12,
+
+        // backgroundColor: BaseTheme.palette.ui02,
         borderColor: BaseTheme.palette.ui03,
         borderRadius: BaseTheme.shape.borderRadius,
         borderStyle: 'solid',
-        borderWidth: 1,
+
+        // borderWidth: 1,
         flex: 1,
         height: SMALL_THUMBNAIL_SIZE,
         justifyContent: 'center',
         margin: 2,
+        marginBottom: 8,
+        maxHeight: SMALL_THUMBNAIL_SIZE,
+        maxWidth: SMALL_THUMBNAIL_SIZE,
+        overflow: 'hidden',
+        position: 'relative',
+        width: SMALL_THUMBNAIL_SIZE
+    },
+
+    // jitsi edit add thumbnail bg for darkmode
+    thumbnailDark: {
+        alignItems: 'stretch',
+
+        // jitsi edit remove tileview bg and border
+        backgroundColor: BaseTheme.palette.ui13,
+
+        // backgroundColor: BaseTheme.palette.ui02,
+        borderColor: BaseTheme.palette.ui03,
+        borderRadius: BaseTheme.shape.borderRadius,
+        borderStyle: 'solid',
+
+        // borderWidth: 1,
+        flex: 1,
+        height: SMALL_THUMBNAIL_SIZE,
+        justifyContent: 'center',
+        margin: 2,
+        marginBottom: 8,
         maxHeight: SMALL_THUMBNAIL_SIZE,
         maxWidth: SMALL_THUMBNAIL_SIZE,
         overflow: 'hidden',
@@ -138,14 +171,31 @@ export default {
         flexDirection: 'row',
         left: 3,
         position: 'absolute',
+
+        // jitsi edit hide these in displayname
         maxWidth: '95%',
-        overflow: 'hidden',
+
+        // overflow: 'hidden',
         padding: BaseTheme.spacing[0]
     },
 
+    // jisti edit add style for tile view display name
+    bottomIndicatorsContainerDisplayName: {
+        flexDirection: 'row',
+        padding: BaseTheme.spacing[1],
+        backgroundColor: '#33415599',
+        borderRadius: BaseTheme.shape.borderRadius,
+        maxWidth: '80%',
+        overflow: 'hidden',
+        marginRight: 4
+    },
+
+    // jitsi edit add bg color to audio icon in thumbnail
     bottomIndicatorsContainer: {
         flexDirection: 'row',
-        padding: BaseTheme.spacing[1]
+        padding: BaseTheme.spacing[1],
+        backgroundColor: '#33415599',
+        borderRadius: BaseTheme.shape.borderRadius
     },
 
     thumbnailTopLeftIndicatorContainer: {

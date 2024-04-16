@@ -36,6 +36,13 @@ export default {
         justifyContent: 'center'
     },
 
+    // jitsi edit add darkmode bg for carmode
+    conferenceDark: {
+        backgroundColor: BaseTheme.palette.uiBackgroundDark,
+        flex: 1,
+        justifyContent: 'center'
+    },
+
     microphoneStyles: {
         container: {
             borderRadius: MICROPHONE_SIZE / 2,
@@ -61,7 +68,19 @@ export default {
             alignSelf: 'stretch',
             flex: 1,
             justifyContent: 'center',
-            backgroundColor: BaseTheme.palette.ui03
+
+            // jitsi edit change carmode mic bg light
+            backgroundColor: BaseTheme.palette.ui13
+        },
+
+        iconContainerDark: {
+            alignItems: 'center',
+            alignSelf: 'stretch',
+            flex: 1,
+            justifyContent: 'center',
+
+            // jitsi edit change carmode mic bg dark
+            backgroundColor: BaseTheme.palette.ui14
         },
 
         unmuted: {
@@ -84,6 +103,12 @@ export default {
         textAlign: 'center'
     },
 
+    roomTimerDark: {
+        ...BaseTheme.typography.bodyShortBold,
+        color: BaseTheme.palette.text012,
+        textAlign: 'center'
+    },
+
     titleView: {
         width: 152,
         height: 28,
@@ -100,13 +125,23 @@ export default {
         color: BaseTheme.palette.text02
     },
 
+    // jitsi edit change carmode sound device button
     soundDeviceButton: {
         marginBottom: BaseTheme.spacing[3],
-        width: 240
+        width: 240,
+        backgroundColor: '#FFFFFF',
+        borderStyle: 'solid',
+        borderWidth: 1,
+        borderColor: '#CBD5E1'
     },
 
     endMeetingButton: {
         width: 240
+    },
+
+    // jitsi edit add end button label style carmode
+    endMeetingButtonLabel: {
+        color: BaseTheme.palette.text012
     },
 
     headerLabels: {
@@ -120,6 +155,12 @@ export default {
     titleBarSafeViewColor: {
         ...titleBarSafeView,
         backgroundColor: BaseTheme.palette.uiBackground
+    },
+
+    // jitsi edit add bg for darkmode carmode
+    titleBarSafeViewColorDark: {
+        ...titleBarSafeView,
+        backgroundColor: BaseTheme.palette.uiBackgroundDark
     },
 
     microphoneContainer: {
@@ -143,7 +184,7 @@ export default {
     },
 
     roomNameView: {
-        backgroundColor: 'rgba(0,0,0,0.6)',
+        // jitsi edit remove bg of room name in car mode
         flexShrink: 1,
         justifyContent: 'center',
         paddingHorizontal: BaseTheme.spacing[2]
@@ -151,6 +192,12 @@ export default {
 
     roomName: {
         color: BaseTheme.palette.text01,
+        ...BaseTheme.typography.bodyShortBold
+    },
+
+    // jitsi edit add dark mode text for roomname carmode
+    roomNameDark: {
+        color: BaseTheme.palette.text012,
         ...BaseTheme.typography.bodyShortBold
     },
 
@@ -162,6 +209,15 @@ export default {
     videoStoppedLabel: {
         ...BaseTheme.typography.bodyShortRegularLarge,
         color: BaseTheme.palette.text01,
+        marginBottom: BaseTheme.spacing[3],
+        textAlign: 'center',
+        width: '100%'
+    },
+
+    // jitsi edit add darkmode for carmode label
+    videoStoppedLabelDark: {
+        ...BaseTheme.typography.bodyShortRegularLarge,
+        color: BaseTheme.palette.text012,
         marginBottom: BaseTheme.spacing[3],
         textAlign: 'center',
         width: '100%'

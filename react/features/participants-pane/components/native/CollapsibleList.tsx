@@ -1,5 +1,5 @@
 import React, { useCallback, useState } from 'react';
-import { GestureResponderEvent, Text, TextStyle, TouchableOpacity, View, ViewStyle } from 'react-native';
+import { Appearance, GestureResponderEvent, Text, TextStyle, TouchableOpacity, View, ViewStyle } from 'react-native';
 
 import Icon from '../../../base/icons/components/Icon';
 import { IconArrowDown, IconArrowUp } from '../../../base/icons/svg';
@@ -29,6 +29,10 @@ const CollapsibleList = ({ children, onLongPress, title }: IProps) => {
         setCollapsed(!collapsed);
     }, [ collapsed ]);
 
+    // jisti edit add dark mode collapsible
+    const colorScheme = Appearance.getColorScheme();
+    const listTitleStyle = colorScheme === 'dark' ? styles.listTileDark : styles.listTile;
+
     return (
         <View>
             <TouchableOpacity
@@ -42,7 +46,8 @@ const CollapsibleList = ({ children, onLongPress, title }: IProps) => {
                         size = { 18 }
                         src = { collapsed ? IconArrowDown : IconArrowUp } />
                 </TouchableOpacity>
-                <Text style = { styles.listTile as TextStyle }>
+                {/* // jitsi edit add dark mode collapsible */}
+                <Text style = { listTitleStyle as TextStyle }>
                     { title }
                 </Text>
             </TouchableOpacity>

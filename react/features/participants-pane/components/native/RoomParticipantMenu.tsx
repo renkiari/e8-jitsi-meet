@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import { WithTranslation } from 'react-i18next';
-import { Text, TextStyle, View, ViewStyle } from 'react-native';
+import { Appearance, Text, TextStyle, View, ViewStyle } from 'react-native';
 import { connect } from 'react-redux';
 
 import { IReduxState, IStore } from '../../../app/types';
@@ -70,12 +70,15 @@ class RoomParticipantMenu extends PureComponent<IProps> {
      * @inheritdoc
      */
     render() {
+        // jitsi edit add dark mode
+        const colorScheme = Appearance.getColorScheme();
+        const itemStyle = colorScheme === 'dark' ? styles.contextMenuItemTextDark : styles.contextMenuItemText;
         const { _rooms, participantJid, room, t } = this.props;
         const buttonProps = {
             afterClick: this._onCancel,
             showLabel: true,
             participantID: participantJid,
-            styles: bottomSheetStyles.buttons
+            styles: colorScheme === 'dark' ? bottomSheetStyles.buttonsDark : bottomSheetStyles.buttons
         };
 
         return (
@@ -83,7 +86,7 @@ class RoomParticipantMenu extends PureComponent<IProps> {
                 renderHeader = { this._renderMenuHeader }
                 showSlidingView = { true }>
                 <View style = { styles.contextMenuItem as ViewStyle }>
-                    <Text style = { styles.contextMenuItemText as ViewStyle }>
+                    <Text style = { itemStyle as ViewStyle }>
                         {t('breakoutRooms.actions.sendToBreakoutRoom')}
                     </Text>
                 </View>
@@ -113,15 +116,22 @@ class RoomParticipantMenu extends PureComponent<IProps> {
     _renderMenuHeader() {
         const { participantName } = this.props;
 
+        // jisti edit add dark mode
+        const colorScheme = Appearance.getColorScheme();
+        const nameStyle = colorScheme === 'dark' ? styles.participantNameLabelDark : styles.participantNameLabel;
+
         return (
             <View
                 style = { [
-                    bottomSheetStyles.sheet,
+
+                    // jisti edit add dark mode
+                    colorScheme === 'dark' ? bottomSheetStyles.sheetDark : bottomSheetStyles.sheet,
                     styles.participantNameContainer ] as ViewStyle[] }>
                 <Avatar
                     displayName = { participantName }
                     size = { AVATAR_SIZE } />
-                <Text style = { styles.participantNameLabel as TextStyle }>
+                {/* // jisti edit add dark mode */}
+                <Text style = { nameStyle as TextStyle }>
                     { participantName }
                 </Text>
             </View>

@@ -2,11 +2,13 @@ import { useIsFocused } from '@react-navigation/native';
 import React, { useCallback, useEffect, useLayoutEffect, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import {
+    Appearance,
     BackHandler,
     Platform,
     StyleProp,
-    Text,
-    TextStyle,
+
+    // Text,
+    // TextStyle,
     View,
     ViewStyle
 } from 'react-native';
@@ -16,7 +18,6 @@ import { setPermanentProperty } from '../../../analytics/actions';
 import { appNavigate } from '../../../app/actions.native';
 import { IReduxState } from '../../../app/types';
 import { setAudioOnly } from '../../../base/audio-only/actions';
-import { getConferenceName } from '../../../base/conference/functions';
 import { isNameReadOnly } from '../../../base/config/functions.any';
 import { connect } from '../../../base/connection/actions.native';
 import { PREJOIN_PAGE_HIDE_DISPLAY_NAME } from '../../../base/flags/constants';
@@ -24,11 +25,8 @@ import { getFeatureFlag } from '../../../base/flags/functions';
 import { IconCloseLarge } from '../../../base/icons/svg';
 import JitsiScreen from '../../../base/modal/components/JitsiScreen';
 import { getLocalParticipant } from '../../../base/participants/functions';
-import { getFieldValue } from '../../../base/react/functions';
 import { ASPECT_RATIO_NARROW } from '../../../base/responsive-ui/constants';
-import { updateSettings } from '../../../base/settings/actions';
 import Button from '../../../base/ui/components/native/Button';
-import Input from '../../../base/ui/components/native/Input';
 import { BUTTON_TYPES } from '../../../base/ui/constants.native';
 import { openDisplayNamePrompt } from '../../../display-name/actions';
 import BrandingImageBackground from '../../../dynamic-branding/components/native/BrandingImageBackground';
@@ -36,16 +34,22 @@ import LargeVideo from '../../../large-video/components/LargeVideo.native';
 import HeaderNavigationButton from '../../../mobile/navigation/components/HeaderNavigationButton';
 import { navigateRoot } from '../../../mobile/navigation/rootNavigationContainerRef';
 import { screen } from '../../../mobile/navigation/routes';
-import AudioMuteButton from '../../../toolbox/components/native/AudioMuteButton';
-import VideoMuteButton from '../../../toolbox/components/native/VideoMuteButton';
-import { isDisplayNameRequired, isRoomNameEnabled } from '../../functions';
+import { isDisplayNameRequired } from '../../functions';
 import { IPrejoinProps } from '../../types';
 import { hasDisplayName } from '../../utils';
+
+// import { getConferenceName } from '../../../base/conference/functions';
+// import { updateSettings } from '../../../base/settings/actions';
+// import { getFieldValue } from '../../../base/react/functions';
+// import Input from '../../../base/ui/components/native/Input';
+// import AudioMuteButton from '../../../toolbox/components/native/AudioMuteButton';
+// import VideoMuteButton from '../../../toolbox/components/native/VideoMuteButton';
 
 import { preJoinStyles as styles } from './styles';
 
 
 const Prejoin: React.FC<IPrejoinProps> = ({ navigation }: IPrejoinProps) => {
+    const colorScheme = Appearance.getColorScheme();
     const dispatch = useDispatch();
     const isFocused = useIsFocused();
     const { t } = useTranslation();
@@ -57,8 +61,9 @@ const Prejoin: React.FC<IPrejoinProps> = ({ navigation }: IPrejoinProps) => {
     const isDisplayNameVisible
         = useSelector((state: IReduxState) => !getFeatureFlag(state, PREJOIN_PAGE_HIDE_DISPLAY_NAME, false));
     const isDisplayNameReadonly = useSelector(isNameReadOnly);
-    const roomName = useSelector((state: IReduxState) => getConferenceName(state));
-    const roomNameEnabled = useSelector((state: IReduxState) => isRoomNameEnabled(state));
+
+    // const roomName = useSelector((state: IReduxState) => getConferenceName(state));
+    // const roomNameEnabled = useSelector((state: IReduxState) => isRoomNameEnabled(state));
     const participantName = localParticipant?.name;
     const [ displayName, setDisplayName ]
         = useState(participantName || '');
@@ -67,19 +72,21 @@ const Prejoin: React.FC<IPrejoinProps> = ({ navigation }: IPrejoinProps) => {
     const showDisplayNameError = useMemo(
         () => !isDisplayNameReadonly && isDisplayNameMissing && isDisplayNameVisible,
         [ isDisplayNameMissing, isDisplayNameReadonly, isDisplayNameVisible ]);
-    const showDisplayNameInput = useMemo(
-        () => isDisplayNameVisible && (displayName || !isDisplayNameReadonly),
-        [ displayName, isDisplayNameReadonly, isDisplayNameVisible ]);
+
+    // const showDisplayNameInput = useMemo(
+    //     () => isDisplayNameVisible && (displayName || !isDisplayNameReadonly),
+    //     [ displayName, isDisplayNameReadonly, isDisplayNameVisible ]);
     const [ isJoining, setIsJoining ]
         = useState(false);
-    const onChangeDisplayName = useCallback(event => {
-        const fieldValue = getFieldValue(event);
 
-        setDisplayName(fieldValue);
-        dispatch(updateSettings({
-            displayName: fieldValue
-        }));
-    }, [ displayName ]);
+    // const onChangeDisplayName = useCallback(event => {
+    //     const fieldValue = getFieldValue(event);
+
+    //     setDisplayName(fieldValue);
+    //     dispatch(updateSettings({
+    //         displayName: fieldValue
+    //     }));
+    // }, [ displayName ]);
 
     const onJoin = useCallback(() => {
         setIsJoining(true);
@@ -152,7 +159,7 @@ const Prejoin: React.FC<IPrejoinProps> = ({ navigation }: IPrejoinProps) => {
 
     if (aspectRatio === ASPECT_RATIO_NARROW) {
         contentWrapperStyles = styles.contentWrapper;
-        contentContainerStyles = styles.contentContainer;
+        contentContainerStyles = colorScheme === 'dark' ? styles.contentContainerDark : styles.contentContainer;
         largeVideoContainerStyles = styles.largeVideoContainer;
     } else {
         contentWrapperStyles = styles.contentWrapperWide;
@@ -169,7 +176,8 @@ const Prejoin: React.FC<IPrejoinProps> = ({ navigation }: IPrejoinProps) => {
             {
                 isFocused
                 && <View style = { largeVideoContainerStyles as StyleProp<ViewStyle> }>
-                    <View style = { styles.conferenceInfo as StyleProp<ViewStyle> }>
+                    {/* Jitsi edit - hide roomname */}
+                    {/* <View style = { styles.conferenceInfo as StyleProp<ViewStyle> }>
                         {roomNameEnabled && (
                             <View style = { styles.displayRoomNameBackdrop as StyleProp<TextStyle> }>
                                 <Text
@@ -179,18 +187,20 @@ const Prejoin: React.FC<IPrejoinProps> = ({ navigation }: IPrejoinProps) => {
                                 </Text>
                             </View>
                         )}
-                    </View>
+                    </View> */}
                     <LargeVideo />
                 </View>
             }
             <View style = { contentContainerStyles as ViewStyle }>
-                <View style = { styles.toolboxContainer as ViewStyle }>
+                {/* Jitsi edit - hide buttons */}
+                {/* <View style = { styles.toolboxContainer as ViewStyle }>
                     <AudioMuteButton
                         styles = { styles.buttonStylesBorderless } />
                     <VideoMuteButton
                         styles = { styles.buttonStylesBorderless } />
-                </View>
-                {
+                </View> */}
+                {/* Jitsi edit - hide display name */}
+                {/* {
                     showDisplayNameInput && <Input
                         customStyles = {{ input: styles.customInput }}
                         disabled = { isDisplayNameReadonly }
@@ -198,22 +208,18 @@ const Prejoin: React.FC<IPrejoinProps> = ({ navigation }: IPrejoinProps) => {
                         onChange = { onChangeDisplayName }
                         placeholder = { t('dialog.enterDisplayName') }
                         value = { displayName } />
-                }
-                {
-                    showDisplayNameError && (
-                        <View style = { styles.errorContainer as StyleProp<TextStyle> }>
-                            <Text style = { styles.error as StyleProp<TextStyle> }>
-                                { t('prejoin.errorMissingName') }
-                            </Text>
-                        </View>
-                    )
-                }
+                } */}
+                {/* Jitsi edit - hide error name */}
+                {/* {showDisplayNameError && (
+                    <View style = { styles.errorContainer as StyleProp<TextStyle> }>
+                        <Text style = { styles.error as StyleProp<TextStyle> }>{t('prejoin.errorMissingName')}</Text>
+                    </View>)} */}
                 <Button
                     accessibilityLabel = 'prejoin.joinMeeting'
                     disabled = { showDisplayNameError }
                     labelKey = 'prejoin.joinMeeting'
                     onClick = { isJoining ? undefined : maybeJoin }
-                    style = { styles.joinButton }
+                    style = { styles.joinButtonPrimary }
                     type = { PRIMARY } />
                 <Button
                     accessibilityLabel = 'prejoin.joinMeetingInLowBandwidthMode'

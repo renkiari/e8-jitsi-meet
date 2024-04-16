@@ -19,8 +19,30 @@ export default createStyleSheet({
         paddingLeft: MD_ITEM_MARGIN_PADDING
     },
 
+    // jitsi edit add dark mode
+    participantNameContainerDark: {
+        alignItems: 'center',
+        borderBottomColor: BaseTheme.palette.ui012,
+        borderBottomWidth: 0.4,
+        borderTopLeftRadius: 16,
+        borderTopRightRadius: 16,
+        flexDirection: 'row',
+        height: MD_ITEM_HEIGHT,
+        paddingLeft: MD_ITEM_MARGIN_PADDING
+    },
+
+    // jisti edit update text
     participantNameLabel: {
-        color: ColorPalette.lightGrey,
+        color: BaseTheme.palette.text01,
+        flexShrink: 1,
+        fontSize: MD_FONT_SIZE,
+        marginLeft: MD_ITEM_MARGIN_PADDING,
+        opacity: 0.90
+    },
+
+    // jisti edit update text add dark mode
+    participantNameLabelDark: {
+        color: BaseTheme.palette.text012,
         flexShrink: 1,
         fontSize: MD_FONT_SIZE,
         marginLeft: MD_ITEM_MARGIN_PADDING,
@@ -84,6 +106,13 @@ export default createStyleSheet({
     contextMenuItemText: {
         ...BaseTheme.typography.bodyShortRegularLarge,
         color: BaseTheme.palette.text01,
+        marginLeft: BaseTheme.spacing[4]
+    },
+
+    // jisti edit add dark mode participants menu
+    contextMenuItemTextDark: {
+        ...BaseTheme.typography.bodyShortRegularLarge,
+        color: BaseTheme.palette.text012,
         marginLeft: BaseTheme.spacing[4]
     }
 });

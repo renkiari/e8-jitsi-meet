@@ -1,6 +1,6 @@
 import React, { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Text, TouchableHighlight, View, ViewStyle } from 'react-native';
+import { Appearance, Text, TouchableHighlight, View, ViewStyle } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { IReduxState } from '../../../app/types';
@@ -49,6 +49,10 @@ const GeneralSection = () => {
     // Delete this line when prejoin skipping is available on mobile
     showPrejoinSettings = false;
 
+    // jitsi edit add dark language text
+    const colorScheme = Appearance.getColorScheme();
+    const langaugeTextStyle = colorScheme === 'dark' ? styles.languageTextDark : styles.languageText;
+
     return (
         <FormSection>
             <FormRow label = 'videothumbnail.hideSelfView'>
@@ -68,7 +72,7 @@ const GeneralSection = () => {
                     <TouchableHighlight onPress = { navigateToLanguageSelect }>
                         <View style = { styles.languageButton as ViewStyle }>
                             <Text
-                                style = { styles.languageText }>{t(`languages:${language}`)}</Text>
+                                style = { langaugeTextStyle }>{t(`languages:${language}`)}</Text>
                             <Icon
                                 size = { 24 }
                                 src = { IconArrowRight } />

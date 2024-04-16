@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, ViewStyle } from 'react-native';
+import { Appearance, View, ViewStyle } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { connect } from 'react-redux';
 
@@ -67,12 +67,23 @@ interface IProps {
 function Toolbox(props: IProps) {
     const { _endConferenceSupported, _shouldDisplayReactionsButtons, _styles, _visible, _iAmVisitor, _width } = props;
 
+    const colorScheme = Appearance.getColorScheme();
+
     if (!_visible) {
         return null;
     }
 
     const bottomEdge = Platform.OS === 'ios' && _visible;
-    const { buttonStylesBorderless, hangupButtonStyles, toggledButtonStyles } = _styles;
+
+    // jitsi edit add styles custom
+    const {
+        buttonStylesBorderless,
+        buttonStylesBorderlessDark,
+        hangupButtonStyles,
+        toggledButtonStyles,
+        mutedButtonStyles,
+        mutedButtonStylesDark
+    } = _styles;
     const additionalButtons = getMovableButtons(_width);
     const backgroundToggledStyle = {
         ...toggledButtonStyles,
@@ -81,7 +92,10 @@ function Toolbox(props: IProps) {
             _styles.backgroundToggle
         ]
     };
-    const style = { ...styles.toolbox };
+
+    // jitsi edit add darkmode bg for toolbox
+    const style = colorScheme === 'dark' ? { ...styles.toolboxDark } : { ...styles.toolbox };
+    const buttonStyle = colorScheme === 'dark' ? buttonStylesBorderlessDark : buttonStylesBorderless;
 
     // we have only hangup and raisehand button in _iAmVisitor mode
     if (_iAmVisitor) {
@@ -100,30 +114,33 @@ function Toolbox(props: IProps) {
                 pointerEvents = 'box-none'
                 style = { style as ViewStyle }>
                 {!_iAmVisitor && <AudioMuteButton
-                    styles = { buttonStylesBorderless }
-                    toggledStyles = { toggledButtonStyles } />
+                    styles = { buttonStyle }
+                    toggledStyles = { colorScheme === 'dark' ? mutedButtonStylesDark : mutedButtonStyles } />
                 }
                 {!_iAmVisitor && <VideoMuteButton
-                    styles = { buttonStylesBorderless }
-                    toggledStyles = { toggledButtonStyles } />
+                    styles = { buttonStyle }
+                    toggledStyles = { colorScheme === 'dark' ? mutedButtonStylesDark : mutedButtonStyles } />
                 }
                 {additionalButtons.has('chat')
                     && <ChatButton
-                        styles = { buttonStylesBorderless }
+                        styles = { buttonStyle }
                         toggledStyles = { backgroundToggledStyle } />
                 }
                 {!_iAmVisitor && additionalButtons.has('screensharing')
-                    && <ScreenSharingButton styles = { buttonStylesBorderless } />}
+                    && <ScreenSharingButton styles = { buttonStylesBorderless } /> }
                 {additionalButtons.has('raisehand') && (_shouldDisplayReactionsButtons
                     ? <ReactionsMenuButton
-                        styles = { buttonStylesBorderless }
+                        styles = { buttonStyle }
                         toggledStyles = { backgroundToggledStyle } />
                     : <RaiseHandButton
-                        styles = { buttonStylesBorderless }
+                        styles = { buttonStyle }
                         toggledStyles = { backgroundToggledStyle } />)}
-                {additionalButtons.has('tileview') && <TileViewButton styles = { buttonStylesBorderless } />}
+                {additionalButtons.has('tileview')
+                    && <TileViewButton 
+                        styles = { buttonStyle }
+                        toggledStyles = { toggledButtonStyles } />}
                 {!_iAmVisitor && <OverflowMenuButton
-                    styles = { buttonStylesBorderless }
+                    styles = { buttonStyle }
                     toggledStyles = { toggledButtonStyles } />
                 }
                 { _endConferenceSupported

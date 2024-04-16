@@ -1,9 +1,10 @@
 import React from 'react';
 import {
+    Appearance,
     ScrollView,
     Text,
     TextStyle,
-    TouchableHighlight,
+    TouchableOpacity,
     View,
     ViewStyle
 } from 'react-native';
@@ -50,11 +51,16 @@ const SettingsView = ({ isInWelcomePage }: IProps) => {
         return null;
     }
 
+    // jitsi edit add dark mode settings
+    const colorScheme = Appearance.getColorScheme();
+
     return (
         <JitsiScreen
             disableForcedKeyboardDismiss = { true }
             safeAreaInsets = { [ addBottomInset && 'bottom', 'left', 'right' ].filter(Boolean) as Edge[] }
-            style = { styles.settingsViewContainer }>
+
+            // jitsi edit add dark mode settings
+            style = { colorScheme === 'dark' ? styles.settingsViewContainerDark : styles.settingsViewContainer }>
             <ScrollView bounces = { scrollBounces }>
                 <View style = { styles.profileContainerWrapper as ViewStyle }>
                     <TouchableHighlight
@@ -74,7 +80,7 @@ const SettingsView = ({ isInWelcomePage }: IProps) => {
                                 src = { IconArrowRight }
                                 style = { styles.profileViewArrow } />
                         </View>
-                    </TouchableHighlight>
+                    </TouchableOpacity>
                 </View>
                 <GeneralSection />
                 { isInWelcomePage && <>

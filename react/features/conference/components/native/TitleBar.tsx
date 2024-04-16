@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, ViewStyle } from 'react-native';
+import { Appearance, Image, Text, View, ViewStyle } from 'react-native';
 import { connect } from 'react-redux';
 
 import { IReduxState } from '../../../app/types';
@@ -63,9 +63,13 @@ interface IProps {
 const TitleBar = (props: IProps) => {
     const { _isParticipantsPaneEnabled, _visible } = props;
 
+    const colorScheme = Appearance.getColorScheme();
+
     if (!_visible) {
         return null;
     }
+
+    const titlebarButtonStyle = colorScheme === 'dark' ? styles.titleBarButtonDark : styles.titleBarButton;
 
     return (
         <View
@@ -73,13 +77,16 @@ const TitleBar = (props: IProps) => {
             <View style = { styles.pipButtonContainer as ViewStyle }>
                 <PictureInPictureButton styles = { styles.pipButton } />
             </View>
+            {/* jitsi edit swap room name and timer */}
             <View
                 pointerEvents = 'box-none'
                 style = { styles.roomNameWrapper as ViewStyle }>
                 {
-                    props._conferenceTimerEnabled
-                    && <View style = { styles.roomTimerView as ViewStyle }>
-                        <ConferenceTimer textStyle = { styles.roomTimer } />
+                    <View style = {{ padding: 2 }}>
+                        <Image
+                            resizeMode = 'contain'
+                            source = { require('./enov8tive_logo.webp') }
+                            style = {{height: 42, width: 42 }} />
                     </View>
                 }
                 {
@@ -87,25 +94,34 @@ const TitleBar = (props: IProps) => {
                     && <View style = { styles.roomNameView as ViewStyle }>
                         <Text
                             numberOfLines = { 1 }
-                            style = { styles.roomName }>
+
+                            // jitsi edit add dark mode for bg color
+                            style = { colorScheme === 'dark' ? styles.roomNameDark : styles.roomName }>
                             { props._meetingName }
                         </Text>
+                    </View>
+                }
+                {
+                    props._conferenceTimerEnabled
+                    && <View style = { styles.roomTimerView as ViewStyle }>
+                        <ConferenceTimer textStyle = { styles.roomTimer } />
                     </View>
                 }
                 {/* eslint-disable-next-line react/jsx-no-bind */}
                 <Labels createOnPress = { props._createOnPress } />
             </View>
             <View style = { styles.titleBarButtonContainer }>
-                <ToggleCameraButton styles = { styles.titleBarButton } />
+                <ToggleCameraButton styles = { titlebarButtonStyle } />
             </View>
             <View style = { styles.titleBarButtonContainer }>
-                <AudioDeviceToggleButton styles = { styles.titleBarButton } />
+                {/* jitsi edit add dark mode for title bar icon */}
+                <AudioDeviceToggleButton styles = { titlebarButtonStyle } />
             </View>
             {
                 _isParticipantsPaneEnabled
                 && <View style = { styles.titleBarButtonContainer }>
                     <ParticipantsPaneButton
-                        styles = { styles.titleBarButton } />
+                        styles = { titlebarButtonStyle } />
                 </View>
             }
         </View>

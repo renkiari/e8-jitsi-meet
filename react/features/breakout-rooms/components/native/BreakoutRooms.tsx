@@ -1,5 +1,5 @@
 import React, { useCallback } from 'react';
-import { FlatList } from 'react-native';
+import { Appearance, FlatList } from 'react-native';
 import { useSelector } from 'react-redux';
 
 import { IReduxState } from '../../../app/types';
@@ -34,11 +34,15 @@ const BreakoutRooms = () => {
     const showAddBreakoutRoom = useSelector(isAddBreakoutRoomButtonVisible);
     const showAutoAssign = useSelector(isAutoAssignParticipantsVisible);
 
+    const colorScheme = Appearance.getColorScheme();
+
     return (
         <JitsiScreen
             footerComponent = { isLocalModerator && showAddBreakoutRoom
                 ? AddBreakoutRoomButton : undefined }
-            style = { styles.breakoutRoomsContainer }>
+
+            // jitsi edit add darkmnode breakout rooms
+            style = { colorScheme === 'dark' ? styles.breakoutRoomsContainerDark : styles.breakoutRoomsContainer }>
 
             { /* Fixes warning regarding nested lists */ }
             <FlatList

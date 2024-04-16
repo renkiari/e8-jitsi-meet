@@ -1,6 +1,7 @@
 import { useFocusEffect } from '@react-navigation/native';
 import React, { useCallback } from 'react';
 import {
+    Appearance,
     BackHandler,
     NativeModules,
     Platform,
@@ -269,10 +270,14 @@ class Conference extends AbstractConference<IProps, State> {
             _fullscreenEnabled
         } = this.props;
 
+        const colorScheme = Appearance.getColorScheme();
+
         return (
             <Container
                 style = { [
-                    styles.conference,
+
+                    // jisti edit add darkmode bg for conference
+                    colorScheme === 'dark' ? styles.conferenceDark : styles.conference,
                     _brandingStyles
                 ] }>
                 <BrandingImageBackground />
@@ -370,6 +375,8 @@ class Conference extends AbstractConference<IProps, State> {
             _toolboxVisible
         } = this.props;
 
+        const colorScheme = Appearance.getColorScheme();
+
         let alwaysOnTitleBarStyles;
 
         if (_reducedUI) {
@@ -438,11 +445,12 @@ class Conference extends AbstractConference<IProps, State> {
                     }
                 </View>
 
+                {/* jitsi edit conference title bar */}
                 <SafeAreaView
                     pointerEvents = 'box-none'
                     style = {
                         (_toolboxVisible
-                            ? styles.titleBarSafeViewColor
+                            ? colorScheme === 'dark' ? styles.titleBarSafeViewColorDark : styles.titleBarSafeViewColor
                             : styles.titleBarSafeViewTransparent) as ViewStyle }>
                     <TitleBar _createOnPress = { this._createOnPress } />
                 </SafeAreaView>

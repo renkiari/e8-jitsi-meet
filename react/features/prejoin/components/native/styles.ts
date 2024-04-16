@@ -2,9 +2,20 @@ import BaseTheme from '../../../base/ui/components/BaseTheme.native';
 
 export const preJoinStyles = {
 
+    joinButtonPrimary: {
+        marginTop: BaseTheme.spacing[3],
+        width: 352,
+        backgroundColor: '#0891B2'
+    },
+
     joinButton: {
         marginTop: BaseTheme.spacing[3],
-        width: 352
+        width: 352,
+        height: 40,
+        backgroundColor: '#FFFFFF',
+        borderStyle: 'solid',
+        borderWidth: 1,
+        borderColor: '#CBD5E1'
     },
 
     buttonStylesBorderless: {
@@ -33,7 +44,9 @@ export const preJoinStyles = {
     },
 
     largeVideoContainer: {
-        height: '60%'
+        // jitsi edit adjust video size and add padding
+        height: '80%',
+        padding: 18
     },
 
     largeVideoContainerWide: {
@@ -44,12 +57,24 @@ export const preJoinStyles = {
     },
 
     contentContainer: {
+        // jitsi edit adjust prejoin button container style
         alignItems: 'center',
         backgroundColor: BaseTheme.palette.uiBackground,
         bottom: 0,
-        display: 'flex',
-        height: 280,
-        justifyContent: 'center',
+        height: '20%',
+        justifyContent: 'flex-start',
+        position: 'absolute',
+        width: '100%',
+        zIndex: 1
+    },
+
+    contentContainerDark: {
+        // jitsi edit adjust prejoin button container style
+        alignItems: 'center',
+        backgroundColor: BaseTheme.palette.uiBackgroundDark,
+        bottom: 0,
+        height: '20%',
+        justifyContent: 'flex-start',
         position: 'absolute',
         width: '100%',
         zIndex: 1
@@ -57,7 +82,7 @@ export const preJoinStyles = {
 
     contentContainerWide: {
         alignItems: 'center',
-        height: '100%',
+        height: '20%',
         justifyContent: 'center',
         left: '50%',
         padding: BaseTheme.spacing[3],
@@ -116,11 +141,16 @@ export const preJoinStyles = {
         zIndex: 1
     },
     displayRoomNameBackdrop: {
+        alignSelf: 'center',
         backgroundColor: BaseTheme.palette.uiBackground,
         borderRadius: BaseTheme.shape.borderRadius,
+        marginTop: BaseTheme.spacing[3],
         opacity: 0.7,
         paddingHorizontal: BaseTheme.spacing[3],
-        paddingVertical: BaseTheme.spacing[1]
+        paddingVertical: BaseTheme.spacing[1],
+        position: 'absolute',
+        maxWidth: 243,
+        zIndex: 1
     },
     recordingWarning: {
         display: 'flex',

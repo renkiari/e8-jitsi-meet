@@ -1,5 +1,5 @@
 import React, { useCallback } from 'react';
-import { FlatList } from 'react-native';
+import { Appearance, FlatList } from 'react-native';
 import { useSelector } from 'react-redux';
 
 import JitsiScreen from '../../../base/modal/components/JitsiScreen';
@@ -22,10 +22,17 @@ const ParticipantsPane = () => {
     const keyExtractor
         = useCallback((e: undefined, i: number) => i.toString(), []);
 
+    // jitsi edit add darkmmode bg participants pane
+    const colorScheme = Appearance.getColorScheme();
+    const participantPaneStyle = styles.participantsPaneContainer;
+    const participantPaneStyleDark = styles.participantsPaneContainerDark;
+
     return (
         <JitsiScreen
             footerComponent = { isLocalModerator ? ParticipantsPaneFooter : undefined }
-            style = { styles.participantsPaneContainer }>
+
+            // jitsi edit add darkmmode bg participants pane
+            style = { colorScheme === 'dark' ? participantPaneStyleDark : participantPaneStyle }>
 
             { /* Fixes warning regarding nested lists */ }
             <FlatList

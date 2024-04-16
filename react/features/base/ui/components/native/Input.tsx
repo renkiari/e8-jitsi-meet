@@ -1,5 +1,6 @@
 import React, { forwardRef, useCallback, useState } from 'react';
 import {
+    Appearance,
     KeyboardTypeOptions,
     NativeSyntheticEvent, ReturnKeyTypeOptions,
     StyleProp,
@@ -106,8 +107,12 @@ const Input = forwardRef<TextInput, IProps>(({
         onSubmitEditing?.(text);
     }, [ onSubmitEditing ]);
 
+    // jitsi edit add dark mode
+    const colorScheme = Appearance.getColorScheme();
+
     return (<View style = { [ styles.inputContainer, customStyles?.container ] }>
-        {label && <Text style = { styles.label }>{ label }</Text>}
+        {/* jitsi edit add dark mode input label */}
+        {label && <Text style = { colorScheme === 'dark' ? styles.labelDark : styles.label }>{ label }</Text>}
         <View style = { styles.fieldContainer as StyleProp<ViewStyle> }>
             {icon && <Icon
                 size = { 22 }
@@ -134,6 +139,8 @@ const Input = forwardRef<TextInput, IProps>(({
                 onKeyPress = { handleKeyPress }
                 onSubmitEditing = { handleSubmitEditing }
                 placeholder = { placeholder }
+
+                // jitsi edit add darkmode for text input
                 placeholderTextColor = { BaseTheme.palette.text02 }
                 pointerEvents = { pointerEvents }
                 ref = { ref }
@@ -141,7 +148,9 @@ const Input = forwardRef<TextInput, IProps>(({
                 secureTextEntry = { secureTextEntry }
                 spellCheck = { false }
                 style = { [
-                    styles.input,
+
+                    // jisti edit add chat input for darkmode
+                    colorScheme === 'dark' ? styles.inputDark : styles.input,
                     clearable && styles.clearableInput,
                     customStyles?.input,
                     disabled && styles.inputDisabled,

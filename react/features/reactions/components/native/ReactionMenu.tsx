@@ -1,5 +1,5 @@
 import React, { useCallback } from 'react';
-import { Image, View } from 'react-native';
+import { Appearance, Image, View } from 'react-native';
 import { useSelector } from 'react-redux';
 
 import { IReduxState } from '../../../app/types';
@@ -45,8 +45,16 @@ function ReactionMenu({
         onCancel();
     }, []);
 
+    // jitsi edit add overflow menu bg dark mode
+    const colorScheme = Appearance.getColorScheme();
+
+    const overflowStyle = colorScheme === 'dark' ? _styles.overflowReactionMenuDark : _styles.overflowReactionMenu;
+    const reactionMenuStyle = colorScheme === 'dark' ? _styles.reactionMenuDark : _styles.reactionMenu;
+
     return (
-        <View style = { overflowMenu ? _styles.overflowReactionMenu : _styles.reactionMenu }>
+
+        // jitsi edit add overflow menu bg dark mode
+        <View style = { overflowMenu ? overflowStyle : reactionMenuStyle }>
             <View style = { _styles.reactionRow }>
                 {
                     Object.keys(REACTIONS).map(key => (

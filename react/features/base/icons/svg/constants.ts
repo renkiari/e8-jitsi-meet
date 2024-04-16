@@ -69,6 +69,7 @@ import { default as IconPin } from './pin.svg';
 import { default as IconPinned } from './pinned.svg';
 import { default as IconPlay } from './play.svg';
 import { default as IconPlus } from './plus.svg';
+import { default as IconRaiseHandSolid } from './raise-hand-solid.svg';
 import { default as IconRaiseHand } from './raise-hand.svg';
 import { default as IconRecord } from './record.svg';
 import { default as IconReply } from './reply.svg';
@@ -87,6 +88,7 @@ import { default as IconRemoteControlStart } from './start-remote-control.svg';
 import { default as IconRemoteControlStop } from './stop-remote-control.svg';
 import { default as IconStop } from './stop.svg';
 import { default as IconSubtitles } from './subtitles.svg';
+import { default as IconTileViewSolid } from './tile-view-solid.svg';
 import { default as IconTileView } from './tile-view.svg';
 import { default as IconTrash } from './trash.svg';
 import { default as IconUserDeleted } from './user-deleted.svg';
@@ -110,6 +112,8 @@ import { default as IconYahoo } from './yahoo.svg';
 /**
  * Map containing the default icons.
  */
+
+// jitsi edit add tile-view-solid and raise hand
 export const DEFAULT_ICON: Record<string, any> = {
     IconAddUser,
     IconArrowBack,
@@ -180,6 +184,7 @@ export const DEFAULT_ICON: Record<string, any> = {
     IconPlay,
     IconPlus,
     IconRaiseHand,
+    IconRaiseHandSolid,
     IconRecord,
     IconRecordAccount,
     IconRecordContact,
@@ -203,6 +208,7 @@ export const DEFAULT_ICON: Record<string, any> = {
     IconStop,
     IconSubtitles,
     IconTileView,
+    IconTileViewSolid,
     IconTrash,
     IconUserDeleted,
     IconUsers,

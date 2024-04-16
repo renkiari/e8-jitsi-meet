@@ -1,6 +1,6 @@
 import React, { useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Alert, NativeModules, Platform, Text } from 'react-native';
+import { Alert, Appearance, NativeModules, Platform, Text } from 'react-native';
 import { Divider } from 'react-native-paper';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -74,6 +74,8 @@ const AdvancedSection = () => {
         return partialSwitches;
     }, [ disableCallIntegration, disableP2P, disableCrashReporting ]);
 
+    const colorScheme = Appearance.getColorScheme();
+
     return (
         <>
             <FormSection
@@ -96,13 +98,15 @@ const AdvancedSection = () => {
                 label = 'settingsView.buildInfoSection'>
                 <FormRow
                     label = 'settingsView.version'>
-                    <Text style = { styles.text }>
+                    {/* jisti edit add darkmode */}
+                    <Text style = { colorScheme === 'dark' ? styles.textDark : styles.text }>
                         {`${AppInfo.version} build ${AppInfo.buildNumber}`}
                     </Text>
                 </FormRow>
                 <FormRow
                     label = 'settingsView.sdkVersion'>
-                    <Text style = { styles.text }>
+                    {/* jisti edit add darkmode */}
+                    <Text style = { colorScheme === 'dark' ? styles.textDark : styles.text }>
                         {AppInfo.sdkVersion}
                     </Text>
                 </FormRow>

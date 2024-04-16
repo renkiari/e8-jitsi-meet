@@ -2,8 +2,10 @@
  * The types of the buttons.
  */
 export enum BUTTON_TYPES {
+    CHATCUSTOM = 'chatcustom',
     DESTRUCTIVE = 'destructive',
     PRIMARY = 'primary',
+    PRIMARYDARK = 'primaryDark',
     SECONDARY = 'secondary',
     TERTIARY = 'tertiary'
 }

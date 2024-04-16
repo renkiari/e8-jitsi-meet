@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { WithTranslation } from 'react-i18next';
-import { Text, View, ViewStyle } from 'react-native';
+import { Appearance, Text, View, ViewStyle } from 'react-native';
 
 import { translate } from '../../../base/i18n/functions';
 
@@ -68,13 +68,16 @@ class FormRow extends Component<IProps> {
                 this.props.children,
                 this._getDefaultFieldProps(this.props.children));
 
+        // jitsi edit add darkmode
+        const colorScheme = Appearance.getColorScheme();
+
         return (
             <View
                 style = { this._getRowStyle() } >
                 <View style = { styles.fieldLabelContainer as ViewStyle } >
                     <Text
                         style = { [
-                            styles.text,
+                            colorScheme === 'dark' ? styles.textDark : styles.text,
                             styles.fieldLabelText
                         ] } >
                         { t(this.props.label) }

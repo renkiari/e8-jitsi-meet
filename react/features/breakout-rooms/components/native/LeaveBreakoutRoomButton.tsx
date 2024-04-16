@@ -27,6 +27,9 @@ const LeaveBreakoutRoomButton = () => {
         <Button
             accessibilityLabel = 'breakoutRooms.actions.leaveBreakoutRoom'
             labelKey = 'breakoutRooms.actions.leaveBreakoutRoom'
+
+            // jitsi edit add leave breakout room text color
+            labelStyle = { styles.buttonText }
             onClick = { onLeave }
             style = { styles.button }
             type = { BUTTON_TYPES.DESTRUCTIVE } />

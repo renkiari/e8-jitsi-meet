@@ -13,6 +13,14 @@ export default {
         marginBottom: BaseTheme.spacing[2]
     },
 
+    // jitsi edit add dark mode input text
+    labelDark: {
+        ...BaseTheme.typography.bodyShortRegularLarge,
+        lineHeight: 0,
+        color: BaseTheme.palette.text012,
+        marginBottom: BaseTheme.spacing[2]
+    },
+
     fieldContainer: {
         position: 'relative'
     },
@@ -26,11 +34,26 @@ export default {
 
     input: {
         ...BaseTheme.typography.bodyShortRegularLarge,
+        backgroundColor: 'white',
+
+        // jitsi meet edit change chat text input bg color and border and border radius
+        borderColor: '#cbd5e1',
+        borderRadius: 10,
+        borderWidth: 2,
+        color: BaseTheme.palette.text01,
+        paddingHorizontal: BaseTheme.spacing[3],
+        height: BaseTheme.spacing[7],
+        lineHeight: 20
+    },
+
+    // jitsi edit add dark bg for chat input text
+    inputDark: {
+        ...BaseTheme.typography.bodyShortRegularLarge,
         backgroundColor: BaseTheme.palette.ui03,
         borderColor: BaseTheme.palette.ui03,
         borderRadius: BaseTheme.shape.borderRadius,
         borderWidth: 2,
-        color: BaseTheme.palette.text01,
+        color: BaseTheme.palette.text012,
         paddingHorizontal: BaseTheme.spacing[3],
         height: BaseTheme.spacing[7],
         lineHeight: 20

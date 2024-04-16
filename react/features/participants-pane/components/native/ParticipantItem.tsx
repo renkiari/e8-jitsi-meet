@@ -1,6 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import {
+    Appearance,
     GestureResponderEvent,
     StyleProp,
     TextStyle,
@@ -97,6 +98,11 @@ function ParticipantItem({
     const participantNameContainerStyles
         = isKnockingParticipant ? styles.lobbyParticipantNameContainer : styles.participantNameContainer;
 
+    // jitsi edit add dark text
+    const colorScheme = Appearance.getColorScheme();
+    const displayNameStyle = colorScheme === 'dark' ? styles.participantNameDark : styles.participantName;
+    const moderatorLabelStyle = colorScheme === 'dark' ? styles.moderatorLabelDark : styles.moderatorLabel;
+
     return (
         <View style = { styles.participantContainer as StyleProp<ViewStyle> } >
             <TouchableOpacity
@@ -114,14 +120,14 @@ function ParticipantItem({
                     <View style = { participantNameContainerStyles as StyleProp<ViewStyle> }>
                         <Text
                             numberOfLines = { 1 }
-                            style = { styles.participantName as StyleProp<TextStyle> }>
+                            style = { displayNameStyle as StyleProp<TextStyle> }>
                             { displayName }
                             { local && ` (${t('chat.you')})` }
                         </Text>
                     </View>
                     {
                         isModerator && !disableModeratorIndicator
-                        && <Text style = { styles.moderatorLabel as StyleProp<TextStyle> }>
+                        && <Text style = { moderatorLabelStyle as StyleProp<TextStyle> }>
                             { t('videothumbnail.moderator') }
                         </Text>
                     }

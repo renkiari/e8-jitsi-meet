@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { View, ViewStyle } from 'react-native';
+import { Appearance, View, ViewStyle } from 'react-native';
 import Orientation from 'react-native-orientation-locker';
 import { withSafeAreaInsets } from 'react-native-safe-area-context';
 import { useDispatch, useSelector } from 'react-redux';
@@ -28,6 +28,10 @@ const CarMode = (): JSX.Element => {
     const connecting = useSelector(isConnecting);
     const isSharing = useSelector(isLocalVideoTrackDesktop);
 
+    // jitsi edit add dark mode
+    const colorScheme = Appearance.getColorScheme();
+    const titleBarStyle = colorScheme === 'dark' ? styles.titleBarSafeViewColorDark : styles.titleBarSafeViewColor;
+
     useEffect(() => {
         dispatch(setIsCarmode(true));
         setPictureInPictureEnabled(false);
@@ -45,7 +49,7 @@ const CarMode = (): JSX.Element => {
     return (
         <JitsiScreen
             footerComponent = { CarModeFooter }
-            style = { styles.conference }>
+            style = { colorScheme === 'dark' ? styles.conferenceDark : styles.conference } >
             {/*
                   * The activity/loading indicator goes above everything, except
                   * the toolbox/toolbars and the dialogs.
@@ -57,12 +61,14 @@ const CarMode = (): JSX.Element => {
             }
             <View
                 pointerEvents = 'box-none'
-                style = { styles.titleBarSafeViewColor as ViewStyle }>
+
+                // jitsi edit add bg mode
+                style = { titleBarStyle as ViewStyle }>
                 <View
                     style = { styles.titleBar as ViewStyle }>
                     <TitleBar />
                 </View>
-                <ConferenceTimer textStyle = { styles.roomTimer } />
+                <ConferenceTimer textStyle = { colorScheme === 'dark' ? styles.roomTimerDark : styles.roomTimer } />
             </View>
             <View
                 pointerEvents = 'box-none'

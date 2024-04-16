@@ -1,6 +1,6 @@
 import React, { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { TouchableOpacity, ViewStyle } from 'react-native';
+import { Appearance, TouchableOpacity, ViewStyle } from 'react-native';
 import { Text } from 'react-native-paper';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -70,6 +70,9 @@ const BreakoutRoomContextMenu = ({ room, actions = ALL_ACTIONS }: IProps) => {
         dispatch(hideSheet());
     }, [ dispatch, room ]);
 
+    const colorScheme = Appearance.getColorScheme();
+    const breakoutTextStyle = colorScheme === 'dark' ? styles.contextMenuItemTextDark : styles.contextMenuItemText;
+
     return (
         <BottomSheet
             addScrollViewPadding = { false }
@@ -82,7 +85,9 @@ const BreakoutRoomContextMenu = ({ room, actions = ALL_ACTIONS }: IProps) => {
                         <Icon
                             size = { 24 }
                             src = { IconRingGroup } />
-                        <Text style = { styles.contextMenuItemText }>{t('breakoutRooms.actions.join')}</Text>
+
+                        {/* jitsi edit add dark text breakout */}
+                        <Text style = { breakoutTextStyle }>{t('breakoutRooms.actions.join')}</Text>
                     </TouchableOpacity>
                 )
             }
@@ -94,7 +99,8 @@ const BreakoutRoomContextMenu = ({ room, actions = ALL_ACTIONS }: IProps) => {
                     <Icon
                         size = { 24 }
                         src = { IconEdit } />
-                    <Text style = { styles.contextMenuItemText }>{t('breakoutRooms.actions.rename')}</Text>
+                    {/* jitsi edit add dark text breakout */}
+                    <Text style = { breakoutTextStyle }>{t('breakoutRooms.actions.rename')}</Text>
                 </TouchableOpacity>
             }
             {
@@ -106,7 +112,8 @@ const BreakoutRoomContextMenu = ({ room, actions = ALL_ACTIONS }: IProps) => {
                         <Icon
                             size = { 24 }
                             src = { IconCloseLarge } />
-                        <Text style = { styles.contextMenuItemText }>{t('breakoutRooms.actions.close')}</Text>
+                        {/* jitsi edit add dark text breakout */}
+                        <Text style = { breakoutTextStyle }>{t('breakoutRooms.actions.close')}</Text>
                     </TouchableOpacity>
                     : <TouchableOpacity
                         onPress = { onRemoveBreakoutRoom }
@@ -114,7 +121,8 @@ const BreakoutRoomContextMenu = ({ room, actions = ALL_ACTIONS }: IProps) => {
                         <Icon
                             size = { 24 }
                             src = { IconCloseLarge } />
-                        <Text style = { styles.contextMenuItemText }>{t('breakoutRooms.actions.remove')}</Text>
+                        {/* jitsi edit add dark text breakout */}
+                        <Text style = { breakoutTextStyle }>{t('breakoutRooms.actions.remove')}</Text>
                     </TouchableOpacity>
                 )
             }

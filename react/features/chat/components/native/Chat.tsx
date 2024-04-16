@@ -1,6 +1,7 @@
 /* eslint-disable react/no-multi-comp */
 import { Route, useIsFocused } from '@react-navigation/native';
 import React, { Component, useEffect } from 'react';
+import { Appearance } from 'react-native';
 import { connect } from 'react-redux';
 
 import { IReduxState } from '../../../app/types';
@@ -56,6 +57,9 @@ class Chat extends Component<IProps> {
         const { _messages, route } = this.props;
         const privateMessageRecipient = route?.params?.privateMessageRecipient;
 
+        // jitsi edit add bg mode
+        const colorScheme = Appearance.getColorScheme();
+
         return (
             <JitsiScreen
                 disableForcedKeyboardDismiss = { true }
@@ -66,7 +70,7 @@ class Chat extends Component<IProps> {
                 }
                 hasBottomTextInput = { true }
                 hasExtraHeaderHeight = { true }
-                style = { styles.chatContainer }>
+                style = { colorScheme === 'dark' ? styles.chatContainerDark : styles.chatContainer }>
                 {/* @ts-ignore */}
                 <MessageContainer messages = { _messages } />
                 <MessageRecipient privateMessageRecipient = { privateMessageRecipient } />

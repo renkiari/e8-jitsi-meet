@@ -131,8 +131,22 @@ export default {
         overflow: 'hidden'
     },
 
+    // jitsi edit add dark mode breakout
+    participantNameDark: {
+        color: BaseTheme.palette.text012,
+        overflow: 'hidden'
+    },
+
     moderatorLabel: {
         color: BaseTheme.palette.text03,
+        alignSelf: 'flex-start',
+        paddingLeft: BaseTheme.spacing[3],
+        paddingTop: BaseTheme.spacing[1]
+    },
+
+    // jitsi edit add dark mode breakout
+    moderatorLabelDark: {
+        color: BaseTheme.palette.text04,
         alignSelf: 'flex-start',
         paddingLeft: BaseTheme.spacing[3],
         paddingTop: BaseTheme.spacing[1]
@@ -193,8 +207,28 @@ export default {
         ...participantListDescription
     },
 
+    // jisti edit add dark mode text
+    meetingListDescriptionDark: {
+        ...BaseTheme.typography.heading6,
+        color: BaseTheme.palette.text012,
+        fontSize: 15,
+        fontWeight: 'bold',
+        marginLeft: BaseTheme.spacing[2],
+        paddingVertical: BaseTheme.spacing[2],
+        position: 'relative',
+        width: '70%'
+    },
+
     participantsPaneContainer: {
         backgroundColor: BaseTheme.palette.ui01,
+        flex: 1,
+        flexDirection: 'column',
+        paddingVertical: BaseTheme.spacing[2]
+    },
+
+    // jitsi edit add dark mode bg participants pane
+    participantsPaneContainerDark: {
+        backgroundColor: BaseTheme.palette.ui02Dark,
         flex: 1,
         flexDirection: 'column',
         paddingVertical: BaseTheme.spacing[2]
@@ -254,6 +288,13 @@ export default {
 
     contextMenuItemText: {
         ...contextMenuItemText,
+        marginLeft: BaseTheme.spacing[3]
+    },
+
+    // jitsi edit add dark mode text in breakout
+    contextMenuItemTextDark: {
+        ...BaseTheme.typography.bodyShortRegularLarge,
+        color: BaseTheme.palette.text012,
         marginLeft: BaseTheme.spacing[3]
     },
 

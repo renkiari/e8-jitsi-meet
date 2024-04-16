@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, TouchableHighlight, View, ViewStyle } from 'react-native';
+import { Appearance, Text, TouchableHighlight, View, ViewStyle } from 'react-native';
 import { connect } from 'react-redux';
 
 import { IReduxState, IStore } from '../../../app/types';
@@ -100,6 +100,14 @@ class MessageRecipient extends AbstractMessageRecipient<IProps> {
             t
         } = this.props;
 
+        // jitsi edit add bg mode
+        const colorScheme = Appearance.getColorScheme();
+
+        // jitsi edit add bg mode
+        const containerDarkStyle = styles.messageRecipientContainerDark;
+        const containerStyle = styles.messageRecipientContainer;
+        const privateMessageContainer = colorScheme === 'dark' ? containerDarkStyle : containerStyle;
+
         if (isLobbyChatActive) {
             return (
                 <View style = { styles.lobbyMessageRecipientContainer as ViewStyle }>
@@ -123,7 +131,9 @@ class MessageRecipient extends AbstractMessageRecipient<IProps> {
         }
 
         return (
-            <View style = { styles.messageRecipientContainer as ViewStyle }>
+
+            // jitsi edit add bg mode
+            <View style = { privateMessageContainer as ViewStyle }>
                 <Text style = { styles.messageRecipientText }>
                     { t('chat.messageTo', {
                         recipient: privateMessageRecipient.name

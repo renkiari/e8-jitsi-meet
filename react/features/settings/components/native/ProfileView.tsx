@@ -1,7 +1,7 @@
 import { useNavigation } from '@react-navigation/native';
 import React, { useCallback, useLayoutEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { ScrollView, Text, View, ViewStyle } from 'react-native';
+import { Appearance, ScrollView, Text, View, ViewStyle } from 'react-native';
 import { Edge } from 'react-native-safe-area-context';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -35,6 +35,9 @@ const ProfileView = ({ isInWelcomePage }: {
     const { t } = useTranslation();
     const dispatch = useDispatch();
     const navigation = useNavigation();
+
+    // jisti edit add dark profile
+    const colorScheme = Appearance.getColorScheme();
 
     const { displayName: reduxDisplayName, email: reduxEmail } = useSelector(
         (state: IReduxState) => state['features/base/settings']
@@ -117,7 +120,9 @@ const ProfileView = ({ isInWelcomePage }: {
 
             // @ts-ignore
             safeAreaInsets = { [ !isInWelcomePage && 'bottom', 'left', 'right' ].filter(Boolean) as Edge[] }
-            style = { styles.settingsViewContainer }>
+
+            // jitsi edit add dark mode profile header
+            style = { colorScheme === 'dark' ? styles.settingsViewContainerDark : styles.settingsViewContainer }>
             <ScrollView
                 bounces = { isInWelcomePage }
                 contentContainerStyle = { styles.profileView as ViewStyle }>

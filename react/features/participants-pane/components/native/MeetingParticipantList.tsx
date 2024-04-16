@@ -1,6 +1,6 @@
 import React, { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { FlatList, Text, TextStyle, View } from 'react-native';
+import { Appearance, FlatList, Text, TextStyle, View } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { IReduxState } from '../../../app/types';
@@ -70,10 +70,15 @@ const MeetingParticipantList = () => {
             { count: participantsCount });
     const { color, shareDialogVisible } = inviteOthersControl;
 
+    const colorScheme = Appearance.getColorScheme();
+    const descriptionDarkStyle = styles.meetingListDescriptionDark;
+    const descriptionStyle = styles.meetingListDescription;
+    const meetDescriptionStyle = colorScheme === 'dark' ? descriptionDarkStyle : descriptionStyle;
+
     return (
         <View style = { styles.meetingListContainer }>
             <Text
-                style = { styles.meetingListDescription as TextStyle }>
+                style = { meetDescriptionStyle as TextStyle }>
                 { title }
             </Text>
             {
@@ -85,7 +90,9 @@ const MeetingParticipantList = () => {
                     // eslint-disable-next-line react/jsx-no-bind, no-confusing-arrow
                     icon = { () => (
                         <Icon
-                            color = { color }
+
+                            // jisti edit change invite icon color participants pane
+                            color = { 'white' }
                             size = { 20 }
                             src = { IconAddUser } />
                     ) }

@@ -25,7 +25,9 @@ const HangupMenuButton = (): JSX.Element => {
             accessibilityLabel = 'toolbar.accessibilityLabel.hangup'
             onPress = { onSelect }
             src = { IconHangup }
-            type = { BUTTON_TYPES.PRIMARY } />
+
+            // jitsi edit change hangup button type to primary dark
+            type = { BUTTON_TYPES.PRIMARYDARK } />
     );
 };
 

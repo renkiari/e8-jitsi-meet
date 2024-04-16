@@ -6,7 +6,7 @@ import { IReduxState } from '../../app/types';
 import { TILE_VIEW_ENABLED } from '../../base/flags/constants';
 import { getFeatureFlag } from '../../base/flags/functions';
 import { translate } from '../../base/i18n/functions';
-import { IconTileView } from '../../base/icons/svg';
+import { IconTileView, IconTileViewSolid } from '../../base/icons/svg';
 import AbstractButton, { IProps as AbstractButtonProps } from '../../base/toolbox/components/AbstractButton';
 import { setOverflowMenuVisible } from '../../toolbox/actions';
 import { setTileView } from '../actions';
@@ -36,6 +36,9 @@ class TileViewButton<P extends IProps> extends AbstractButton<P> {
     label = 'toolbar.enterTileView';
     toggledLabel = 'toolbar.exitTileView';
     tooltip = 'toolbar.tileViewToggle';
+
+    // jitsi edit add tile view solid toggled
+    toggledIcon = IconTileViewSolid;
 
     /**
      * Handles clicking / pressing the button.

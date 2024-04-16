@@ -1,5 +1,5 @@
 import React, { PureComponent, ReactNode } from 'react';
-import { SafeAreaView, ScrollView, View, ViewStyle } from 'react-native';
+import { Appearance, SafeAreaView, ScrollView, View, ViewStyle } from 'react-native';
 import { connect } from 'react-redux';
 
 import { IStore } from '../../../../app/types';
@@ -108,6 +108,7 @@ class BottomSheet extends PureComponent<Props> {
             showSlidingView,
             style
         } = this.props;
+        const colorScheme = Appearance.getColorScheme();
 
         return (
             <SlidingView
@@ -125,16 +126,16 @@ class BottomSheet extends PureComponent<Props> {
                         style = { [
                             styles.sheetItemContainer,
                             renderHeader
-                                ? styles.sheetHeader
-                                : styles.sheet,
-                            renderFooter && styles.sheetFooter,
+                                ? colorScheme === 'dark' ? styles.sheetHeaderDark : styles.sheetHeader
+                                : colorScheme === 'dark' ? styles.sheetDark : styles.sheet,
+                            colorScheme === 'dark' ? styles.sheetFooterDark : styles.sheetFooter,
                             style
-                        ] }>
+                        ] } >
                         <ScrollView
                             bounces = { false }
                             showsVerticalScrollIndicator = { false }
                             style = { [
-                                renderFooter && styles.sheet,
+                                colorScheme === 'dark' ? styles.sheetDark : styles.sheet,
                                 addScrollViewPadding && styles.scrollView
                             ] } >
                             { this.props.children }

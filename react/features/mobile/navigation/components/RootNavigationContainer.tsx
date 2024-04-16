@@ -1,7 +1,7 @@
 import { NavigationContainer, Theme } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import React, { useCallback } from 'react';
-import { StatusBar } from 'react-native';
+import { Appearance, StatusBar } from 'react-native';
 import { connect } from 'react-redux';
 
 import { IReduxState, IStore } from '../../../app/types';
@@ -22,7 +22,9 @@ import {
     connectingScreenOptions,
     dialInSummaryScreenOptions,
     navigationContainerTheme,
+    navigationContainerThemeDark,
     preJoinScreenOptions,
+    preJoinScreenOptionsDark,
     unsafeMeetingScreenOptions,
     welcomeScreenOptions,
     whiteboardScreenOptions
@@ -64,12 +66,18 @@ const RootNavigationContainer = ({ dispatch, isUnsafeRoomWarningAvailable, isWel
         });
     }, [ dispatch ]);
 
+    const colorScheme = Appearance.getColorScheme();
+
+    const navTheme = colorScheme === 'dark' ? navigationContainerThemeDark : navigationContainerTheme;
+
     return (
         <NavigationContainer
             independent = { true }
             onReady = { onReady }
             ref = { rootNavigationRef }
-            theme = { navigationContainerTheme as Theme }>
+
+            // jitsi edit add darkmode in header style
+            theme = { navTheme as Theme }>
             <StatusBar
                 animated = { true }
                 backgroundColor = 'transparent'
@@ -103,7 +111,7 @@ const RootNavigationContainer = ({ dispatch, isUnsafeRoomWarningAvailable, isWel
                 <RootStack.Screen
                     component = { Prejoin }
                     name = { screen.preJoin }
-                    options = { preJoinScreenOptions } />
+                    options = { colorScheme === 'dark' ? preJoinScreenOptionsDark : preJoinScreenOptions } />
                 {
                     isUnsafeRoomWarningAvailable
                     && <RootStack.Screen

@@ -3,7 +3,8 @@ import { BoxModel } from '../base/styles/components/styles/BoxModel';
 /**
  * The size (height and width) of the small (not tile view) thumbnails.
  */
-export const SMALL_THUMBNAIL_SIZE = 80;
+// jisti edit aadjusted tile view height
+export const SMALL_THUMBNAIL_SIZE = 90;
 
 /**
  * The height of the filmstrip in narrow aspect ratio, or width in wide.
@@ -18,7 +19,8 @@ export const TILE_ASPECT_RATIO = 16 / 9;
 /**
  * The aspect ratio of a square tile in tile view.
  */
-export const SQUARE_TILE_ASPECT_RATIO = 1;
+// jitsi edit update tile square ratio111 3
+export const SQUARE_TILE_ASPECT_RATIO = 4 / 3;
 
 /**
  * Width below which the overflow menu(s) will be displayed as drawer(s).
@@ -46,12 +48,12 @@ export const TILE_MIN_HEIGHT_LARGE = 200;
 /**
  * Aspect ratio for portrait tiles.
  */
-export const TILE_PORTRAIT_ASPECT_RATIO = 1 / 1.3;
+export const TILE_PORTRAIT_ASPECT_RATIO = 4 / 3;
 
 /**
  * The default number of visible tiles for tile view.
  */
-export const TILE_VIEW_DEFAULT_NUMBER_OF_VISIBLE_TILES = 25;
+export const TILE_VIEW_DEFAULT_NUMBER_OF_VISIBLE_TILES = 4;
 
 /**
  * The default number of columns for tile view.
@@ -96,14 +98,14 @@ export const DISPLAY_MODE_TO_CLASS_NAME = [
  *
  * @type {number}
  */
-export const TILE_VERTICAL_MARGIN = 4;
+export const TILE_VERTICAL_MARGIN = 1;
 
 /**
  * The horizontal margin of a tile.
  *
  * @type {number}
  */
-export const TILE_HORIZONTAL_MARGIN = 4;
+export const TILE_HORIZONTAL_MARGIN = 1;
 
 /**
  * The horizontal margin of a vertical filmstrip tile container.

@@ -34,9 +34,22 @@ const toolbarButtonIcon = {
 /**
  * The icon style of toolbar buttons which display white icons.
  */
-const whiteToolbarButtonIcon = {
+// const whiteToolbarButtonIcon = {
+//     ...toolbarButtonIcon,
+//     color: BaseTheme.palette.icon01
+// };
+
+// // jitsi edit add toggled
+// const whiteToolbarButtonIconToggled = {
+//     ...toolbarButtonIcon,
+//     color: BaseTheme.palette.icon05
+// };
+
+
+// jitsi edit change hangup icon color to whiute
+const whiteToolbarButtonIconDark = {
     ...toolbarButtonIcon,
-    color: BaseTheme.palette.icon01
+    color: BaseTheme.palette.icon012
 };
 
 /**
@@ -71,6 +84,15 @@ const reactionMenu = {
     padding: BaseTheme.spacing[3]
 };
 
+// jitsi edit add bg dark for reactions menu
+const reactionMenuDark = {
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: BaseTheme.palette.ui01Dark,
+    padding: BaseTheme.spacing[3]
+};
+
 /**
  * The Toolbox and toolbar related styles.
  */
@@ -86,7 +108,29 @@ const styles = {
      */
     toolbox: {
         alignItems: 'center',
-        backgroundColor: BaseTheme.palette.uiBackground,
+
+        // backgroundColor: BaseTheme.palette.ui01,
+        // jitsi edit change toolbar bg
+        backgroundColor: BaseTheme.palette.ui01,
+        borderColor: 'red',
+        borderRadius: BaseTheme.shape.borderRadius,
+        borderStyle: 'solid',
+        borderTopLeftRadius: 3,
+        borderTopRightRadius: 3,
+        flexDirection: 'row',
+        justifyContent: 'space-between'
+    },
+
+    // jitsi edit add darkmode bg for toolbox
+    toolboxDark: {
+        alignItems: 'center',
+
+        // backgroundColor: BaseTheme.palette.ui01,
+        // jitsi edit change toolbar bg
+        backgroundColor: BaseTheme.palette.ui01Dark,
+        borderColor: 'red',
+        borderRadius: BaseTheme.shape.borderRadius,
+        borderStyle: 'solid',
         borderTopLeftRadius: 3,
         borderTopRightRadius: 3,
         flexDirection: 'row',
@@ -97,9 +141,11 @@ const styles = {
      * The style of the root/top-level container of {@link Toolbox}.
      */
     toolboxContainer: {
-        backgroundColor: BaseTheme.palette.uiBackground,
+        borderColor: 'red',
+        borderRadius: BaseTheme.shape.borderRadius,
+        borderStyle: 'solid',
         flexDirection: 'column',
-        maxWidth: 580,
+        maxWidth: '100%',
         marginLeft: 'auto',
         marginRight: 'auto',
         width: '100%'
@@ -121,7 +167,41 @@ ColorSchemeRegistry.register('Toolbox', {
     },
 
     buttonStylesBorderless: {
-        iconStyle: whiteToolbarButtonIcon,
+        // jitsi edit remove color for icons that are outlibne
+        iconStyle: {
+            ...toolbarButtonIcon,
+            color: BaseTheme.palette.icon01,
+            strokeColor: BaseTheme.palette.icon01,
+            stroke: BaseTheme.palette.icon01,
+            fill: BaseTheme.palette.icon01,
+            strokeWidth: 1.5
+        },
+        style: {
+            ...toolbarButton,
+            backgroundColor: 'transparent'
+        },
+        underlayColor: 'transparent'
+    },
+
+    buttonStylesBorderlessDark: {
+        // jitsi edit add bg dark color for icons
+        iconStyle: {
+            ...toolbarButtonIcon,
+            color: BaseTheme.palette.icon012
+        },
+        style: {
+            ...toolbarButton,
+            backgroundColor: 'transparent'
+        },
+        underlayColor: 'transparent'
+    },
+
+    // jitsi edit add style for icons that are solid like horizontal need color
+    buttonStylesBorderlessSolid: {
+        iconStyle: {
+            ...toolbarButtonIcon,
+            color: BaseTheme.palette.icon01
+        },
         style: {
             ...toolbarButton,
             backgroundColor: 'transparent'
@@ -130,7 +210,9 @@ ColorSchemeRegistry.register('Toolbox', {
     },
 
     backgroundToggle: {
-        backgroundColor: BaseTheme.palette.ui04
+        // jitsi edit change bg to transparent
+        // backgroundColor: BaseTheme.palette.ui04,
+        backgroundColor: 'transparent'
     },
 
     hangupMenuContainer: {
@@ -145,12 +227,15 @@ ColorSchemeRegistry.register('Toolbox', {
     },
 
     hangupButtonStyles: {
-        iconStyle: whiteToolbarButtonIcon,
+        iconStyle: whiteToolbarButtonIconDark,
         style: {
             ...toolbarButton,
             backgroundColor: schemeColor('hangup')
         },
-        underlayColor: BaseTheme.palette.ui04
+
+        // jitsi edit change bg after toggle of hangup button
+        // underlayColor: BaseTheme.palette.ui04
+        underlayColor: '#e02b33'
     },
 
     reactionDialog: {
@@ -162,9 +247,23 @@ ColorSchemeRegistry.register('Toolbox', {
 
     overflowReactionMenu: reactionMenu,
 
+    // jisti edit add dark mode for reactions menu
+    overflowReactionMenuDark: reactionMenuDark,
+
     reactionMenu: {
         ...reactionMenu,
-        borderRadius: 3,
+
+        // jitsi edit change border radius
+        borderRadius: 10,
+        width: 360
+    },
+
+    // jisti edit add dark mode for reactions menu
+    reactionMenuDark: {
+        ...reactionMenuDark,
+
+        // jitsi edit change border radius
+        borderRadius: 10,
         width: 360
     },
 
@@ -196,7 +295,34 @@ ColorSchemeRegistry.register('Toolbox', {
      * Styles for toggled buttons in the toolbar.
      */
     toggledButtonStyles: {
-        iconStyle: whiteToolbarButtonIcon,
+        iconStyle: {
+            ...toolbarButtonIcon,
+            color: BaseTheme.palette.icon05
+        },
+        style: {
+            ...toolbarButton
+        },
+        underlayColor: 'transparent',
+    },
+
+    // jitsi edit add muted for toolbox muted icons
+    mutedButtonStyles: {
+        iconStyle: {
+            ...toolbarButtonIcon,
+            color: BaseTheme.palette.icon01
+        },
+        style: {
+            ...toolbarButton
+        },
+        underlayColor: 'transparent'
+    },
+
+    // jitsi edit add muted for toolbox muted icons in dark mode
+    mutedButtonStylesDark: {
+        iconStyle: {
+            ...toolbarButtonIcon,
+            color: BaseTheme.palette.icon012
+        },
         style: {
             ...toolbarButton
         },

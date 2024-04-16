@@ -73,8 +73,9 @@ export const resultsStyles = createStyleSheet({
     },
 
     voters: {
-        backgroundColor: BaseTheme.palette.ui04,
-        borderColor: BaseTheme.palette.ui03,
+        // jitsi edit change voter container bg and border
+        backgroundColor: BaseTheme.palette.ui08,
+        borderColor: BaseTheme.palette.ui07,
         borderRadius: BaseTheme.shape.borderRadius,
         borderWidth: 1,
         padding: BaseTheme.spacing[2],
@@ -129,6 +130,13 @@ export const chatStyles = createStyleSheet({
         maxWidth: '70%'
     },
 
+    noPollTextDark: {
+        flex: 1,
+        color: BaseTheme.palette.text012,
+        textAlign: 'center',
+        maxWidth: '70%'
+    },
+
     pollItemContainer: {
         backgroundColor: BaseTheme.palette.uiBackground,
         borderColor: BaseTheme.palette.ui06,
@@ -150,7 +158,8 @@ export const chatStyles = createStyleSheet({
 
     pollCreateButtonsContainerAndroid: {
         marginBottom: BaseTheme.spacing[8],
-        marginHorizontal: BaseTheme.spacing[3]
+        marginHorizontal: BaseTheme.spacing[3],
+        flex: 1
     },
 
     pollCreateButtonsContainerIos: {
@@ -190,12 +199,46 @@ export const chatStyles = createStyleSheet({
 
     pollCreateAddButton: {
         marginHorizontal: BaseTheme.spacing[1],
-        marginVertical: BaseTheme.spacing[2]
+        marginVertical: BaseTheme.spacing[2],
+
+        // jitsi edit add bg for add button
+        backgroundColor: '#FFFFFF',
+        borderStyle: 'solid',
+        borderWidth: 1,
+        borderColor: '#CBD5E1'
     },
 
+    // jitsi edit change button text for poll create
+    pollCreateButtonTextLabel: {
+        color: BaseTheme.palette.text01
+    },
+
+    // jitsi edit change button bg for poll create
+    pollCreateButtonTextLabelDark: {
+        color: BaseTheme.palette.text012
+    },
+
+    // jitsi edit change button bg for poll create
     pollCreateButton: {
         marginHorizontal: BaseTheme.spacing[1],
-        width: 160
+        width: 160,
+        backgroundColor: '#0891B2',
+
+        // jitsi edit add flex
+        flex: 1
+    },
+
+    // jitsi edit change button bg for poll create
+    pollCreateButtonSecondary: {
+        marginHorizontal: BaseTheme.spacing[1],
+        width: 160,
+        backgroundColor: '#FFFFFF',
+        borderStyle: 'solid',
+        borderWidth: 1,
+        borderColor: '#CBD5E1',
+
+        // jitsi edit add flex
+        flex: 1
     },
 
     toggleText: {
@@ -218,6 +261,12 @@ export const chatStyles = createStyleSheet({
 
     pollPaneContainer: {
         backgroundColor: BaseTheme.palette.ui01,
+        flex: 1
+    },
+
+    // jitsi edit add darkmode for poll
+    pollPaneContainerDark: {
+        backgroundColor: BaseTheme.palette.ui02Dark,
         flex: 1
     },
 

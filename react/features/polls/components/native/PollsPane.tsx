@@ -2,7 +2,7 @@
 
 import { useNavigation } from '@react-navigation/native';
 import React, { useEffect } from 'react';
-import { Platform } from 'react-native';
+import { Appearance, Platform } from 'react-native';
 import { useSelector } from 'react-redux';
 
 import { IReduxState } from '../../../app/types';
@@ -44,12 +44,19 @@ const PollsPane = (props: AbstractProps) => {
     const createPollButtonStyles = Platform.OS === 'android'
         ? chatStyles.createPollButtonAndroid : chatStyles.createPollButtonIos;
 
+    // jitsi edit add dark mode
+    const colorScheme = Appearance.getColorScheme();
+
+    const pollContainer = colorScheme === 'dark' ? chatStyles.pollPaneContainerDark : chatStyles.pollPaneContainer;
+
     return (
         <JitsiScreen
             contentContainerStyle = { chatStyles.pollPane as StyleType }
             disableForcedKeyboardDismiss = { true }
             hasExtraHeaderHeight = { true }
-            style = { chatStyles.pollPaneContainer as StyleType }>
+
+            // jitsi edit add dark mode poll
+            style = { pollContainer as StyleType }>
             {
                 createMode
                     ? <PollCreate setCreateMode = { setCreateMode } />

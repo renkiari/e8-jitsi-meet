@@ -30,6 +30,9 @@ export default StyleSheet.create({
      * Make {@code Video} fill its container.
      */
     video: {
-        flex: 1
+        flex: 1,
+
+        // jitsi edit prejoin video border roundness
+        borderRadius: 12
     }
 });

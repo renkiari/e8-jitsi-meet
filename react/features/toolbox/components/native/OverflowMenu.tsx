@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { ViewStyle } from 'react-native';
+import { Appearance, ViewStyle } from 'react-native';
 import { Divider } from 'react-native-paper';
 import { connect } from 'react-redux';
 
@@ -120,20 +120,31 @@ class OverflowMenu extends PureComponent<IProps, IState> {
         } = this.props;
         const toolbarButtons = getMovableButtons(_width);
 
+        // jitsi edit add dark mode
+        const colorScheme = Appearance.getColorScheme();
+
         const buttonProps = {
             afterClick: this._onCancel,
             showLabel: true,
-            styles: bottomSheetStyles.buttons
+
+            // jitsi edit add overflow styles for dark mode icon and text
+            styles: colorScheme === 'dark' ? bottomSheetStyles.buttonsDark : bottomSheetStyles.buttons
         };
+
+        // jitsi edit add overflow styles for dark mode icon and text
+        const buttonSheetStyle = colorScheme === 'dark' ? bottomSheetStyles.buttonsDark : bottomSheetStyles.buttons;
+        const buttonDarkStyle = bottomSheetStyles.buttonsDark.style;
+        const buttonSytle = bottomSheetStyles.buttons.style;
+        const buttonStyle = colorScheme === 'dark' ? buttonDarkStyle : buttonSytle;
 
         const topButtonProps = {
             afterClick: this._onCancel,
             dispatch,
             showLabel: true,
             styles: {
-                ...bottomSheetStyles.buttons,
+                ...buttonSheetStyle,
                 style: {
-                    ...bottomSheetStyles.buttons.style,
+                    ...buttonStyle,
                     borderTopLeftRadius: 16,
                     borderTopRightRadius: 16
                 }

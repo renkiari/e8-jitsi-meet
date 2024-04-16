@@ -11,13 +11,22 @@ export const colors = {
     primary03: '#003486',
     primary04: '#0045B3',
     primary05: '#0056E0',
-    primary06: '#246FE5',
-    primary07: '#4687ED',
+
+    // jitsi edit change primary button bg
+    primary06: '#0891B2',
+
+    // jitsi edit change header button text color
+    primary07: '#0891B2',
     primary08: '#99BBF3',
     primary09: '#CCDDF9',
 
-    surface01: '#040404',
-    surface02: '#141414',
+    // jitsi edit change navigation ui background
+    surface01: '#ebf5f8',
+    surface01Dark: '#617187',
+
+    // jitsi edit change navigation header background
+    surface02: '#F1F5F9',
+    surface02Dark: '#363439',
     surface03: '#292929',
     surface04: '#3D3D3D',
     surface05: '#525252',
@@ -26,7 +35,20 @@ export const colors = {
     surface08: '#A3A3A3',
     surface09: '#C2C2C2',
     surface10: '#E0E0E0',
-    surface11: '#FFF',
+
+    // jitsi edit change navigation header title color
+    surface11: '#334155',
+
+    // jitsi edit add new color for priimary text
+    // surface12: '#FFFFFF',
+    surface12: '#F8FAFC',
+
+    // jitsi edit add new color for icon color
+    surface13: '#64748B',
+
+    // jitsi edit add 14 & 15 for bg underlay tileview, carmode
+    surface14: '#64748B8C',
+    surface15: '#CBD5E18C',
 
     success04: '#189B55',
     success05: '#1EC26A',
@@ -51,9 +73,15 @@ export const colorMap = {
 
     // Default page background
     uiBackground: 'surface01',
+    uiBackgroundDark: 'surface01Dark',
 
     // Container backgrounds
+    // jitsi edit prejoin header bg
     ui01: 'surface02',
+    ui01Dark: 'surface02Dark',
+
+    // bg dark bg for view
+    ui02Dark: 'surface13',
     ui02: 'surface03',
     ui03: 'surface04',
     ui04: 'surface05',
@@ -63,6 +91,11 @@ export const colorMap = {
     ui08: 'surface09',
     ui09: 'surface10',
     ui10: 'surface11',
+    ui11: 'primary07',
+
+    // jitsi add surface 12 & 13 for bg underlay tileview thumbnail light dark
+    ui12: 'surface14',
+    ui13: 'surface15',
 
     // ----- Actions -----
 
@@ -103,6 +136,9 @@ export const colorMap = {
     // Primary
     text01: 'surface11',
 
+    // jitsi edit add option for primary text color / dark mode
+    text012: 'surface12',
+
     // Secondary
     text02: 'surface09',
 
@@ -118,7 +154,11 @@ export const colorMap = {
     // ----- Icons -----
 
     // Primary
-    icon01: 'surface11',
+    icon01: 'surface13',
+
+    // jitsi edit change secondary icon color to white
+    // Primary dark
+    icon012: 'surface12',
 
     // Secondary
     icon02: 'surface09',
@@ -128,6 +168,9 @@ export const colorMap = {
 
     // High-contrast
     icon04: 'surface01',
+
+    // icon enov8tive blue
+    icon05: 'primary06',
 
     // Error
     iconError: 'error06',
@@ -166,7 +209,7 @@ export const font = {
 };
 
 export const shape = {
-    borderRadius: 6,
+    borderRadius: 15,
     circleRadius: 50,
     boxShadow: 'inset 0px -1px 0px rgba(255, 255, 255, 0.15)'
 };

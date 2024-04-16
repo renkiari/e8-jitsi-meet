@@ -152,6 +152,9 @@ const PollCreate = (props: AbstractProps) => {
                         accessibilityLabel = 'polls.create.addOption'
                         disabled = { answers.length >= ANSWERS_LIMIT }
                         labelKey = 'polls.create.addOption'
+
+                        // jitsi edit add style for button text
+                        labelStyle = { chatStyles.pollCreateButtonTextLabel }
                         onClick = { () => {
                             // adding and answer
                             addAnswer();
@@ -164,13 +167,21 @@ const PollCreate = (props: AbstractProps) => {
                         <Button
                             accessibilityLabel = 'polls.create.cancel'
                             labelKey = 'polls.create.cancel'
+
+                            // jitsi edit add style for button text
+                            labelStyle = { chatStyles.pollCreateButtonTextLabel }
                             onClick = { () => setCreateMode(false) }
-                            style = { chatStyles.pollCreateButton }
+
+                            // jitsi edit add secondary button style
+                            style = { chatStyles.pollCreateButtonSecondary }
                             type = { SECONDARY } />
                         <Button
                             accessibilityLabel = 'polls.create.send'
                             disabled = { isSubmitDisabled }
                             labelKey = 'polls.create.send'
+
+                            // jitsi edit add style for button text
+                            labelStyle = { chatStyles.pollCreateButtonTextLabelDark }
                             onClick = { onSubmit }
                             style = { chatStyles.pollCreateButton }
                             type = { PRIMARY } />

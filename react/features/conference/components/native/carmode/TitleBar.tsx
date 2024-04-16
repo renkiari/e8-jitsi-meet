@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleProp, Text, View, ViewStyle } from 'react-native';
+import { Appearance, StyleProp, Text, View, ViewStyle } from 'react-native';
 import { connect, useSelector } from 'react-redux';
 
 import { IReduxState } from '../../../../app/types';
@@ -39,6 +39,9 @@ const TitleBar = (props: IProps): JSX.Element => {
     const localParticipant = useSelector(getLocalParticipant);
     const localParticipantId = localParticipant?.id;
 
+    // jitsi edit add dark mode
+    const colorScheme = Appearance.getColorScheme();
+
     return (
         <View
             style = { styles.titleBarWrapper as StyleProp<ViewStyle> }>
@@ -60,7 +63,7 @@ const TitleBar = (props: IProps): JSX.Element => {
                     && <View style = { styles.roomNameView as StyleProp<ViewStyle> }>
                         <Text
                             numberOfLines = { 1 }
-                            style = { styles.roomName }>
+                            style = { colorScheme === 'dark' ? styles.roomNameDark : styles.roomName }>
                             { props._meetingName }
                         </Text>
                     </View>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { FlatList, Text, TextStyle, View, ViewStyle } from 'react-native';
+import { Appearance, FlatList, Text, TextStyle, View, ViewStyle } from 'react-native';
 import { connect } from 'react-redux';
 
 import { translate } from '../../../base/i18n/functions';
@@ -77,9 +77,13 @@ class MessageContainer extends AbstractMessageContainer<IProps, any> {
     _renderListEmptyComponent() {
         const { t } = this.props;
 
+        // jitsi edit add dark mode for chat no messages
+        const colorScheme = Appearance.getColorScheme();
+        const noMessageStyle = colorScheme === 'dark' ? styles.emptyComponentTextDark : styles.emptyComponentText;
+
         return (
             <View style = { styles.emptyComponentWrapper as ViewStyle }>
-                <Text style = { styles.emptyComponentText as TextStyle }>
+                <Text style = { noMessageStyle as TextStyle }>
                     { t('chat.noMessagesMessage') }
                 </Text>
             </View>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { TouchableHighlight } from 'react-native';
+import { TouchableOpacity } from 'react-native';
 import { Button as NativePaperButton, Text } from 'react-native-paper';
 
 import { BUTTON_MODES, BUTTON_TYPES } from '../../constants.native';
@@ -71,7 +71,9 @@ const Button: React.FC<IProps> = ({
         buttonLabelStyles = styles.buttonLabelTertiary;
 
         return (
-            <TouchableHighlight
+
+            // jitsi edit change tertiary butotn from touchable highlight to touchable opacity for header button
+            <TouchableOpacity
                 accessibilityLabel = { accessibilityLabel }
                 disabled = { disabled }
                 onPress = { onPress }
@@ -84,7 +86,7 @@ const Button: React.FC<IProps> = ({
                         buttonLabelStyles,
                         labelStyle
                     ] }>{ t(labelKey ?? '') }</Text>
-            </TouchableHighlight>
+            </TouchableOpacity>
         );
     }
 
