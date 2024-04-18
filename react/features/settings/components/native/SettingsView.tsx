@@ -63,7 +63,7 @@ const SettingsView = ({ isInWelcomePage }: IProps) => {
             style = { colorScheme === 'dark' ? styles.settingsViewContainerDark : styles.settingsViewContainer }>
             <ScrollView bounces = { scrollBounces }>
                 <View style = { styles.profileContainerWrapper as ViewStyle }>
-                    <TouchableHighlight
+                    <TouchableOpacity
 
                         /* eslint-disable react/jsx-no-bind */
                         onPress = { () => navigate(screen.settings.profile) }>
