@@ -82,7 +82,6 @@ class ChatInputBar extends Component<IProps, IState> {
             inputBarStyles = styles.inputBarNarrow;
         }
 
-        // jitsi edit add dark mode
         const colorScheme = Appearance.getColorScheme();
 
         return (
@@ -100,9 +99,6 @@ class ChatInputBar extends Component<IProps, IState> {
                     onChange = { this._onChangeText }
                     onFocus = { this._onFocused(true) }
                     onSubmitEditing = { this._onSubmit }
-
-                    // jitsi edit change text input placeholder
-                    // placeholder = { this.props.t('chat.fieldPlaceHolder') }
                     placeholder = { 'Message...' }
                     returnKeyType = 'send'
                     value = { this.state.message } />

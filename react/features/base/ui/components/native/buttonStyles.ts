@@ -39,8 +39,6 @@ export default {
 
     buttonLabelPrimary: {
         ...buttonLabel,
-
-        // jitsi edit change prejoin join button text color
         color: BaseTheme.palette.text012
     },
 

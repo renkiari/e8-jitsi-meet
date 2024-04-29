@@ -44,7 +44,6 @@ const PollsPane = (props: AbstractProps) => {
     const createPollButtonStyles = Platform.OS === 'android'
         ? chatStyles.createPollButtonAndroid : chatStyles.createPollButtonIos;
 
-    // jitsi edit add dark mode
     const colorScheme = Appearance.getColorScheme();
 
     const pollContainer = colorScheme === 'dark' ? chatStyles.pollPaneContainerDark : chatStyles.pollPaneContainer;
@@ -54,8 +53,6 @@ const PollsPane = (props: AbstractProps) => {
             contentContainerStyle = { chatStyles.pollPane as StyleType }
             disableForcedKeyboardDismiss = { true }
             hasExtraHeaderHeight = { true }
-
-            // jitsi edit add dark mode poll
             style = { pollContainer as StyleType }>
             {
                 createMode

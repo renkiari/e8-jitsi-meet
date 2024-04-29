@@ -70,7 +70,6 @@ class RoomParticipantMenu extends PureComponent<IProps> {
      * @inheritdoc
      */
     render() {
-        // jitsi edit add dark mode
         const colorScheme = Appearance.getColorScheme();
         const itemStyle = colorScheme === 'dark' ? styles.contextMenuItemTextDark : styles.contextMenuItemText;
         const { _rooms, participantJid, room, t } = this.props;
@@ -115,22 +114,17 @@ class RoomParticipantMenu extends PureComponent<IProps> {
      */
     _renderMenuHeader() {
         const { participantName } = this.props;
-
-        // jisti edit add dark mode
         const colorScheme = Appearance.getColorScheme();
         const nameStyle = colorScheme === 'dark' ? styles.participantNameLabelDark : styles.participantNameLabel;
 
         return (
             <View
                 style = { [
-
-                    // jisti edit add dark mode
                     colorScheme === 'dark' ? bottomSheetStyles.sheetDark : bottomSheetStyles.sheet,
                     styles.participantNameContainer ] as ViewStyle[] }>
                 <Avatar
                     displayName = { participantName }
                     size = { AVATAR_SIZE } />
-                {/* // jisti edit add dark mode */}
                 <Text style = { nameStyle as TextStyle }>
                     { participantName }
                 </Text>

@@ -1,6 +1,6 @@
 import React, { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { TouchableOpacity, View, ViewStyle } from 'react-native';
+import { Appearance, TouchableOpacity, View, ViewStyle } from 'react-native';
 import { Divider, Text } from 'react-native-paper';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -47,6 +47,9 @@ export const ContextMenuMore = () => {
     const enableAudioModeration = useCallback(() => dispatch(requestEnableAudioModeration()), [ dispatch ]);
     const enableVideoModeration = useCallback(() => dispatch(requestEnableVideoModeration()), [ dispatch ]);
 
+    const colorScheme = Appearance.getColorScheme();
+    const textStyle = colorScheme === 'dark' ? styles.contextMenuItemTextDark : styles.contextMenuItemText;
+
     return (
         <BottomSheet
             addScrollViewPadding = { false }
@@ -55,9 +58,10 @@ export const ContextMenuMore = () => {
                 onPress = { muteAllVideo }
                 style = { styles.contextMenuItem as ViewStyle }>
                 <Icon
+                    color = { colorScheme === 'dark' ? '#ebf5f8' : '#334155' }
                     size = { 24 }
                     src = { IconVideoOff } />
-                <Text style = { styles.contextMenuItemText }>{t('participantsPane.actions.stopEveryonesVideo')}</Text>
+                <Text style = { textStyle }>{t('participantsPane.actions.stopEveryonesVideo')}</Text>
             </TouchableOpacity>
             {isModerationSupported && ((participantCount === 1 || !allModerators)) && <>
                 {/* @ts-ignore */}

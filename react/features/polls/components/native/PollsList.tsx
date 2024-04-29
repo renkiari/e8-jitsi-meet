@@ -33,7 +33,6 @@ const PollsList = () => {
         scrollToBottom();
     }, [ polls ]);
 
-    // jitsi edit add dark mode
     const colorScheme = Appearance.getColorScheme();
 
     const noPollTextStyle = colorScheme === 'dark' ? chatStyles.noPollTextDark : chatStyles.noPollText;
@@ -44,8 +43,6 @@ const PollsList = () => {
                 listPolls.length === 0
                 && <View style = { chatStyles.noPollContent as ViewStyle }>
                     <Icon
-
-                        // jitsi edit add dark mode for chat icon in polls
                         color = { colorScheme === 'dark' ? BaseTheme.palette.icon012 : BaseTheme.palette.icon03 }
                         size = { 160 }
                         src = { IconMessage } />

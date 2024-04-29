@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { Text, TextStyle, View, ViewStyle } from 'react-native';
+import { Appearance, Text, TextStyle, View, ViewStyle } from 'react-native';
 import { Divider } from 'react-native-paper';
 import { connect } from 'react-redux';
 
@@ -75,12 +75,12 @@ class SharedVideoMenu extends PureComponent<IProps> {
             _isParticipantAvailable,
             participantId
         } = this.props;
-
+        const colorScheme = Appearance.getColorScheme();
         const buttonProps = {
             afterClick: this._onCancel,
             showLabel: true,
             participantID: participantId,
-            styles: bottomSheetStyles.buttons
+            styles: colorScheme === 'dark' ? bottomSheetStyles.buttonsDark : bottomSheetStyles.buttons
         };
 
         return (
@@ -112,15 +112,21 @@ class SharedVideoMenu extends PureComponent<IProps> {
     _renderMenuHeader() {
         const { participantId } = this.props;
 
+        const colorScheme = Appearance.getColorScheme();
+        const bottomSheetStyle = colorScheme === 'dark' ? bottomSheetStyles.sheetDark : bottomSheetStyles.sheet;
+        const containerDarkStyle = styles.participantNameContainerDark;
+        const headerStyle = colorScheme === 'dark' ? containerDarkStyle : styles.participantNameContainer;
+        const labelStyle = colorScheme === 'dark' ? styles.participantNameLabelDark : styles.participantNameLabel;
+
         return (
             <View
                 style = { [
-                    bottomSheetStyles.sheet,
-                    styles.participantNameContainer ] as ViewStyle[] }>
+                    bottomSheetStyle,
+                    headerStyle ] as ViewStyle[] }>
                 <Avatar
                     participantId = { participantId }
                     size = { AVATAR_SIZE } />
-                <Text style = { styles.participantNameLabel as TextStyle }>
+                <Text style = { labelStyle as TextStyle }>
                     { this.props._participantDisplayName }
                 </Text>
             </View>

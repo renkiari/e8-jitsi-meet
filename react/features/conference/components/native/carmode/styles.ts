@@ -35,8 +35,6 @@ export default {
         flex: 1,
         justifyContent: 'center'
     },
-
-    // jitsi edit add darkmode bg for carmode
     conferenceDark: {
         backgroundColor: BaseTheme.palette.uiBackgroundDark,
         flex: 1,
@@ -68,8 +66,6 @@ export default {
             alignSelf: 'stretch',
             flex: 1,
             justifyContent: 'center',
-
-            // jitsi edit change carmode mic bg light
             backgroundColor: BaseTheme.palette.ui13
         },
 
@@ -78,8 +74,6 @@ export default {
             alignSelf: 'stretch',
             flex: 1,
             justifyContent: 'center',
-
-            // jitsi edit change carmode mic bg dark
             backgroundColor: BaseTheme.palette.ui14
         },
 
@@ -125,7 +119,6 @@ export default {
         color: BaseTheme.palette.text02
     },
 
-    // jitsi edit change carmode sound device button
     soundDeviceButton: {
         marginBottom: BaseTheme.spacing[3],
         width: 240,
@@ -139,7 +132,6 @@ export default {
         width: 240
     },
 
-    // jitsi edit add end button label style carmode
     endMeetingButtonLabel: {
         color: BaseTheme.palette.text012
     },
@@ -157,7 +149,6 @@ export default {
         backgroundColor: BaseTheme.palette.uiBackground
     },
 
-    // jitsi edit add bg for darkmode carmode
     titleBarSafeViewColorDark: {
         ...titleBarSafeView,
         backgroundColor: BaseTheme.palette.uiBackgroundDark
@@ -184,7 +175,6 @@ export default {
     },
 
     roomNameView: {
-        // jitsi edit remove bg of room name in car mode
         flexShrink: 1,
         justifyContent: 'center',
         paddingHorizontal: BaseTheme.spacing[2]
@@ -195,7 +185,6 @@ export default {
         ...BaseTheme.typography.bodyShortBold
     },
 
-    // jitsi edit add dark mode text for roomname carmode
     roomNameDark: {
         color: BaseTheme.palette.text012,
         ...BaseTheme.typography.bodyShortBold
@@ -214,7 +203,6 @@ export default {
         width: '100%'
     },
 
-    // jitsi edit add darkmode for carmode label
     videoStoppedLabelDark: {
         ...BaseTheme.typography.bodyShortRegularLarge,
         color: BaseTheme.palette.text012,

@@ -40,8 +40,6 @@ const BreakoutRooms = () => {
         <JitsiScreen
             footerComponent = { isLocalModerator && showAddBreakoutRoom
                 ? AddBreakoutRoomButton : undefined }
-
-            // jitsi edit add darkmnode breakout rooms
             style = { colorScheme === 'dark' ? styles.breakoutRoomsContainerDark : styles.breakoutRoomsContainer }>
 
             { /* Fixes warning regarding nested lists */ }

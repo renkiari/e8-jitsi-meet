@@ -10,7 +10,6 @@ export default {
         flex: 1
     },
 
-    // jitsi edit add bg dark for security options
     securityDialogContainerDark: {
         backgroundColor: BaseTheme.palette.ui02Dark,
         flex: 1
@@ -35,7 +34,6 @@ export default {
         color: BaseTheme.palette.text01
     },
 
-    // jitsi add text dark mode security options
     lobbyModeTextDark: {
         color: BaseTheme.palette.text012
     },
@@ -46,7 +44,6 @@ export default {
         marginTop: BaseTheme.spacing[2]
     },
 
-    // jitsi add text dark mode security options
     lobbyModeLabelDark: {
         color: BaseTheme.palette.text012,
         fontWeight: 'bold',
@@ -69,7 +66,6 @@ export default {
         color: BaseTheme.palette.text01
     },
 
-    // jitsi edit add dark text for password security options
     passwordContainerTextDark: {
         color: BaseTheme.palette.text012
     },
@@ -112,7 +108,6 @@ export default {
         color: BaseTheme.palette.text01
     },
 
-    // jitsi edit add dark text for password security options
     passwordSetRemotelyTextDark: {
         color: BaseTheme.palette.text012
     },

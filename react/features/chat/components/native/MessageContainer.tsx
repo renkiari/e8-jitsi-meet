@@ -76,8 +76,6 @@ class MessageContainer extends AbstractMessageContainer<IProps, any> {
      */
     _renderListEmptyComponent() {
         const { t } = this.props;
-
-        // jitsi edit add dark mode for chat no messages
         const colorScheme = Appearance.getColorScheme();
         const noMessageStyle = colorScheme === 'dark' ? styles.emptyComponentTextDark : styles.emptyComponentText;
 

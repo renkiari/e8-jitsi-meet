@@ -88,8 +88,6 @@ export const navigationStyles = {
         alignItems: 'center',
         display: 'flex',
         flexDirection: 'row',
-
-        // jitsi edit remove ng for chats and polls
         backgroundColor: 'transparent'
     },
 
@@ -101,8 +99,6 @@ export const navigationStyles = {
         ...unreadCounterDescription,
         color: BaseTheme.palette.text01
     },
-
-    // jitsi edit add dark mode for tab chats
     unreadCounterDescriptionFocusedDark: {
         ...unreadCounterDescription,
         color: BaseTheme.palette.text012

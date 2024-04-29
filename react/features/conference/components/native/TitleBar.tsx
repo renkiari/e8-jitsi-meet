@@ -94,8 +94,6 @@ const TitleBar = (props: IProps) => {
                     && <View style = { styles.roomNameView as ViewStyle }>
                         <Text
                             numberOfLines = { 1 }
-
-                            // jitsi edit add dark mode for bg color
                             style = { colorScheme === 'dark' ? styles.roomNameDark : styles.roomName }>
                             { props._meetingName }
                         </Text>

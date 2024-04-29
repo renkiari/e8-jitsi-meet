@@ -75,7 +75,6 @@ function Toolbox(props: IProps) {
 
     const bottomEdge = Platform.OS === 'ios' && _visible;
 
-    // jitsi edit add styles custom
     const {
         buttonStylesBorderless,
         buttonStylesBorderlessDark,
@@ -93,7 +92,6 @@ function Toolbox(props: IProps) {
         ]
     };
 
-    // jitsi edit add darkmode bg for toolbox
     const style = colorScheme === 'dark' ? { ...styles.toolboxDark } : { ...styles.toolbox };
     const buttonStyle = colorScheme === 'dark' ? buttonStylesBorderlessDark : buttonStylesBorderless;
 
@@ -127,7 +125,9 @@ function Toolbox(props: IProps) {
                         toggledStyles = { backgroundToggledStyle } />
                 }
                 {!_iAmVisitor && additionalButtons.has('screensharing')
-                    && <ScreenSharingButton styles = { buttonStylesBorderless } /> }
+                    && <ScreenSharingButton
+                        styles = { buttonStyle }
+                        toggledStyles = { toggledButtonStyles } /> }
                 {additionalButtons.has('raisehand') && (_shouldDisplayReactionsButtons
                     ? <ReactionsMenuButton
                         styles = { buttonStyle }

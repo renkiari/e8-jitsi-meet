@@ -31,8 +31,6 @@ export default StyleSheet.create({
      */
     video: {
         flex: 1,
-
-        // jitsi edit prejoin video border roundness
         borderRadius: 12
     }
 });

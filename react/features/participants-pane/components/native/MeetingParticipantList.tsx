@@ -90,8 +90,6 @@ const MeetingParticipantList = () => {
                     // eslint-disable-next-line react/jsx-no-bind, no-confusing-arrow
                     icon = { () => (
                         <Icon
-
-                            // jisti edit change invite icon color participants pane
                             color = { 'white' }
                             size = { 20 }
                             src = { IconAddUser } />

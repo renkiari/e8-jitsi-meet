@@ -119,19 +119,14 @@ class OverflowMenu extends PureComponent<IProps, IState> {
             dispatch
         } = this.props;
         const toolbarButtons = getMovableButtons(_width);
-
-        // jitsi edit add dark mode
         const colorScheme = Appearance.getColorScheme();
 
         const buttonProps = {
             afterClick: this._onCancel,
             showLabel: true,
-
-            // jitsi edit add overflow styles for dark mode icon and text
             styles: colorScheme === 'dark' ? bottomSheetStyles.buttonsDark : bottomSheetStyles.buttons
         };
 
-        // jitsi edit add overflow styles for dark mode icon and text
         const buttonSheetStyle = colorScheme === 'dark' ? bottomSheetStyles.buttonsDark : bottomSheetStyles.buttons;
         const buttonDarkStyle = bottomSheetStyles.buttonsDark.style;
         const buttonSytle = bottomSheetStyles.buttons.style;

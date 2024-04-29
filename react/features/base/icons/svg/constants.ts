@@ -113,7 +113,6 @@ import { default as IconYahoo } from './yahoo.svg';
  * Map containing the default icons.
  */
 
-// jitsi edit add tile-view-solid and raise hand
 export const DEFAULT_ICON: Record<string, any> = {
     IconAddUser,
     IconArrowBack,

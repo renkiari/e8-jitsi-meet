@@ -97,8 +97,6 @@ function ParticipantItem({
     const { t } = useTranslation();
     const participantNameContainerStyles
         = isKnockingParticipant ? styles.lobbyParticipantNameContainer : styles.participantNameContainer;
-
-    // jitsi edit add dark text
     const colorScheme = Appearance.getColorScheme();
     const displayNameStyle = colorScheme === 'dark' ? styles.participantNameDark : styles.participantName;
     const moderatorLabelStyle = colorScheme === 'dark' ? styles.moderatorLabelDark : styles.moderatorLabel;

@@ -45,15 +45,12 @@ function ReactionMenu({
         onCancel();
     }, []);
 
-    // jitsi edit add overflow menu bg dark mode
     const colorScheme = Appearance.getColorScheme();
 
     const overflowStyle = colorScheme === 'dark' ? _styles.overflowReactionMenuDark : _styles.overflowReactionMenu;
     const reactionMenuStyle = colorScheme === 'dark' ? _styles.reactionMenuDark : _styles.reactionMenu;
 
     return (
-
-        // jitsi edit add overflow menu bg dark mode
         <View style = { overflowMenu ? overflowStyle : reactionMenuStyle }>
             <View style = { _styles.reactionRow }>
                 {

@@ -5,8 +5,6 @@ import BaseTheme from '../../../base/ui/components/BaseTheme.native';
  * The styles of the native components of the feature {@code breakout rooms}.
  */
 export default {
-
-    // jisti edit change add breakout room button and add margin top spacing
     button: {
         marginTop: BaseTheme.spacing[3],
         marginBottom: BaseTheme.spacing[4],
@@ -14,7 +12,6 @@ export default {
         backgroundColor: '#0891B2'
     },
 
-    // jisti edit add darkmode text
     buttonText: {
         color: BaseTheme.palette.text012
     },
@@ -53,7 +50,6 @@ export default {
         marginLeft: BaseTheme.spacing[2]
     },
 
-    // jitsi edit add dark text
     listTileDark: {
         fontSize: 15,
         color: BaseTheme.palette.text012,
@@ -79,7 +75,6 @@ export default {
         paddingHorizontal: BaseTheme.spacing[3]
     },
 
-    // jitsi edit add dark mode breakout rooms
     breakoutRoomsContainerDark: {
         backgroundColor: BaseTheme.palette.ui02Dark,
         flex: 1,

@@ -100,10 +100,7 @@ class MessageRecipient extends AbstractMessageRecipient<IProps> {
             t
         } = this.props;
 
-        // jitsi edit add bg mode
         const colorScheme = Appearance.getColorScheme();
-
-        // jitsi edit add bg mode
         const containerDarkStyle = styles.messageRecipientContainerDark;
         const containerStyle = styles.messageRecipientContainer;
         const privateMessageContainer = colorScheme === 'dark' ? containerDarkStyle : containerStyle;
@@ -131,8 +128,6 @@ class MessageRecipient extends AbstractMessageRecipient<IProps> {
         }
 
         return (
-
-            // jitsi edit add bg mode
             <View style = { privateMessageContainer as ViewStyle }>
                 <Text style = { styles.messageRecipientText }>
                     { t('chat.messageTo', {

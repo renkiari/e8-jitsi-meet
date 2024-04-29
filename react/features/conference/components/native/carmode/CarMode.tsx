@@ -27,8 +27,6 @@ const CarMode = (): JSX.Element => {
     const dispatch = useDispatch();
     const connecting = useSelector(isConnecting);
     const isSharing = useSelector(isLocalVideoTrackDesktop);
-
-    // jitsi edit add dark mode
     const colorScheme = Appearance.getColorScheme();
     const titleBarStyle = colorScheme === 'dark' ? styles.titleBarSafeViewColorDark : styles.titleBarSafeViewColor;
 
@@ -61,8 +59,6 @@ const CarMode = (): JSX.Element => {
             }
             <View
                 pointerEvents = 'box-none'
-
-                // jitsi edit add bg mode
                 style = { titleBarStyle as ViewStyle }>
                 <View
                     style = { styles.titleBar as ViewStyle }>

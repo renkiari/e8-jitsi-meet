@@ -49,7 +49,6 @@ const GeneralSection = () => {
     // Delete this line when prejoin skipping is available on mobile
     showPrejoinSettings = false;
 
-    // jitsi edit add dark language text
     const colorScheme = Appearance.getColorScheme();
     const langaugeTextStyle = colorScheme === 'dark' ? styles.languageTextDark : styles.languageText;
 

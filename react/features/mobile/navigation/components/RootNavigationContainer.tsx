@@ -75,8 +75,6 @@ const RootNavigationContainer = ({ dispatch, isUnsafeRoomWarningAvailable, isWel
             independent = { true }
             onReady = { onReady }
             ref = { rootNavigationRef }
-
-            // jitsi edit add darkmode in header style
             theme = { navTheme as Theme }>
             <StatusBar
                 animated = { true }

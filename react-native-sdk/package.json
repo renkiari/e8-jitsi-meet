@@ -1,5 +1,5 @@
 {
-    "name": "@renkiari/react-native-sdk",
+    "name": "@renkiari/e8-react-native-sdk",
     "version": "0.0.0",
     "description": "React Native SDK for Jitsi Meet.",
     "main": "index.tsx",

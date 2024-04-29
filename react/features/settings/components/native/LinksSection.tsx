@@ -35,7 +35,6 @@ const LinksSection = () => {
 
     const onLinkPress = useCallback(link => () => Linking.openURL(link), [ Linking ]);
 
-    // jitsi edit add darkmode
     const colorScheme = Appearance.getColorScheme();
 
     return (
@@ -47,8 +46,6 @@ const LinksSection = () => {
                             accessibilityLabel = { label }
                             key = { label }
                             labelKey = { label }
-
-                            // jitsi edit add dark mode
                             labelStyle = { colorScheme === 'dark' ? styles.textDark : styles.text }
                             onClick = { onLinkPress(link) }
                             style = { styles.linksButton }

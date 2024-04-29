@@ -275,8 +275,6 @@ class Conference extends AbstractConference<IProps, State> {
         return (
             <Container
                 style = { [
-
-                    // jisti edit add darkmode bg for conference
                     colorScheme === 'dark' ? styles.conferenceDark : styles.conference,
                     _brandingStyles
                 ] }>

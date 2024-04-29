@@ -29,7 +29,6 @@ const CollapsibleList = ({ children, onLongPress, title }: IProps) => {
         setCollapsed(!collapsed);
     }, [ collapsed ]);
 
-    // jisti edit add dark mode collapsible
     const colorScheme = Appearance.getColorScheme();
     const listTitleStyle = colorScheme === 'dark' ? styles.listTileDark : styles.listTile;
 
@@ -46,7 +45,6 @@ const CollapsibleList = ({ children, onLongPress, title }: IProps) => {
                         size = { 18 }
                         src = { collapsed ? IconArrowDown : IconArrowUp } />
                 </TouchableOpacity>
-                {/* // jitsi edit add dark mode collapsible */}
                 <Text style = { listTitleStyle as TextStyle }>
                     { title }
                 </Text>

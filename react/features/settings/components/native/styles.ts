@@ -12,9 +12,17 @@ export default {
         margin: BaseTheme.spacing[4]
     },
 
-    // jisti edit update profile container
     profileContainer: {
-        backgroundColor: BaseTheme.palette.ui08,
+        backgroundColor: '#e2e8f0',
+        borderRadius: BaseTheme.shape.borderRadius,
+        alignItems: 'center',
+        flexDirection: 'row',
+        justifyContent: 'flex-start',
+        padding: BaseTheme.spacing[3]
+    },
+
+    profileContainerDark: {
+        backgroundColor: '#475569',
         borderRadius: BaseTheme.shape.borderRadius,
         alignItems: 'center',
         flexDirection: 'row',
@@ -50,6 +58,13 @@ export default {
 
     displayName: {
         ...BaseTheme.typography.bodyLongRegularLarge,
+        color: BaseTheme.palette.text012,
+        marginLeft: BaseTheme.spacing[3],
+        position: 'relative'
+    },
+
+    displayNameDark: {
+        ...BaseTheme.typography.bodyLongRegularLarge,
         color: BaseTheme.palette.text01,
         marginLeft: BaseTheme.spacing[3],
         position: 'relative'
@@ -68,7 +83,6 @@ export default {
         flex: 1
     },
 
-    // jitsi edit add darkmode settings
     settingsViewContainerDark: {
         backgroundColor: BaseTheme.palette.ui02Dark,
         flex: 1
@@ -156,7 +170,6 @@ export default {
         color: BaseTheme.palette.text01
     },
 
-    // jitsi edit add dark text
     textDark: {
         color: BaseTheme.palette.text012
     },
@@ -203,7 +216,6 @@ export default {
         marginHorizontal: BaseTheme.spacing[2]
     },
 
-    // jitsi edit add dark text
     languageTextDark: {
         ...BaseTheme.typography.bodyShortRegularLarge,
         color: BaseTheme.palette.text012,
@@ -261,12 +273,10 @@ export default {
         marginLeft: BaseTheme.spacing[3]
     },
 
-    // jitsi edit add profile header style
     profileHeader: {
         backgroundColor: BaseTheme.palette.ui01
     },
 
-    // jitsi edit add profile header dark style
     profileHeaderDark: {
         backgroundColor: BaseTheme.palette.ui0
     }

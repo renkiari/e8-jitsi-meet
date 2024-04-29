@@ -68,7 +68,6 @@ class FormRow extends Component<IProps> {
                 this.props.children,
                 this._getDefaultFieldProps(this.props.children));
 
-        // jitsi edit add darkmode
         const colorScheme = Appearance.getColorScheme();
 
         return (

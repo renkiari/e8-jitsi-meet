@@ -35,8 +35,6 @@ const ProfileView = ({ isInWelcomePage }: {
     const { t } = useTranslation();
     const dispatch = useDispatch();
     const navigation = useNavigation();
-
-    // jisti edit add dark profile
     const colorScheme = Appearance.getColorScheme();
 
     const { displayName: reduxDisplayName, email: reduxEmail } = useSelector(
@@ -120,8 +118,6 @@ const ProfileView = ({ isInWelcomePage }: {
 
             // @ts-ignore
             safeAreaInsets = { [ !isInWelcomePage && 'bottom', 'left', 'right' ].filter(Boolean) as Edge[] }
-
-            // jitsi edit add dark mode profile header
             style = { colorScheme === 'dark' ? styles.settingsViewContainerDark : styles.settingsViewContainer }>
             <ScrollView
                 bounces = { isInWelcomePage }

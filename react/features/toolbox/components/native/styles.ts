@@ -39,14 +39,11 @@ const toolbarButtonIcon = {
 //     color: BaseTheme.palette.icon01
 // };
 
-// // jitsi edit add toggled
 // const whiteToolbarButtonIconToggled = {
 //     ...toolbarButtonIcon,
 //     color: BaseTheme.palette.icon05
 // };
 
-
-// jitsi edit change hangup icon color to whiute
 const whiteToolbarButtonIconDark = {
     ...toolbarButtonIcon,
     color: BaseTheme.palette.icon012
@@ -84,7 +81,6 @@ const reactionMenu = {
     padding: BaseTheme.spacing[3]
 };
 
-// jitsi edit add bg dark for reactions menu
 const reactionMenuDark = {
     flexDirection: 'column',
     justifyContent: 'center',
@@ -108,9 +104,6 @@ const styles = {
      */
     toolbox: {
         alignItems: 'center',
-
-        // backgroundColor: BaseTheme.palette.ui01,
-        // jitsi edit change toolbar bg
         backgroundColor: BaseTheme.palette.ui01,
         borderColor: 'red',
         borderRadius: BaseTheme.shape.borderRadius,
@@ -121,12 +114,8 @@ const styles = {
         justifyContent: 'space-between'
     },
 
-    // jitsi edit add darkmode bg for toolbox
     toolboxDark: {
         alignItems: 'center',
-
-        // backgroundColor: BaseTheme.palette.ui01,
-        // jitsi edit change toolbar bg
         backgroundColor: BaseTheme.palette.ui01Dark,
         borderColor: 'red',
         borderRadius: BaseTheme.shape.borderRadius,
@@ -167,7 +156,6 @@ ColorSchemeRegistry.register('Toolbox', {
     },
 
     buttonStylesBorderless: {
-        // jitsi edit remove color for icons that are outlibne
         iconStyle: {
             ...toolbarButtonIcon,
             color: BaseTheme.palette.icon01,
@@ -184,7 +172,6 @@ ColorSchemeRegistry.register('Toolbox', {
     },
 
     buttonStylesBorderlessDark: {
-        // jitsi edit add bg dark color for icons
         iconStyle: {
             ...toolbarButtonIcon,
             color: BaseTheme.palette.icon012
@@ -196,7 +183,6 @@ ColorSchemeRegistry.register('Toolbox', {
         underlayColor: 'transparent'
     },
 
-    // jitsi edit add style for icons that are solid like horizontal need color
     buttonStylesBorderlessSolid: {
         iconStyle: {
             ...toolbarButtonIcon,
@@ -210,8 +196,6 @@ ColorSchemeRegistry.register('Toolbox', {
     },
 
     backgroundToggle: {
-        // jitsi edit change bg to transparent
-        // backgroundColor: BaseTheme.palette.ui04,
         backgroundColor: 'transparent'
     },
 
@@ -232,9 +216,6 @@ ColorSchemeRegistry.register('Toolbox', {
             ...toolbarButton,
             backgroundColor: schemeColor('hangup')
         },
-
-        // jitsi edit change bg after toggle of hangup button
-        // underlayColor: BaseTheme.palette.ui04
         underlayColor: '#e02b33'
     },
 
@@ -247,22 +228,16 @@ ColorSchemeRegistry.register('Toolbox', {
 
     overflowReactionMenu: reactionMenu,
 
-    // jisti edit add dark mode for reactions menu
     overflowReactionMenuDark: reactionMenuDark,
 
     reactionMenu: {
         ...reactionMenu,
-
-        // jitsi edit change border radius
         borderRadius: 10,
         width: 360
     },
 
-    // jisti edit add dark mode for reactions menu
     reactionMenuDark: {
         ...reactionMenuDark,
-
-        // jitsi edit change border radius
         borderRadius: 10,
         width: 360
     },
@@ -305,7 +280,6 @@ ColorSchemeRegistry.register('Toolbox', {
         underlayColor: 'transparent',
     },
 
-    // jitsi edit add muted for toolbox muted icons
     mutedButtonStyles: {
         iconStyle: {
             ...toolbarButtonIcon,
@@ -317,7 +291,6 @@ ColorSchemeRegistry.register('Toolbox', {
         underlayColor: 'transparent'
     },
 
-    // jitsi edit add muted for toolbox muted icons in dark mode
     mutedButtonStylesDark: {
         iconStyle: {
             ...toolbarButtonIcon,

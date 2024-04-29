@@ -5,9 +5,6 @@ const BUBBLE_RADIUS = 8;
 
 const recipientContainer = {
     alignItems: 'center',
-
-    // jisti edit change private mesasge notice in chat
-    // backgroundColor: BaseTheme.palette.support05,
     backgroundColor: '#cbd5e1',
     borderRadius: BaseTheme.shape.borderRadius,
     flexDirection: 'row',
@@ -19,9 +16,6 @@ const recipientContainer = {
 
 const recipientContainerDark = {
     alignItems: 'center',
-
-    // jisti edit change private mesasge notice in chat for dark mode
-    // backgroundColor: BaseTheme.palette.support05,
     backgroundColor: '#475569',
     borderRadius: BaseTheme.shape.borderRadius,
     flexDirection: 'row',
@@ -60,7 +54,6 @@ export default {
         textAlign: 'center'
     },
 
-    // jitsi edit add darkmode for no messages text
     emptyComponentTextDark: {
         color: BaseTheme.palette.text012,
         textAlign: 'center'
@@ -77,31 +70,24 @@ export default {
     },
 
     privateNotice: {
-        // jitsi edit change text private notice for of message
         ...BaseTheme.palette.bodyShortRegular,
         color: BaseTheme.palette.text03
     },
 
-    // jitsi edit change private message bubble bg color
     privateMessageBubble: {
         backgroundColor: '#cbd5e1'
     },
 
-    // jitsi edit change private message bubble bg color
     privateMessageBubbleDark: {
         backgroundColor: '#475569'
     },
 
     remoteMessageBubble: {
-
-        // jitsi edit change remote message bubble
         backgroundColor: '#e2e8f0',
         borderTopLeftRadius: 0
     },
 
     remoteMessageBubbleDark: {
-
-        // jitsi edit add darkmode remote message bubble
         backgroundColor: '#334155',
         borderTopLeftRadius: 0
     },
@@ -113,7 +99,6 @@ export default {
 
     replyStyles: {
         iconStyle: {
-            // jitsi edit change color of reply icon chat
             color: BaseTheme.palette.icon03,
             fontSize: 22,
             padding: BaseTheme.spacing[2]
@@ -180,19 +165,16 @@ export default {
     },
 
     customInputContainer: {
-        // jitsi edit adjust chat input bar width so it will grow
         width: '100%',
         flex: 1,
         paddingRight: 10
     },
 
-    // jitsi edit add style for chat input bg
     customInputSyle: {
         backgroundColor: 'white',
         borderColor: '#cbd5e1'
     },
 
-    // jitsi edit add style for chat input bg
     customInputSyleDark: {
         backgroundColor: '#475569',
         borderColor: '#64748B'
@@ -251,7 +233,6 @@ export default {
         fontSize: 13
     },
 
-    // jitsi edit add timestamp bg text color
     timeTextDark: {
         color: BaseTheme.palette.text02,
         fontSize: 13
@@ -263,7 +244,6 @@ export default {
     },
 
     chatContainerDark: {
-        // jitsi edit add darkmode for chat view bg
         backgroundColor: BaseTheme.palette.ui02Dark,
         flex: 1
     },
@@ -300,26 +280,20 @@ export default {
 
     senderDisplayName: {
         ...BaseTheme.typography.bodyShortBold,
-
-        // jisti edit chat make name bold
         color: BaseTheme.palette.text03
     },
 
     senderDisplayNameDark: {
         ...BaseTheme.typography.bodyShortBold,
-
-        // jisti edit chat add darkmode name chat
         color: '#e2e8f0'
     },
 
     localMessageBubble: {
-        // jitsi edit change bg of local message bubbble
         backgroundColor: '#a5f3fc',
         borderTopRightRadius: 0
     },
 
     localMessageBubbleDark: {
-        // jitsi edit add dark mode bg of local message bubbble
         backgroundColor: '#0891b2',
         borderTopRightRadius: 0
     },
@@ -330,7 +304,6 @@ export default {
     },
 
     messageRecipientCancelIcon: {
-        // jitsi edit change cancel button color for private message notice
         color: BaseTheme.palette.icon03,
         fontSize: 18
     },
@@ -345,9 +318,6 @@ export default {
 
     messageRecipientText: {
         ...BaseTheme.typography.bodyShortRegular,
-
-        // jitsi edit change private notice message text
-        // color: BaseTheme.palette.text01,
         color: BaseTheme.palette.text03,
         flex: 1
     }

@@ -30,7 +30,6 @@ const IconButton: React.FC<IIconButtonProps> = ({
         iconButtonContainerStyles = styles.iconButtonContainerPrimary;
         underlayColor = BaseTheme.palette.action01;
 
-    // jitsi edit added primary dark in icon styles
     } else if (type === PRIMARYDARK) {
         color = BaseTheme.palette.icon012;
         iconButtonContainerStyles = styles.iconButtonContainerPrimary;
@@ -44,7 +43,6 @@ const IconButton: React.FC<IIconButtonProps> = ({
         iconButtonContainerStyles = styles.iconButtonContainer;
         underlayColor = BaseTheme.palette.action03;
     } else if (type === CHATCUSTOM) {
-        // jitsi edit add custom chat send input button
         color = BaseTheme.palette.action01;
         iconButtonContainerStyles = {
             ...BaseTheme.iconButtonContainer
@@ -55,7 +53,6 @@ const IconButton: React.FC<IIconButtonProps> = ({
         underlayColor = tapColor;
     }
 
-    // jitsi edit add custom chat send input button for disabled
     if (disabled && type === CHATCUSTOM) {
         color = BaseTheme.palette.icon03;
         iconButtonContainerStyles = {
@@ -82,9 +79,6 @@ const IconButton: React.FC<IIconButtonProps> = ({
             underlayColor = { underlayColor }>
             <Icon
                 color = { color }
-
-                // jitsi edit change condition for input button size
-                // size = { 20 || size }
                 size = { size ? size : 20 }
                 src = { src } />
         </TouchableHighlight>

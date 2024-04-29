@@ -229,8 +229,6 @@ class Thumbnail extends PureComponent<IProps> {
         } else {
             bottomIndicatorsContainerDisplayNameStyle = null;
         }
-
-        // jitsi edit remove style when not muted
         if (_shouldDisplayTileView && audioMuted) {
             bottomIndicatorsContainerStyle = styles.bottomIndicatorsContainer;
         } else if (audioMuted || renderModeratorIndicator) {
@@ -241,19 +239,18 @@ class Thumbnail extends PureComponent<IProps> {
 
         if (!_fakeParticipant || _isVirtualScreenshare) {
             indicators.push(
-            <View 
-                key = 'top-left-indicators'
-                style = { styles.thumbnailTopLeftIndicatorContainer as ViewStyle }>
-                { !_isVirtualScreenshare && <ConnectionIndicator participantId = { participantId } /> }
-                { !_isVirtualScreenshare && <RaisedHandIndicator participantId = { participantId } /> }
-                { tileView && (isScreenShare || _isVirtualScreenshare) && (
-                    <View style = { styles.screenShareIndicatorContainer as ViewStyle }>
-                        <ScreenShareIndicator />
-                    </View>
-                ) }
-            </View> as never);
+                <View 
+                    key = 'top-left-indicators'
+                    style = { styles.thumbnailTopLeftIndicatorContainer as ViewStyle }>
+                    { !_isVirtualScreenshare && <ConnectionIndicator participantId = { participantId } /> }
+                    { !_isVirtualScreenshare && <RaisedHandIndicator participantId = { participantId } /> }
+                    { tileView && (isScreenShare || _isVirtualScreenshare) && (
+                        <View style = { styles.screenShareIndicatorContainer as ViewStyle }>
+                            <ScreenShareIndicator />
+                        </View>
+                    ) }
+                </View> as never);
 
-            // jitsi edit find another way to display name and mute audio
             indicators.push(<Container
                 key = 'bottom-indicators'
                 style = { styles.thumbnailIndicatorContainer as StyleType }>
@@ -391,8 +388,6 @@ class Thumbnail extends PureComponent<IProps> {
                 onClick = { this._onClick }
                 onLongPress = { this._onThumbnailLongPress }
                 style = { [
-
-                    // jitsi edit add dark mode for thumbnail bg
                     colorScheme === 'dark' ? styles.thumbnailDark : styles.thumbnail,
                     styleOverrides,
                     _raisedHand && !_isVirtualScreenshare ? styles.thumbnailRaisedHand : null,

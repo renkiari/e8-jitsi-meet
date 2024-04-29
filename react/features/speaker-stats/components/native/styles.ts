@@ -13,8 +13,6 @@ export default {
         paddingHorizontal: BaseTheme.spacing[3],
         backgroundColor: BaseTheme.palette.ui01
     },
-
-    // jitsi edit add bg dark for participants stats
     speakerStatsContainerDark: {
         flexDirection: 'column',
         flex: 1,
@@ -48,7 +46,6 @@ export default {
         color: BaseTheme.palette.text01
     },
 
-    // jitsi edit add bg for text in participants stats pane
     speakerStatsTextDark: {
         ...BaseTheme.typography.bodyShortRegularLarge,
         color: BaseTheme.palette.text012

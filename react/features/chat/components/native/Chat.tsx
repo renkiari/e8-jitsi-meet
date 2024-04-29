@@ -56,8 +56,6 @@ class Chat extends Component<IProps> {
     render() {
         const { _messages, route } = this.props;
         const privateMessageRecipient = route?.params?.privateMessageRecipient;
-
-        // jitsi edit add bg mode
         const colorScheme = Appearance.getColorScheme();
 
         return (

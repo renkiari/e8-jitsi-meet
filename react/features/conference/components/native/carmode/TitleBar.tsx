@@ -39,7 +39,6 @@ const TitleBar = (props: IProps): JSX.Element => {
     const localParticipant = useSelector(getLocalParticipant);
     const localParticipantId = localParticipant?.id;
 
-    // jitsi edit add dark mode
     const colorScheme = Appearance.getColorScheme();
 
     return (

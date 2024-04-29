@@ -8,7 +8,6 @@ import { goBack as goBackToLobbyScreen } from './components/lobby/LobbyNavigatio
 import { lobbyScreenHeaderCloseButton, screenHeaderCloseButton } from './functions';
 import { goBack as goBackToWelcomeScreen } from './rootNavigationContainerRef';
 
-// jitsi edit add dark mode
 const colorScheme = Appearance.getColorScheme();
 
 /**
@@ -38,7 +37,6 @@ export const navigationContainerTheme = {
     }
 };
 
-// jitsi edit add ui background dark mode
 export const navigationContainerThemeDark = {
     colors: {
         background: BaseTheme.palette.uiBackgroundDark
@@ -74,7 +72,6 @@ export const chatTabBarOptions = {
         backgroundColor: BaseTheme.palette.link01Active
     },
     tabBarStyle: {
-        // jisti edit add darkmode for chat tab poll
         backgroundColor: colorScheme === 'dark' ? BaseTheme.palette.ui02Dark : BaseTheme.palette.ui01,
         borderBottomColor: BaseTheme.palette.ui06,
         borderBottomWidth: 0.4
@@ -89,8 +86,6 @@ export const presentationScreenOptions = {
     headerBackTitleVisible: false,
     headerLeft: () => screenHeaderCloseButton(goBack),
     headerStatusBarHeight: 0,
-
-    // jitsi edit change bg color for darkmode
     headerStyle: {
         backgroundColor: colorScheme === 'dark' ? BaseTheme.palette.ui01Dark : BaseTheme.palette.ui01
     },
@@ -217,7 +212,6 @@ export const whiteboardScreenOptions = {
 /**
  * Screen options for pre-join screen.
  */
-// jitsi edit prejoin header
 export const preJoinScreenOptions = {
     gestureEnabled: false,
     headerStyle: {
@@ -242,12 +236,9 @@ export const preJoinScreenOptionsDark = {
  * Screen options for profile setting.
  */
 export const profileSettingsScreenOptions = {
-    // jitsi edit add dark mode profile header
     headerStyle: {
         backgroundColor: colorScheme === 'dark' ? BaseTheme.palette.ui01Dark : BaseTheme.palette.ui01
     },
-
-    // jitsi edit add dark mode profile header
     headerTitleStyle: {
         color: colorScheme === 'dark' ? BaseTheme.palette.text012 : BaseTheme.palette.text012
     },

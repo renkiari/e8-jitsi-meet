@@ -51,15 +51,14 @@ const SettingsView = ({ isInWelcomePage }: IProps) => {
         return null;
     }
 
-    // jitsi edit add dark mode settings
     const colorScheme = Appearance.getColorScheme();
+    const profileContainerStyle = colorScheme === 'dark' ? styles.profileContainerDark : styles.profileContainer;
+    const displayNameStyle = colorScheme === 'dark' ? styles.displayName : styles.displayNameDark;
 
     return (
         <JitsiScreen
             disableForcedKeyboardDismiss = { true }
             safeAreaInsets = { [ addBottomInset && 'bottom', 'left', 'right' ].filter(Boolean) as Edge[] }
-
-            // jitsi edit add dark mode settings
             style = { colorScheme === 'dark' ? styles.settingsViewContainerDark : styles.settingsViewContainer }>
             <ScrollView bounces = { scrollBounces }>
                 <View style = { styles.profileContainerWrapper as ViewStyle }>
@@ -68,14 +67,15 @@ const SettingsView = ({ isInWelcomePage }: IProps) => {
                         /* eslint-disable react/jsx-no-bind */
                         onPress = { () => navigate(screen.settings.profile) }>
                         <View
-                            style = { styles.profileContainer as ViewStyle }>
+                            style = { profileContainerStyle as ViewStyle }>
                             <Avatar
                                 participantId = { localParticipantId }
                                 size = { AVATAR_SIZE } />
-                            <Text style = { styles.displayName as TextStyle }>
+                            <Text style = { displayNameStyle as TextStyle }>
                                 { displayName }
                             </Text>
                             <Icon
+                                color = { colorScheme === 'dark' ? '#F8FAFC' : '#334155' }
                                 size = { 24 }
                                 src = { IconArrowRight }
                                 style = { styles.profileViewArrow } />

@@ -170,8 +170,6 @@ class SecurityDialog extends PureComponent<IProps, IState> {
         const dialogStyle = styles.securityDialogContainer;
 
         return (
-
-            // jitsi edit add dark mode in security options
             <JitsiScreen style = { colorScheme === 'dark' ? dialogDarkStyle : dialogStyle }>
                 { this._renderLobbyMode() }
                 { this._renderSetRoomPassword() }

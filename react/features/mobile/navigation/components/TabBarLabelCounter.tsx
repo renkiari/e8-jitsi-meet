@@ -11,7 +11,6 @@ interface ITabBarLabelCounterProps {
 }
 
 export const TabBarLabelCounter = ({ activeUnreadNr, isFocused, label, nbUnread }: ITabBarLabelCounterProps) => {
-    // jitsi edit add bg mode
     const colorScheme = Appearance.getColorScheme();
     const descDark = navigationStyles.unreadCounterDescriptionFocusedDark;
     const descFocused = navigationStyles.unreadCounterDescriptionFocused;

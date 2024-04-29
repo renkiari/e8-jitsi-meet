@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { Text, TextStyle, View, ViewStyle } from 'react-native';
+import { Appearance, Text, TextStyle, View, ViewStyle } from 'react-native';
 import { connect } from 'react-redux';
 
 import { IReduxState, IStore } from '../../../app/types';
@@ -76,11 +76,12 @@ class LocalVideoMenu extends PureComponent<IProps> {
      */
     render() {
         const { _participant, _showDemote } = this.props;
+        const colorScheme = Appearance.getColorScheme();
         const buttonProps = {
             afterClick: this._onCancel,
             showLabel: true,
             participantID: _participant?.id ?? '',
-            styles: bottomSheetStyles.buttons
+            styles: colorScheme === 'dark' ? bottomSheetStyles.buttonsDark : bottomSheetStyles.buttons
         };
 
         return (
@@ -102,15 +103,21 @@ class LocalVideoMenu extends PureComponent<IProps> {
     _renderMenuHeader() {
         const { _participant } = this.props;
 
+        const colorScheme = Appearance.getColorScheme();
+        const bottomSheetStyle = colorScheme === 'dark' ? bottomSheetStyles.sheetDark : bottomSheetStyles.sheet;
+        const containerDarkStyle = styles.participantNameContainerDark;
+        const headerStyle = colorScheme === 'dark' ? containerDarkStyle : styles.participantNameContainer;
+        const labelStyle = colorScheme === 'dark' ? styles.participantNameLabelDark : styles.participantNameLabel;
+
         return (
             <View
                 style = { [
-                    bottomSheetStyles.sheet,
-                    styles.participantNameContainer ] as ViewStyle[] }>
+                    bottomSheetStyle,
+                    headerStyle ] as ViewStyle[] }>
                 <Avatar
                     participantId = { _participant?.id }
                     size = { AVATAR_SIZE } />
-                <Text style = { styles.participantNameLabel as TextStyle }>
+                <Text style = { labelStyle as TextStyle }>
                     { this.props._participantDisplayName }
                 </Text>
             </View>

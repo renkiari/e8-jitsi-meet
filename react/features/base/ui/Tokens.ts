@@ -11,20 +11,14 @@ export const colors = {
     primary03: '#003486',
     primary04: '#0045B3',
     primary05: '#0056E0',
-
-    // jitsi edit change primary button bg
     primary06: '#0891B2',
-
-    // jitsi edit change header button text color
     primary07: '#0891B2',
     primary08: '#99BBF3',
     primary09: '#CCDDF9',
 
-    // jitsi edit change navigation ui background
     surface01: '#ebf5f8',
     surface01Dark: '#617187',
 
-    // jitsi edit change navigation header background
     surface02: '#F1F5F9',
     surface02Dark: '#363439',
     surface03: '#292929',
@@ -35,18 +29,9 @@ export const colors = {
     surface08: '#A3A3A3',
     surface09: '#C2C2C2',
     surface10: '#E0E0E0',
-
-    // jitsi edit change navigation header title color
     surface11: '#334155',
-
-    // jitsi edit add new color for priimary text
-    // surface12: '#FFFFFF',
     surface12: '#F8FAFC',
-
-    // jitsi edit add new color for icon color
     surface13: '#64748B',
-
-    // jitsi edit add 14 & 15 for bg underlay tileview, carmode
     surface14: '#64748B8C',
     surface15: '#CBD5E18C',
 
@@ -76,11 +61,8 @@ export const colorMap = {
     uiBackgroundDark: 'surface01Dark',
 
     // Container backgrounds
-    // jitsi edit prejoin header bg
     ui01: 'surface02',
     ui01Dark: 'surface02Dark',
-
-    // bg dark bg for view
     ui02Dark: 'surface13',
     ui02: 'surface03',
     ui03: 'surface04',
@@ -92,8 +74,6 @@ export const colorMap = {
     ui09: 'surface10',
     ui10: 'surface11',
     ui11: 'primary07',
-
-    // jitsi add surface 12 & 13 for bg underlay tileview thumbnail light dark
     ui12: 'surface14',
     ui13: 'surface15',
 
@@ -135,8 +115,6 @@ export const colorMap = {
 
     // Primary
     text01: 'surface11',
-
-    // jitsi edit add option for primary text color / dark mode
     text012: 'surface12',
 
     // Secondary
@@ -156,7 +134,6 @@ export const colorMap = {
     // Primary
     icon01: 'surface13',
 
-    // jitsi edit change secondary icon color to white
     // Primary dark
     icon012: 'surface12',
 

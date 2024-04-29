@@ -71,8 +71,6 @@ const Button: React.FC<IProps> = ({
         buttonLabelStyles = styles.buttonLabelTertiary;
 
         return (
-
-            // jitsi edit change tertiary butotn from touchable highlight to touchable opacity for header button
             <TouchableOpacity
                 accessibilityLabel = { accessibilityLabel }
                 disabled = { disabled }

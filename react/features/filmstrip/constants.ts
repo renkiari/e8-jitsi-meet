@@ -3,7 +3,7 @@ import { BoxModel } from '../base/styles/components/styles/BoxModel';
 /**
  * The size (height and width) of the small (not tile view) thumbnails.
  */
-// jisti edit aadjusted tile view height
+
 export const SMALL_THUMBNAIL_SIZE = 90;
 
 /**
@@ -19,7 +19,7 @@ export const TILE_ASPECT_RATIO = 16 / 9;
 /**
  * The aspect ratio of a square tile in tile view.
  */
-// jitsi edit update tile square ratio111 3
+// edited: original 1
 export const SQUARE_TILE_ASPECT_RATIO = 4 / 3;
 
 /**

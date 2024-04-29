@@ -21,8 +21,6 @@ const ParticipantsPane = () => {
     const isLocalModerator = useSelector(isLocalParticipantModerator);
     const keyExtractor
         = useCallback((e: undefined, i: number) => i.toString(), []);
-
-    // jitsi edit add darkmmode bg participants pane
     const colorScheme = Appearance.getColorScheme();
     const participantPaneStyle = styles.participantsPaneContainer;
     const participantPaneStyleDark = styles.participantsPaneContainerDark;
@@ -30,8 +28,6 @@ const ParticipantsPane = () => {
     return (
         <JitsiScreen
             footerComponent = { isLocalModerator ? ParticipantsPaneFooter : undefined }
-
-            // jitsi edit add darkmmode bg participants pane
             style = { colorScheme === 'dark' ? participantPaneStyleDark : participantPaneStyle }>
 
             { /* Fixes warning regarding nested lists */ }

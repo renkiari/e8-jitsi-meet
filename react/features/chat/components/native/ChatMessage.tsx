@@ -34,8 +34,6 @@ class ChatMessage extends Component<IChatMessageProps> {
         const { message, knocking } = this.props;
         const localMessage = message.messageType === MESSAGE_TYPE_LOCAL;
         const { privateMessage, lobbyChat } = message;
-
-        // jitsi edit add dark mode
         const colorScheme = Appearance.getColorScheme();
 
         // Style arrays that need to be updated in various scenarios, such as
@@ -59,7 +57,6 @@ class ChatMessage extends Component<IChatMessageProps> {
             detailsWrapperStyle.push(styles.ownMessageDetailsWrapper as ViewStyle);
 
             // The bubble needs some additional styling
-            // jitsi edit add dark mode for chat bubble
             messageBubbleStyle.push(colorScheme === 'dark' ? styles.localMessageBubbleDark : styles.localMessageBubble);
         } else if (message.messageType === MESSAGE_TYPE_ERROR) {
             // This is a system message.
@@ -70,12 +67,10 @@ class ChatMessage extends Component<IChatMessageProps> {
             // This is a remote message sent by a remote participant.
 
             // The bubble needs some additional styling
-            // jitsi edit add dark mode for chat bubble remote
             messageBubbleStyle.push(remoteBubbleStyle);
         }
 
         if (privateMessage) {
-            // jitsi edit add dark mode for chat bubble remote
             messageBubbleStyle.push(colorScheme === 'dark' ? privateBubbleDarkStyle : privateBubbleStyle);
         }
 
@@ -137,8 +132,6 @@ class ChatMessage extends Component<IChatMessageProps> {
      */
     _renderDisplayName() {
         const { message, showDisplayName } = this.props;
-
-        // jitsi edit add dark mode
         const colorScheme = Appearance.getColorScheme();
 
         if (!showDisplayName) {
@@ -206,7 +199,6 @@ class ChatMessage extends Component<IChatMessageProps> {
             return null;
         }
 
-        // jitsi edit add dark mode
         const colorScheme = Appearance.getColorScheme();
 
         return (

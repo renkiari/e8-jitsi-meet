@@ -44,7 +44,6 @@ export const preJoinStyles = {
     },
 
     largeVideoContainer: {
-        // jitsi edit adjust video size and add padding
         height: '80%',
         padding: 18
     },
@@ -57,7 +56,6 @@ export const preJoinStyles = {
     },
 
     contentContainer: {
-        // jitsi edit adjust prejoin button container style
         alignItems: 'center',
         backgroundColor: BaseTheme.palette.uiBackground,
         bottom: 0,
@@ -69,7 +67,6 @@ export const preJoinStyles = {
     },
 
     contentContainerDark: {
-        // jitsi edit adjust prejoin button container style
         alignItems: 'center',
         backgroundColor: BaseTheme.palette.uiBackgroundDark,
         bottom: 0,

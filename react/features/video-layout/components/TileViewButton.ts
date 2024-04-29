@@ -36,8 +36,6 @@ class TileViewButton<P extends IProps> extends AbstractButton<P> {
     label = 'toolbar.enterTileView';
     toggledLabel = 'toolbar.exitTileView';
     tooltip = 'toolbar.tileViewToggle';
-
-    // jitsi edit add tile view solid toggled
     toggledIcon = IconTileViewSolid;
 
     /**

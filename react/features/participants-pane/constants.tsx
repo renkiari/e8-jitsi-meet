@@ -73,6 +73,33 @@ export const AudioStateIcons = {
     ),
     [MEDIA_STATE.MUTED]: (
         <Icon
+            color = '#64748B'
+            size = { 16 }
+            src = { IconMicSlash } />
+    ),
+    [MEDIA_STATE.UNMUTED]: (
+        <Icon
+            size = { 16 }
+            src = { IconMic } />
+    ),
+    [MEDIA_STATE.NONE]: null
+};
+
+export const AudioStateIconsDark = {
+    [MEDIA_STATE.DOMINANT_SPEAKER]: (
+        <Icon
+            className = 'jitsi-icon-dominant-speaker'
+            size = { 16 }
+            src = { IconMic } />
+    ),
+    [MEDIA_STATE.FORCE_MUTED]: (
+        <Icon
+            color = '#E04757'
+            size = { 16 }
+            src = { IconMicSlash } />
+    ),
+    [MEDIA_STATE.MUTED]: (
+        <Icon
             size = { 16 }
             src = { IconMicSlash } />
     ),
@@ -88,6 +115,30 @@ export const AudioStateIcons = {
  * Icon mapping for possible participant video states.
  */
 export const VideoStateIcons = {
+    [MEDIA_STATE.DOMINANT_SPEAKER]: null,
+    [MEDIA_STATE.FORCE_MUTED]: (
+        <Icon
+            color = '#E04757'
+            id = 'videoMuted'
+            size = { 16 }
+            src = { IconVideoOff } />
+    ),
+    [MEDIA_STATE.MUTED]: (
+        <Icon
+            color = '#64748B'
+            id = 'videoMuted'
+            size = { 16 }
+            src = { IconVideoOff } />
+    ),
+    [MEDIA_STATE.UNMUTED]: (
+        <Icon
+            size = { 16 }
+            src = { IconVideo } />
+    ),
+    [MEDIA_STATE.NONE]: null
+};
+
+export const VideoStateIconsDark = {
     [MEDIA_STATE.DOMINANT_SPEAKER]: null,
     [MEDIA_STATE.FORCE_MUTED]: (
         <Icon

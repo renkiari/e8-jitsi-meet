@@ -65,17 +65,17 @@ const participantNameContainer = {
 export default {
 
     participantsBadge: {
-        backgroundColor: BaseTheme.palette.ui03,
+        backgroundColor: '#33415599',
         borderRadius: BaseTheme.spacing[2],
         borderColor: 'white',
         overflow: 'hidden',
         height: BaseTheme.spacing[3],
         minWidth: BaseTheme.spacing[3],
-        color: BaseTheme.palette.text01,
+        color: BaseTheme.palette.text012,
         ...BaseTheme.typography.labelBold,
         position: 'absolute',
-        right: -3,
-        top: -3,
+        right: 0,
+        top: 0,
         textAlign: 'center',
         paddingHorizontal: 2
     },
@@ -131,7 +131,6 @@ export default {
         overflow: 'hidden'
     },
 
-    // jitsi edit add dark mode breakout
     participantNameDark: {
         color: BaseTheme.palette.text012,
         overflow: 'hidden'
@@ -144,7 +143,6 @@ export default {
         paddingTop: BaseTheme.spacing[1]
     },
 
-    // jitsi edit add dark mode breakout
     moderatorLabelDark: {
         color: BaseTheme.palette.text04,
         alignSelf: 'flex-start',
@@ -207,7 +205,6 @@ export default {
         ...participantListDescription
     },
 
-    // jisti edit add dark mode text
     meetingListDescriptionDark: {
         ...BaseTheme.typography.heading6,
         color: BaseTheme.palette.text012,
@@ -226,7 +223,6 @@ export default {
         paddingVertical: BaseTheme.spacing[2]
     },
 
-    // jitsi edit add dark mode bg participants pane
     participantsPaneContainerDark: {
         backgroundColor: BaseTheme.palette.ui02Dark,
         flex: 1,
@@ -259,11 +255,33 @@ export default {
 
     breakoutRoomsButton: {
         marginBottom: BaseTheme.spacing[2],
-        width: '100%'
+        width: '100%',
+        backgroundColor: '#FFFFFF',
+        borderStyle: 'solid',
+        borderWidth: 1,
+        borderColor: '#CBD5E1'
+    },
+
+    buttonLabel: {
+        color: BaseTheme.palette.text01
+    },
+
+    muteAllButton: {
+        marginBottom: BaseTheme.spacing[2],
+        paddingRight: BaseTheme.spacing[2],
+        paddingLeft: BaseTheme.spacing[2],
+        backgroundColor: '#FFFFFF',
+        borderStyle: 'solid',
+        borderWidth: 1,
+        borderColor: '#CBD5E1'
     },
 
     moreButton: {
-        marginLeft: BaseTheme.spacing[2]
+        marginLeft: BaseTheme.spacing[2],
+        backgroundColor: '#FFFFFF',
+        borderStyle: 'solid',
+        borderWidth: 1,
+        borderColor: '#CBD5E1'
     },
 
     contextMenuItem: {
@@ -291,7 +309,6 @@ export default {
         marginLeft: BaseTheme.spacing[3]
     },
 
-    // jitsi edit add dark mode text in breakout
     contextMenuItemTextDark: {
         ...BaseTheme.typography.bodyShortRegularLarge,
         color: BaseTheme.palette.text012,

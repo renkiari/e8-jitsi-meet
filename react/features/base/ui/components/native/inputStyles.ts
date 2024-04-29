@@ -13,7 +13,6 @@ export default {
         marginBottom: BaseTheme.spacing[2]
     },
 
-    // jitsi edit add dark mode input text
     labelDark: {
         ...BaseTheme.typography.bodyShortRegularLarge,
         lineHeight: 0,
@@ -35,8 +34,6 @@ export default {
     input: {
         ...BaseTheme.typography.bodyShortRegularLarge,
         backgroundColor: 'white',
-
-        // jitsi meet edit change chat text input bg color and border and border radius
         borderColor: '#cbd5e1',
         borderRadius: 10,
         borderWidth: 2,
@@ -46,7 +43,6 @@ export default {
         lineHeight: 20
     },
 
-    // jitsi edit add dark bg for chat input text
     inputDark: {
         ...BaseTheme.typography.bodyShortRegularLarge,
         backgroundColor: BaseTheme.palette.ui03,

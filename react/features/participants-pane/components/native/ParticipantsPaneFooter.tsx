@@ -57,15 +57,16 @@ const ParticipantsPaneFooter = (): JSX.Element => {
                     // eslint-disable-next-line react/jsx-no-bind, no-confusing-arrow
                     icon = { () => (
                         <Icon
-                            color = { BaseTheme.palette.icon04 }
+                            color = { BaseTheme.palette.text01 }
                             size = { 20 }
                             src = { IconRingGroup } />
                     ) }
                     labelKey = 'participantsPane.actions.breakoutRooms'
+                    labelStyle = { styles.buttonLabel }
                     // eslint-disable-next-line react/jsx-no-bind, no-confusing-arrow
                     onClick = { () => navigate(screen.conference.breakoutRooms) }
                     style = { styles.breakoutRoomsButton }
-                    type = { BUTTON_TYPES.SECONDARY } />
+                    type = { BUTTON_TYPES.PRIMARY } />
             }
 
             <View style = { styles.participantsPaneFooter as ViewStyle }>
@@ -75,16 +76,18 @@ const ParticipantsPaneFooter = (): JSX.Element => {
                             accessibilityLabel = 'participantsPane.actions.muteAll'
                             labelKey = 'participantsPane.actions.muteAll'
                             onClick = { muteAll }
-                            type = { BUTTON_TYPES.SECONDARY } />
+                            style = { styles.muteAllButton }
+                            type = { BUTTON_TYPES.TERTIARY } />
                     )
                 }
                 {
                     showMoreActions && (
                         <IconButton
+                            color = { BaseTheme.palette.text01 }
                             onPress = { openMoreMenu }
                             src = { IconDotsHorizontal }
                             style = { styles.moreButton }
-                            type = { BUTTON_TYPES.SECONDARY } />
+                            type = { BUTTON_TYPES.TERTIARY } />
                     )
                 }
             </View>

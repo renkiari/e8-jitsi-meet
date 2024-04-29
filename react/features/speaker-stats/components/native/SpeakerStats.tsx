@@ -25,8 +25,6 @@ const SpeakerStats = () => {
 
     return (
         <JitsiScreen
-
-            // jitsi edit add bg dark for participants pane
             style = { colorScheme === 'dark' ? style.speakerStatsContainerDark : style.speakerStatsContainer }>
             <SpeakerStatsSearch />
             <SpeakerStatsList />
