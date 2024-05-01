@@ -12,7 +12,13 @@ import {
 import { Text } from 'react-native-paper';
 
 import Avatar from '../../../base/avatar/components/Avatar';
-import { AudioStateIcons, MEDIA_STATE, type MediaState, VideoStateIcons } from '../../constants';
+import {
+    AudioStateIcons,
+    AudioStateIconsDark,
+    MEDIA_STATE,
+    type MediaState,
+    VideoStateIcons,
+    VideoStateIconsDark } from '../../constants';
 
 import { RaisedHandIndicator } from './RaisedHandIndicator';
 import styles from './styles';
@@ -100,6 +106,8 @@ function ParticipantItem({
     const colorScheme = Appearance.getColorScheme();
     const displayNameStyle = colorScheme === 'dark' ? styles.participantNameDark : styles.participantName;
     const moderatorLabelStyle = colorScheme === 'dark' ? styles.moderatorLabelDark : styles.moderatorLabel;
+    const videoIcon = colorScheme === 'dark' ? VideoStateIconsDark[videoMediaState] : VideoStateIcons[videoMediaState];
+    const audioIcon = colorScheme === 'dark' ? AudioStateIconsDark[audioMediaState] : AudioStateIcons[audioMediaState];
 
     return (
         <View style = { styles.participantContainer as StyleProp<ViewStyle> } >
@@ -135,8 +143,8 @@ function ParticipantItem({
                     && <>
                         { raisedHand && <RaisedHandIndicator /> }
                         <View style = { styles.participantStatesContainer as StyleProp<ViewStyle> }>
-                            <View style = { styles.participantStateVideo }>{ VideoStateIcons[videoMediaState] }</View>
-                            <View>{ AudioStateIcons[audioMediaState] }</View>
+                            <View style = { styles.participantStateVideo }>{ videoIcon }</View>
+                            <View>{ audioIcon }</View>
                         </View>
                     </>
                 }

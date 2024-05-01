@@ -4,6 +4,7 @@
 export enum BUTTON_TYPES {
     CHATCUSTOM = 'chatcustom',
     DESTRUCTIVE = 'destructive',
+    HANGUP = 'hangup',
     PRIMARY = 'primary',
     PRIMARYDARK = 'primaryDark',
     SECONDARY = 'secondary',

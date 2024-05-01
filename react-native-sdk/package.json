@@ -1,7 +1,7 @@
 {
     "name": "@renkiari/e8-react-native-sdk",
-    "version": "0.0.0",
-    "description": "React Native SDK for Jitsi Meet.",
+    "version": "1.0.0",
+    "description": "Forked Repo of React Native SDK for Jitsi Meet.",
     "main": "index.tsx",
     "license": "Apache-2.0",
     "author": "",

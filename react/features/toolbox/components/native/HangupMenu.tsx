@@ -28,7 +28,7 @@ function HangupMenu() {
     const inBreakoutRoom = useSelector(isInBreakoutRoom);
     const isModerator = useSelector((state: IReduxState) =>
         getLocalParticipant(state)?.role === PARTICIPANT_ROLE.MODERATOR);
-    const { DESTRUCTIVE, SECONDARY } = BUTTON_TYPES;
+    const { DESTRUCTIVE, TERTIARY } = BUTTON_TYPES;
 
     const handleEndConference = useCallback(() => {
         dispatch(hideSheet());
@@ -61,14 +61,14 @@ function HangupMenu() {
                     accessibilityLabel = 'toolbar.leaveConference'
                     labelKey = 'toolbar.leaveConference'
                     onClick = { handleLeaveConference }
-                    style = { _styles.hangupButton }
-                    type = { SECONDARY } />
+                    style = { _styles.leaveButton }
+                    type = { TERTIARY } />
                 { inBreakoutRoom && <Button
                     accessibilityLabel = 'breakoutRooms.actions.leaveBreakoutRoom'
                     labelKey = 'breakoutRooms.actions.leaveBreakoutRoom'
                     onClick = { handleLeaveBreakoutRoom }
-                    style = { _styles.hangupButton }
-                    type = { SECONDARY } /> }
+                    style = { _styles.leaveButton }
+                    type = { TERTIARY } /> }
             </View>
         </BottomSheet>
     );

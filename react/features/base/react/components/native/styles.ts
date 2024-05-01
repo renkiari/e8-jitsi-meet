@@ -150,5 +150,10 @@ export default {
     iconButtonContainerDisabled: {
         ...iconButtonContainer,
         backgroundColor: BaseTheme.palette.disabled01
+    },
+
+    iconButtonContainerHangup: {
+        ...iconButtonContainer,
+        backgroundColor: '#D83848'
     }
 };

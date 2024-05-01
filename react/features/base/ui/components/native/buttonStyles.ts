@@ -54,7 +54,7 @@ export default {
 
     buttonLabelDestructive: {
         ...buttonLabel,
-        color: BaseTheme.palette.text01
+        color: BaseTheme.palette.text012
     },
 
     buttonLabelDestructiveText: {

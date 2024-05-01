@@ -210,6 +210,16 @@ ColorSchemeRegistry.register('Toolbox', {
         marginVertical: BaseTheme.spacing[2]
     },
 
+    leaveButton: {
+        flex: 1,
+        marginHorizontal: BaseTheme.spacing[2],
+        marginVertical: BaseTheme.spacing[2],
+        backgroundColor: '#FFFFFF',
+        borderStyle: 'solid',
+        borderWidth: 1,
+        borderColor: '#CBD5E1'
+    },
+
     hangupButtonStyles: {
         iconStyle: whiteToolbarButtonIconDark,
         style: {
@@ -277,7 +287,7 @@ ColorSchemeRegistry.register('Toolbox', {
         style: {
             ...toolbarButton
         },
-        underlayColor: 'transparent',
+        underlayColor: 'transparent'
     },
 
     mutedButtonStyles: {
