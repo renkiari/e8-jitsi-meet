@@ -19,7 +19,7 @@ const IconButton: React.FC<IIconButtonProps> = ({
     tapColor,
     type
 }: IIconButtonProps) => {
-    const { PRIMARY, SECONDARY, TERTIARY, PRIMARYDARK, CHATCUSTOM } = BUTTON_TYPES;
+    const { PRIMARY, SECONDARY, TERTIARY, PRIMARYDARK, CHATCUSTOM, HANGUP } = BUTTON_TYPES;
 
     let color;
     let underlayColor;
@@ -48,6 +48,10 @@ const IconButton: React.FC<IIconButtonProps> = ({
             ...BaseTheme.iconButtonContainer
         };
         underlayColor = 'transparent';
+    } else if (type === HANGUP) {
+        color = BaseTheme.palette.action01;
+        iconButtonContainerStyles = styles.iconButtonContainerHangup;
+        underlayColor = '#F24D5F';
     } else {
         color = iconColor;
         underlayColor = tapColor;
