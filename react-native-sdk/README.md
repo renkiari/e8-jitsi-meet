@@ -10,7 +10,7 @@ To update dependencies:
 node node_modules/@renkiari/e8-react-native-sdk/update_dependencies.js
 ```
 
-If you want display the meeting name only, add a delimiter "techcare" between the meeting name and meeting id.
+If your room name = {meetingName + meetingID}, you can display the meetingName only by adding a delimiter "techcare" between the meetingName and meetingID.
 ```console
 <JitsiMeeting
   room={meetingName + "techcare" + meetingID}
