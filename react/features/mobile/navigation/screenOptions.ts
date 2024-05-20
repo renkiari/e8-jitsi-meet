@@ -206,7 +206,8 @@ export const whiteboardScreenOptions = {
     },
     headerTitleStyle: {
         color: BaseTheme.palette.text01
-    }
+    },
+    headerBackTitleVisible: false
 };
 
 /**

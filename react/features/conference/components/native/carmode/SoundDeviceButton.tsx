@@ -26,6 +26,7 @@ const SelectSoundDevice = (): JSX.Element => {
             accessibilityLabel = 'carmode.actions.selectSoundDevice'
             icon = { AudioIcon }
             labelKey = 'carmode.actions.selectSoundDevice'
+            labelStyle = {{ color: '#334155' }}
             onClick = { onSelect }
             style = { styles.soundDeviceButton }
             type = { BUTTON_TYPES.SECONDARY } />
