@@ -71,6 +71,8 @@ const TitleBar = (props: IProps) => {
 
     const titlebarButtonStyle = colorScheme === 'dark' ? styles.titleBarButtonDark : styles.titleBarButton;
 
+    const meetingName = props._meetingName.split('techcare')[0];
+
     return (
         <View
             style = { styles.titleBarWrapper as ViewStyle }>
@@ -95,7 +97,7 @@ const TitleBar = (props: IProps) => {
                         <Text
                             numberOfLines = { 1 }
                             style = { colorScheme === 'dark' ? styles.roomNameDark : styles.roomName }>
-                            { props._meetingName }
+                            { meetingName}
                         </Text>
                     </View>
                 }
