@@ -24,6 +24,13 @@ const ParticipantsPane = () => {
     const colorScheme = Appearance.getColorScheme();
     const participantPaneStyle = styles.participantsPaneContainer;
     const participantPaneStyleDark = styles.participantsPaneContainerDark;
+    const renderListHeaderComponent = () => (
+        <>
+            <VisitorsList />
+            <LobbyParticipantList />
+            <MeetingParticipantList />
+        </>
+    );
 
     return (
         <JitsiScreen
@@ -34,13 +41,7 @@ const ParticipantsPane = () => {
             <FlatList
 
                 // eslint-disable-next-line react/jsx-no-bind
-                ListHeaderComponent = { () => (
-                    <>
-                        <VisitorsList />
-                        <LobbyParticipantList />
-                        <MeetingParticipantList />
-                    </>
-                ) }
+                ListHeaderComponent = { renderListHeaderComponent }
                 data = { [] as ReadonlyArray<undefined> }
                 keyExtractor = { keyExtractor }
                 renderItem = { null }

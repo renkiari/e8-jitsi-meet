@@ -80,8 +80,10 @@ class MessageContainer extends AbstractMessageContainer<IProps, any> {
         const noMessageStyle = colorScheme === 'dark' ? styles.emptyComponentTextDark : styles.emptyComponentText;
 
         return (
-            <View style = { styles.emptyComponentWrapper as ViewStyle }>
-                <Text style = { noMessageStyle as TextStyle }>
+            <View
+                id = 'no-messages-message'
+                style = { styles.emptyComponentWrapper as ViewStyle }>
+              <Text style = { noMessageStyle as TextStyle }>
                     { t('chat.noMessagesMessage') }
                 </Text>
             </View>

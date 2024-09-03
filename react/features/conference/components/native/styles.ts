@@ -50,7 +50,7 @@ export default {
     },
 
     displayNameContainer: {
-        margin: 10
+        margin: BaseTheme.spacing[3]
     },
 
     /**

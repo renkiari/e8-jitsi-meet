@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useMemo } from 'react';
 import { Appearance, FlatList } from 'react-native';
 import { useSelector } from 'react-redux';
 
@@ -35,6 +35,19 @@ const BreakoutRooms = () => {
     const showAutoAssign = useSelector(isAutoAssignParticipantsVisible);
 
     const colorScheme = Appearance.getColorScheme();
+    const renderListHeaderComponent = useMemo(() => (
+        <>
+            { showAutoAssign && <AutoAssignButton /> }
+            { inBreakoutRoom && <LeaveBreakoutRoomButton /> }
+            {
+                isBreakoutRoomsSupported
+                && rooms.map(room => (<CollapsibleRoom
+                    key = { room.id }
+                    room = { room }
+                    roomId = { room.id } />))
+            }
+        </>
+    ), [ showAutoAssign, inBreakoutRoom, isBreakoutRoomsSupported, rooms ]);
 
     return (
         <JitsiScreen
@@ -44,21 +57,7 @@ const BreakoutRooms = () => {
 
             { /* Fixes warning regarding nested lists */ }
             <FlatList
-
-                /* eslint-disable react/jsx-no-bind */
-                ListHeaderComponent = { () => (
-                    <>
-                        { showAutoAssign && <AutoAssignButton /> }
-                        { inBreakoutRoom && <LeaveBreakoutRoomButton /> }
-                        {
-                            isBreakoutRoomsSupported
-                            && rooms.map(room => (<CollapsibleRoom
-                                key = { room.id }
-                                room = { room }
-                                roomId = { room.id } />))
-                        }
-                    </>
-                ) }
+                ListHeaderComponent = { renderListHeaderComponent }
                 data = { [] as ReadonlyArray<undefined> }
                 keyExtractor = { keyExtractor }
                 renderItem = { null }

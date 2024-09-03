@@ -1,7 +1,8 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { TouchableOpacity } from 'react-native';
+import { Appearance, StyleProp, TouchableHighlight} from 'react-native';
 import { Button as NativePaperButton, Text } from 'react-native-paper';
+import { IconSource } from 'react-native-paper/lib/typescript/components/Icon';
 
 import { BUTTON_MODES, BUTTON_TYPES } from '../../constants.native';
 import BaseTheme from '../BaseTheme.native';
@@ -13,6 +14,7 @@ import styles from './buttonStyles';
 export interface IProps extends IButtonProps {
     color?: string | undefined;
     contentStyle?: Object | undefined;
+    id?: string;
     labelStyle?: Object | undefined;
     mode?: any;
     style?: Object | undefined;
@@ -24,6 +26,7 @@ const Button: React.FC<IProps> = ({
     contentStyle,
     disabled,
     icon,
+    id,
     labelKey,
     labelStyle,
     mode = BUTTON_MODES.CONTAINED,
@@ -34,6 +37,7 @@ const Button: React.FC<IProps> = ({
     const { t } = useTranslation();
     const { DESTRUCTIVE, PRIMARY, SECONDARY, TERTIARY } = BUTTON_TYPES;
     const { CONTAINED, TEXT } = BUTTON_MODES;
+    const colorScheme = Appearance.getColorScheme();
 
     let buttonLabelStyles;
     let buttonStyles;
@@ -71,20 +75,22 @@ const Button: React.FC<IProps> = ({
         buttonLabelStyles = styles.buttonLabelTertiary;
 
         return (
-            <TouchableOpacity
+            <TouchableHighlight
                 accessibilityLabel = { accessibilityLabel }
                 disabled = { disabled }
+                id = { id }
                 onPress = { onPress }
                 style = { [
                     buttonStyles,
                     style
-                ] }>
+                ] as StyleProp<object> }
+                underlayColor={colorScheme === 'dark' ? "#3f3f46" : "#e2e8f0"}>
                 <Text
                     style = { [
                         buttonLabelStyles,
                         labelStyle
-                    ] }>{ t(labelKey ?? '') }</Text>
-            </TouchableOpacity>
+                    ]as StyleProp<object> }>{ t(labelKey ?? '') }</Text>
+            </TouchableHighlight>
         );
     }
 
@@ -96,21 +102,20 @@ const Button: React.FC<IProps> = ({
             contentStyle = { [
                 styles.buttonContent,
                 contentStyle
-            ] }
+            ] as StyleProp<object> }
             disabled = { disabled }
-
-            // @ts-ignore
-            icon = { icon }
+            icon = { icon as IconSource | undefined }
+            id = { id }
             labelStyle = { [
                 buttonLabelStyles,
                 labelStyle
-            ] }
+            ] as StyleProp<object> }
             mode = { mode }
             onPress = { onPress }
             style = { [
                 buttonStyles,
                 style
-            ] } />
+            ] as StyleProp<object> } />
     );
 };
 

@@ -107,7 +107,9 @@ class MessageRecipient extends AbstractMessageRecipient<IProps> {
 
         if (isLobbyChatActive) {
             return (
-                <View style = { styles.lobbyMessageRecipientContainer as ViewStyle }>
+                <View
+                    id = 'chat-recipient'
+                    style = { styles.lobbyMessageRecipientContainer as ViewStyle }>
                     <Text style = { styles.messageRecipientText }>
                         { t('chat.lobbyChatMessageTo', {
                             recipient: lobbyMessageRecipient?.name
@@ -128,13 +130,16 @@ class MessageRecipient extends AbstractMessageRecipient<IProps> {
         }
 
         return (
-            <View style = { privateMessageContainer as ViewStyle }>
+            <View
+                id = 'message-recipient'
+                style = { privateMessageContainer as ViewStyle }>
                 <Text style = { styles.messageRecipientText }>
                     { t('chat.messageTo', {
                         recipient: privateMessageRecipient.name
                     }) }
                 </Text>
                 <TouchableHighlight
+                    id = 'message-recipient-cancel-button'
                     onPress = { this._onResetPrivateMessageRecipient }
                     underlayColor = { 'transparent' }>
                     <Icon

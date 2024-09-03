@@ -1,7 +1,15 @@
 import { IStateful } from '../base/app/types';
 import { getFakeParticipants } from '../base/participants/functions';
+import { toState } from '../base/redux/functions';
 
-import { VIDEO_PLAYER_PARTICIPANT_NAME, YOUTUBE_PLAYER_PARTICIPANT_NAME } from './constants';
+import {
+    ALLOW_ALL_URL_DOMAINS,
+    PLAYBACK_START,
+    PLAYBACK_STATUSES,
+    VIDEO_PLAYER_PARTICIPANT_NAME,
+    YOUTUBE_PLAYER_PARTICIPANT_NAME,
+    YOUTUBE_URL_DOMAIN
+} from './constants';
 
 /**
  * Validates the entered video url.
@@ -29,7 +37,7 @@ function getYoutubeId(url: string) {
  * @returns {boolean}
  */
 export function isSharingStatus(status: string) {
-    return [ 'playing', 'pause', 'start' ].includes(status);
+    return [ PLAYBACK_STATUSES.PLAYING, PLAYBACK_STATUSES.PAUSED, PLAYBACK_START ].includes(status);
 }
 
 
@@ -87,3 +95,54 @@ export function extractYoutubeIdOrURL(input: string) {
     return trimmedLink;
 }
 
+/**
+ * Returns true if shared video functionality is enabled and false otherwise.
+ *
+ * @param {IStateful} stateful - - The redux store or {@code getState} function.
+ * @returns {boolean}
+ */
+export function isSharedVideoEnabled(stateful: IStateful) {
+    const state = toState(stateful);
+
+    const { disableThirdPartyRequests = false } = state['features/base/config'];
+
+    return !disableThirdPartyRequests;
+}
+
+/**
+ * Checks if you youtube URLs should be allowed for shared videos.
+ *
+ * @param {Array<string>} allowedUrlDomains - The allowed URL domains for shared video.
+ * @returns {boolean}
+ */
+export function areYoutubeURLsAllowedForSharedVideo(allowedUrlDomains?: Array<string>) {
+    return Boolean(allowedUrlDomains?.includes(YOUTUBE_URL_DOMAIN));
+}
+
+/**
+ * Returns true if the passed url is allowed to be used for shared video or not.
+ *
+ * @param {string} url - The URL.
+ * @param {Array<string>} allowedUrlDomains - The allowed url domains.
+ * @param {boolean} considerNonURLsAllowedForYoututbe - If true, the invalid URLs will be considered youtube IDs
+ * and if youtube is allowed the function will return true.
+ * @returns {boolean}
+ */
+export function isURLAllowedForSharedVideo(url: string,
+        allowedUrlDomains: Array<string> = [], considerNonURLsAllowedForYoututbe = false) {
+    if (!url) {
+        return false;
+    }
+
+    try {
+        const urlObject = new URL(url);
+
+        if ([ 'http:', 'https:' ].includes(urlObject?.protocol?.toLowerCase())) {
+            return allowedUrlDomains.includes(ALLOW_ALL_URL_DOMAINS) || allowedUrlDomains.includes(urlObject?.hostname);
+        }
+    } catch (_e) { // it should be YouTube id.
+        return considerNonURLsAllowedForYoututbe && allowedUrlDomains.includes(YOUTUBE_URL_DOMAIN);
+    }
+
+    return false;
+}
